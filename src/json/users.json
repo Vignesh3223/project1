@@ -1,0 +1,52 @@
+{
+  "users": [
+    {
+      "firstname": "Vignesh",
+      "lastname": "Vikey",
+      "useremail": "vikey@gmail.com",
+      "password": "Qwert123",
+      "confirmpassword": "Qwert123",
+      "profession": "Developer",
+      "city": "Coimbatore",
+      "state": "Tamil Nadu",
+      "pincode": "641007",
+      "id": 1
+    },
+    {
+      "firstname": "",
+      "lastname": "",
+      "useremail": "",
+      "password": "",
+      "confirmpassword": "",
+      "profession": "",
+      "city": "",
+      "state": "",
+      "pincode": "",
+      "id": 2
+    },
+    {
+      "firstname": "",
+      "lastname": "",
+      "useremail": "",
+      "password": "",
+      "confirmpassword": "",
+      "profession": "",
+      "city": "",
+      "state": "",
+      "pincode": "",
+      "id": 3
+    },
+    {
+      "firstname": "Yamini",
+      "lastname": "Priya",
+      "useremail": "yamini12@gmail.com",
+      "password": "123yamini",
+      "confirmpassword": "123yamini",
+      "profession": "Developer",
+      "city": "Coimbatore",
+      "state": "Tamil Nadu",
+      "pincode": "641027",
+      "id": 4
+    }
+  ]
+}

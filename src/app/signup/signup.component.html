@@ -1,0 +1,177 @@
+<section>
+    <div class="container">
+        <h1 class="text-center">Become a Member!</h1>
+        <hr>
+        <div class="row mt-5">
+            <form [formGroup]="SignUpForm" novalidate>
+                <div class="form-group mb-3">
+                    <label for="firstname">Firstname</label>
+                    <input type="text" class="form-control" placeholder="First Name" formControlName="firstname"
+                        [ngClass]="{'is-invalid':firstname.errors && (firstname.touched || firstname.dirty),'is-valid': firstname.valid}" />
+                    <div class="valid-feedback" *ngIf="firstname.valid">
+                        <p class="text text-success">Firstname is Good</p>
+                    </div>
+                    <div class="invalid-feedback">
+                        <strong *ngIf="firstname.errors?.required">Required Field</strong>
+                        <strong *ngIf="firstname.errors?.minlength">Firstname must be greater than
+                            3 characters.
+                        </strong>
+                        <strong *ngIf="firstname.errors?.maxlength">Firstname must be less than 12
+                            characters
+                        </strong>
+                        <strong *ngIf="firstname.errors?.pattern">Name must contain only aphabets and
+                            spaces</strong>
+                    </div>
+                </div>
+                <div class="form-group mb-3">
+                    <label for="lastname">Lastname</label>
+                    <input type="text" class="form-control" placeholder="Last Name" formControlName="lastname"
+                        [ngClass]="{'is-invalid':lastname.errors && (lastname.touched || lastname.dirty),'is-valid': lastname.valid}" />
+                    <div class="valid-feedback" *ngIf="lastname.valid">
+                        <p class="text text-success">Lastname is Good</p>
+                    </div>
+                    <div class="invalid-feedback">
+                        <strong *ngIf="lastname.errors?.required">Required Field</strong>
+                        <strong *ngIf="lastname.errors?.minlength">Lastname must be greater than
+                            3 characters.
+                        </strong>
+                        <strong *ngIf="lastname.errors?.maxlength">Lastname must be less than 12
+                            characters
+                        </strong>
+                        <strong *ngIf="lastname.errors?.pattern">Name must contain only aphabets and spaces</strong>
+                    </div>
+                </div>
+                <div class="form-group mb-3">
+                    <label for="email">Email</label>
+                    <input type="email" class="form-control" placeholder="Email" formControlName="useremail"
+                        [ngClass]="{'is-invalid':useremail.errors && (useremail.touched || useremail.dirty),'is-valid': useremail.valid}" />
+                    <div class="valid-feedback" *ngIf="useremail.valid">
+                        <p class="text text-success">Email is Good</p>
+                    </div>
+                    <div class="invalid-feedback">
+                        <strong *ngIf="useremail.errors?.required">Required Field</strong>
+                        <strong *ngIf="useremail.errors?.email">Enter a valid Email</strong>
+                        <strong *ngIf="useremail.errors?.pattern">Enter a valid Email</strong>
+                    </div>
+                </div>
+                <div class="form-group mb-3">
+                    <label for="password">Password</label>
+                    <input type="password" class="form-control" placeholder="Password" formControlName="password"
+                        [ngClass]="{'is-invalid':password.errors && (password.touched || password.dirty),'is-valid': password.valid}" />
+                    <div class="valid-feedback" *ngIf="password.valid">
+                        <p class="text text-success">Password is Good</p>
+                    </div>
+                    <div class="invalid-feedback">
+                        <strong *ngIf="password.errors?.required">Required Field</strong>
+                        <strong *ngIf="password.errors?.minlength">Password must be greater than
+                            6 characters.
+                        </strong>
+                        <strong *ngIf="password.errors?.maxlength">Password must be less than 14
+                            characters
+                        </strong>
+                        <strong *ngIf="password.errors?.pattern">Password must contain only aphabets and
+                            numbers</strong>
+                    </div>
+                </div>
+                <div class="form-group mb-3">
+                    <label for="confirmpassword">Confirm Password</label>
+                    <input type="password" class="form-control" placeholder="Re-enter Password"
+                        formControlName="confirmpassword"
+                        [ngClass]="{'is-invalid':confirmpassword.errors && (confirmpassword.touched || confirmpassword.dirty),'is-valid': confirmpassword.valid}" />
+                    <div class="valid-feedback" *ngIf="confirmpassword.valid">
+                        <p class="text text-success">Password is Good</p>
+                    </div>
+                    <div class="invalid-feedback">
+                        <strong *ngIf="confirmpassword.errors?.required">Required Field</strong>
+                    </div>
+                </div>
+                <div class="form-group mb-3">
+                    <label for="profession">Profession</label>
+                    <input type="text" class="form-control" placeholder="Profession" formControlName="profession"
+                        [ngClass]="{'is-invalid':profession.errors && (profession.touched || profession.dirty),'is-valid': profession.valid}" />
+                    <div class="valid-feedback" *ngIf="lastname.valid">
+                        <p class="text text-success">Profession is Good</p>
+                    </div>
+                    <div class="invalid-feedback">
+                        <strong *ngIf="profession.errors?.required">Required Field</strong>
+                        <strong *ngIf="profession.errors?.pattern">Profession must contain only aphabets and
+                            spaces</strong>
+                    </div>
+                </div>
+                <div class="form-group mb-3">
+                    <label for="city">City</label>
+                    <input type="text" class="form-control" formControlName="city" placeholder="City"
+                        [ngClass]="{'is-invalid':city.errors && (city.touched || city.dirty),'is-valid': city.valid}" />
+                    <div class="valid-feedback" *ngIf="city.valid">
+                        <p class="text text-success">City is Good</p>
+                    </div>
+                    <div class="invalid-feedback">
+                        <strong *ngIf="city.errors?.required">Required Field</strong>
+                    </div>
+                </div>
+                <div class="form-group mb-3">
+                    <label for="state">State</label>
+                    <select class="form-control" name="state" formControlName="state">
+                        <option value="state" disabled></option>
+                        <option value="Andhra Pradesh">Andhra Pradesh</option>
+                        <option value="Andaman and Nicobar Islands">Andaman and Nicobar Islands</option>
+                        <option value="Arunachal Pradesh">Arunachal Pradesh</option>
+                        <option value="Assam">Assam</option>
+                        <option value="Bihar">Bihar</option>
+                        <option value="Chandigarh">Chandigarh</option>
+                        <option value="Chhattisgarh">Chhattisgarh</option>
+                        <option value="Dadar and Nagar Haveli">Dadar and Nagar Haveli</option>
+                        <option value="Daman and Diu">Daman and Diu</option>
+                        <option value="Delhi">Delhi</option>
+                        <option value="Lakshadweep">Lakshadweep</option>
+                        <option value="Puducherry">Puducherry</option>
+                        <option value="Goa">Goa</option>
+                        <option value="Gujarat">Gujarat</option>
+                        <option value="Haryana">Haryana</option>
+                        <option value="Himachal Pradesh">Himachal Pradesh</option>
+                        <option value="Jammu and Kashmir">Jammu and Kashmir</option>
+                        <option value="Jharkhand">Jharkhand</option>
+                        <option value="Karnataka">Karnataka</option>
+                        <option value="Kerala">Kerala</option>
+                        <option value="Madhya Pradesh">Madhya Pradesh</option>
+                        <option value="Maharashtra">Maharashtra</option>
+                        <option value="Manipur">Manipur</option>
+                        <option value="Meghalaya">Meghalaya</option>
+                        <option value="Mizoram">Mizoram</option>
+                        <option value="Nagaland">Nagaland</option>
+                        <option value="Odisha">Odisha</option>
+                        <option value="Punjab">Punjab</option>
+                        <option value="Rajasthan">Rajasthan</option>
+                        <option value="Sikkim">Sikkim</option>
+                        <option value="Tamil Nadu">Tamil Nadu</option>
+                        <option value="Telangana">Telangana</option>
+                        <option value="Tripura">Tripura</option>
+                        <option value="Uttar Pradesh">Uttar Pradesh</option>
+                        <option value="Uttarakhand">Uttarakhand</option>
+                        <option value="West Bengal">West Bengal</option>
+                    </select>
+                </div>
+                <div class="form-group mb-5">
+                    <label for="pincode">Pin Code</label>
+                    <input type="text" class="form-control" placeholder="Pin Code" formControlName="pincode"
+                        [ngClass]="{'is-invalid':pincode.errors && (pincode.touched || pincode.dirty),'is-valid': pincode.valid}" />
+                    <div class="valid-feedback" *ngIf="pincode.valid">
+                        <p class="text text-success">Pin Code is Good</p>
+                    </div>
+                    <div class="invalid-feedback">
+                        <strong *ngIf="pincode.errors?.required">Required Field</strong>
+                        <strong *ngIf="pincode.errors?.minlength">Pin Code must contain 6 characters</strong>
+                        <strong *ngIf="pincode.errors?.maxlength">Pin Code must not exceed 6 characters
+                        </strong>
+                        <strong *ngIf="pincode.errors?.pattern">Pin Code must contain only numbers</strong>
+                    </div>
+                </div>
+                <div class="form-group text-center">
+                    <p-toast position="top-center"></p-toast>
+                    <button class="btn btn-danger btn-block me-3" routerLink=''>Back to Home</button>
+                    <button class="btn btn-info btn-block" (click)="onSubmit()">Sign Up </button>
+                </div>
+            </form>
+        </div>
+    </div>
+</section>

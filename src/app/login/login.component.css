@@ -1,0 +1,33 @@
+section {
+    background-color: gainsboro;
+    padding: 50px 0 210px 0;
+}
+
+h1 {
+    font-family: times new roman;
+    font-weight: bold;
+    color: navy;
+    text-transform: capitalize;
+    text-align: center;
+    letter-spacing: 1px;
+}
+
+form {
+    border: 1px groove rgb(202, 200, 200);
+    padding: 25px;
+    width: 500px;
+    margin: 0 auto 0 auto;
+}
+
+label {
+    font-family: times new roman;
+    font-size: 18px;
+    font-weight: 300;
+    color: #000000;
+    letter-spacing: 1px;
+}
+
+input,
+select {
+    border-radius: 0%;
+}
