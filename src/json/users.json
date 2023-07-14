@@ -1,52 +1,138 @@
 {
   "users": [
     {
-      "firstname": "Vignesh",
-      "lastname": "Vikey",
-      "useremail": "vikey@gmail.com",
-      "password": "Qwert123",
-      "confirmpassword": "Qwert123",
-      "profession": "Developer",
-      "city": "Coimbatore",
-      "state": "Tamil Nadu",
-      "pincode": "641007",
-      "id": 1
-    },
-    {
-      "firstname": "",
-      "lastname": "",
-      "useremail": "",
-      "password": "",
-      "confirmpassword": "",
+      "id": 1,
+      "firstname": "Admin",
+      "lastname": "Manager",
+      "useremail": "boatadmin@gmail.com",
+      "password": "b3che4asd",
+      "confirmpassword": "b3che4asd",
       "profession": "",
       "city": "",
       "state": "",
       "pincode": "",
-      "id": 2
+      "logged": false
+    }
+  ],
+  "products": [
+    {
+      "id": 1,
+      "title": "Nirvanaa 1007ANC",
+      "image": "https://www.boat-lifestyle.com/cdn/shop/products/nirvana-1007-blue_600x.png?v=1613457329",
+      "description": "Noise Cancelling Headphone with 40mm Dynamic Drivers, 30 Hours Playback, SmartWave™️ Technology",
+      "price": 1299
     },
     {
-      "firstname": "",
-      "lastname": "",
-      "useremail": "",
-      "password": "",
-      "confirmpassword": "",
-      "profession": "",
-      "city": "",
-      "state": "",
-      "pincode": "",
-      "id": 3
+      "id": 2,
+      "title": "Rockerz 185 pro",
+      "image": "https://www.boat-lifestyle.com/cdn/shop/products/01red_black-PhotoRoom.png-PhotoRoom_1280x.png?v=1681373674",
+      "description": "Wireless Neckband with ENx™ Technology, 10mm Drivers, BEAST™ Mode, ASAP™ Charge, Dual Pairing feature",
+      "price": 1199
     },
     {
-      "firstname": "Yamini",
-      "lastname": "Priya",
-      "useremail": "yamini12@gmail.com",
-      "password": "123yamini",
-      "confirmpassword": "123yamini",
-      "profession": "Developer",
-      "city": "Coimbatore",
-      "state": "Tamil Nadu",
-      "pincode": "641027",
-      "id": 4
+      "id": 3,
+      "title": "Nirvana Ion",
+      "image": "https://www.boat-lifestyle.com/cdn/shop/products/ion-b_800x.png?v=1678780574",
+      "description": "Bluetooth Wireless Earbuds with Crystal Bionic Sound powered by HiFi®️ DSP, 120HRS Playback, Dual EQ Modes, Quad Mics with ENx™ Technology",
+      "price": "2299"
+    },
+    {
+      "id": 4,
+      "title": "Storm Call",
+      "image": "https://www.boat-lifestyle.com/cdn/shop/products/main-image-3_e934902f-345b-4cc4-80b9-9ef3d77a1f34_600x.png?v=1661272676",
+      "description": "Bluetooth Calling Smart Watch with 1.69 (4.29 cm) HD display, Super-Responsive Dialpad, 150+ Cloud Faces",
+      "price": "1799"
+    },
+    {
+      "id": 5,
+      "title": "Rockerz 510",
+      "image": "https://www.boat-lifestyle.com/cdn/shop/products/709d5346-3135-495f-ba7b-80fae784af83_600x.png?v=1685709753",
+      "description": "Bluetooth Headphone with super extra bass, Upto 20 Hours Playback, 50mm Dynamic Driver, 400 mah Battery",
+      "price": 1599
+    },
+    {
+      "id": 6,
+      "title": "Stone 1208",
+      "image": "https://www.boat-lifestyle.com/cdn/shop/products/e57bbbe7-5e99-4c43-8cf8-0ddd42caf3d3_77dfbc2e-987a-4607-8947-0e6782965d5c_600x.png?v=1679336862",
+      "description": "14W Portable Wireless Speaker with RGB LEDs, Up to 9 Hours of Playtime, AUX, USB and FM modes",
+      "price": 4099
+    },
+    {
+      "id": 7,
+      "title": "Bassheads 900",
+      "image": "https://www.boat-lifestyle.com/cdn/shop/products/8ec58553-3255-48ec-929e-4838215b640c_1400x.png?v=1625046271",
+      "description": "Wired Earphones with 40mm Drivers, Compact & Foldable, In-line microphone, Super Bass",
+      "price": 899
+    },
+    {
+      "id": 8,
+      "title": "Bassheads 220",
+      "image": "https://www.boat-lifestyle.com/cdn/shop/products/1neon_3105765c-e660-47c7-9deb-3482720df176_1400x.png?v=1592544752",
+      "description": "Wired Earphones with Passive Noise Cancellation, Super Extra Bass, Hands-free communication",
+      "price": 699
+    },
+    {
+      "id": 9,
+      "title": "Aavante Bar 1500N",
+      "image": "https://www.boat-lifestyle.com/cdn/shop/products/png-2_1_800x.png?v=1662479927",
+      "description": "Best Bluetooth 160W Home Theatre with 2.1 Channel Sound, Multiple EQ Modes, USB, AUX, HDMI(ARC)",
+      "price": 10499
+    },
+    {
+      "id": 10,
+      "title": "Immortal 121",
+      "image": "https://cdn.shopify.com/s/files/1/0057/8938/4802/products/IMT121-bl_600x.png?v=1670595117",
+      "description": "Bluetooth Gaming Wireless Earbuds with BEAST™️ Mode (40ms Low Latency), ASAP™️ Charge, 40 Hours Playback, & Blazing RGB Lights",
+      "price": 1699
+    },
+    {
+      "id": 11,
+      "title": "Party Pal 50",
+      "image": "https://www.boat-lifestyle.com/cdn/shop/products/main---1_600x.png?v=1640081208",
+      "description": "Wireless Bluetooth Speaker with 20W RMS Stereo Sound, RGB LEDs, 4.5 Hrs Playback, USB, FM, AUX, BT",
+      "price": 3999
+    },
+    {
+      "id": 12,
+      "title": "Misfit T200 3-in-1 Grooming Kit for Men",
+      "image": "https://www.boat-lifestyle.com/cdn/shop/products/Untitled-3_800x.png?v=1661405585",
+      "description": "Titanium Blades, 120 min Runtime with 5 Length Settings, USB Charging, Cord/Cordless Usage",
+      "price": 1299
+    },
+    {
+      "id": 13,
+      "title": "WCD QCPD",
+      "image": "https://www.boat-lifestyle.com/cdn/shop/products/3_49c2d9f4-8517-4c69-85e2-a2950edb1575_800x.png?v=1669385080",
+      "description": "High Power Quick Charger with Type C Cable, Auto Detect Dual Port, LED Indicator, QC 3.0 & GaN Chip Technology",
+      "price": 2750
+    },
+    {
+      "id": 14,
+      "title": "EnergyShroom PB 155",
+      "image": "https://www.boat-lifestyle.com/cdn/shop/products/m3_bbeb31f2-04d8-4185-848e-d93ff5482ba6_600x.png?v=1640776979",
+      "description": "Fast charge your way through everything with boAt EnergyShroom PB155 - a 10000mAh capacity high-density power bank with Quick Charge 3.0.",
+      "price": 999
+    },
+    {
+      "id": 15,
+      "title": "Micro USB 150 1.5 Meter",
+      "image": "https://www.boat-lifestyle.com/cdn/shop/products/Banner2-product_600x.png?v=1686041927",
+      "description": "boAt 150 Micro USB is compatible with most android smartphones, windows phones, tablets, PC peripherals, Bluetooth speakers, power banks, game consoles, cameras and hard drives",
+      "price": 499
+    },
+    {
+      "id": 16,
+      "title": "Airdopes 131 Black Panther Marvel Edition",
+      "image": "https://www.boat-lifestyle.com/cdn/shop/products/bp131-main_600x.png?v=1639988297",
+      "description": "Wireless Earbuds with 13mm Audio Drivers, IWP Technology with Bluetooth v5.0, Type-c Charging, Upto 15H Playback",
+      "price": 1299
+    },
+    {
+      "id": 17,
+      "title": "Watch Storm Captain America Edition",
+      "image": "https://www.boat-lifestyle.com/cdn/shop/products/DisneyStormPackaging3.1591_600x.png?v=1640110480",
+      "description": "Smart Watch with 1.3 (3.3 cm) Full Touch Curved Display, Health Monitoring, Daily Activity Tracker",
+      "price": 2999
     }
   ]
 }

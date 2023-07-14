@@ -29,6 +29,7 @@ export class LoginComponent implements OnInit {
   ) { }
 
   ngOnInit(): void {
+    this.userService.validateAuth(false);
     this.useremail = new FormControl('',
       [
         Validators.required,
@@ -74,12 +75,16 @@ export class LoginComponent implements OnInit {
           );
         });
         if (user) {
+          user.logged = true
+          this.http.put<any>(user, this.user).subscribe();
           this.showSuccess();
           this.LoginForm.reset();
-          setTimeout(() => { this.router.navigate(['/page']) }, 2000);
+          setTimeout(() => { this.router.navigate(['']) }, 2000);
+          this.userService.validateAuth(true);
         }
         else {
           this.showUserError();
+          this.userService.validateAuth(false);
         }
       })
     }

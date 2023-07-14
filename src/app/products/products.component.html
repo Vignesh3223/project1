@@ -1,0 +1,21 @@
+<section>
+    <div class="container-fluid">
+        <h1 class="text-center">Boat Products</h1>
+        <hr>
+        <div class="container">
+            <div class="row mb-3">
+                <div class="col-4 mb-3" *ngFor="let prod of prodslist">
+                    <div class="card" style="width: 22rem;height:40rem">
+                        <img src="{{prod.image}}" class="card-img-top" alt="...">
+                        <div class="card-body">
+                            <h5 class="card-title">{{prod.title}}</h5>
+                            <h3 class="card-text">{{prod.price | currency : "INR" : "symbol" : "3.0"}}</h3>
+                            <p class="card-text">{{prod.description}}</p>
+                            <a href="#" class="btn btn-secondary">Add to Cart</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>

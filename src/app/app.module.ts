@@ -6,22 +6,28 @@ import { FormsModule } from '@angular/forms';
 import { ReactiveFormsModule } from '@angular/forms';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
-import { HomeComponent } from './home/home.component';
 import { LoginComponent } from './login/login.component';
 import { SignupComponent } from './signup/signup.component';
 import { ButtonModule } from 'primeng/button';
 import { ToastModule } from 'primeng/toast';
 import { MessageService } from 'primeng/api';
-import { PageComponent } from './page/page.component';
 import { TabMenuModule } from 'primeng/tabmenu';
+import { ProductsComponent } from './products/products.component';
+import { HomeComponent } from './home/home.component';
+import { NavbarComponent } from './navbar/navbar.component';
+import { CardModule } from 'primeng/card';
+import { ControlsComponent } from './controls/controls.component';
+import { AvatarModule } from 'primeng/avatar';
 
 @NgModule({
   declarations: [
     AppComponent,
-    HomeComponent,
     LoginComponent,
     SignupComponent,
-    PageComponent
+    ProductsComponent,
+    HomeComponent,
+    NavbarComponent,
+    ControlsComponent,
   ],
   imports: [
     BrowserModule,
@@ -32,7 +38,9 @@ import { TabMenuModule } from 'primeng/tabmenu';
     AppRoutingModule,
     ButtonModule,
     ToastModule,
-    TabMenuModule
+    TabMenuModule,
+    CardModule,
+    AvatarModule
   ],
   providers: [MessageService],
   bootstrap: [AppComponent]

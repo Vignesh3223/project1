@@ -4,6 +4,7 @@ import { environment } from 'src/environment/environment';
 import { FormGroup, FormControl, Validators } from '@angular/forms';
 import { MessageService } from 'primeng/api';
 import { Router } from '@angular/router';
+import { User } from 'src/models/products';
 
 @Component({
   selector: 'app-signup',
@@ -24,6 +25,9 @@ export class SignupComponent implements OnInit {
   city: FormControl | any;
   state: FormControl | any;
   pincode: FormControl | any;
+
+
+  logged: boolean | any;
 
   submitted = false;
 
@@ -103,7 +107,9 @@ export class SignupComponent implements OnInit {
       this.showError();
     }
     else {
-      this.http.post<any>(this.user, this.SignUpForm.value)
+      this.SignUpForm.logged = false;
+      console.log(this.SignUpForm);
+      this.http.post<User[]>(this.user, this.SignUpForm.value)
         .subscribe((res) => {
           console.log(res);
           this.showSuccess();

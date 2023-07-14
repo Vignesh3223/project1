@@ -1,6 +1,4 @@
 import { Component } from '@angular/core';
-import { Router } from '@angular/router';
-
 
 @Component({
   selector: 'app-home',
@@ -9,10 +7,6 @@ import { Router } from '@angular/router';
 })
 export class HomeComponent {
 
-constructor(private route:Router){}
-
-
-sub(){
- this.route.navigate(['/signup']);
-}
+  ad = "/assets/images/mainpage.jpg";
+  
 }
