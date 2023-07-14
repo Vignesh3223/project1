@@ -1,0 +1,45 @@
+<div class="container text-center">
+    <h1 class="total">Your bag total is {{ TotalPrice(cart) | currency : "INR" : "symbol" : "3.0" }}</h1>
+    <hr>
+</div>
+<div class="container" *ngFor="let item of cart">
+    <div class="row">
+        <div class="col-3">
+            <img class="img-fluid" src="{{item.image}}" alt="product">
+        </div>
+        <div class="col-5">
+            <h3 class="name">{{item.title}}</h3>
+        </div>
+        <div class="col-2 text-center d-flex">
+            <span class="decrement" (click)="decrease(item)"><i class="fa-solid fa-minus me-2"
+                    style="color: #000000;"></i></span>
+            <h3 class="quantity">{{item.quantity}}</h3><span class="increment" (click)="increase(item)"><i
+                    class="fa-solid fa-plus ms-2" style="color: #000000;"></i></span>
+        </div>
+        <div class="col-2 text-center">
+            <h3 class="price">{{item.price*item.quantity | currency : "INR" : "symbol" : "3.0"}}</h3>
+            <span (click)="delete(item)" id="remove">Remove</span>
+        </div>
+    </div>
+</div>
+<hr>
+<div class="container">
+    <div class="row">
+        <div class="col-6"></div>
+        <div class="col-2">
+            <span id="sub">Sub Total</span>
+            <br /><br />
+            <span id="tot">Total</span>
+        </div>
+        <div class="col-4 text-end">
+            <span id="sub">{{ TotalPrice(cart) | currency : "INR" : "symbol" : "3.0" }}</span>
+            <br /><br />
+            <span id="tot">{{ TotalPrice(cart) | currency : "INR" : "symbol" : "3.0" }}</span>
+            <br /><br />
+            <div class="form d-flex text-end">
+                <button id="btn3" class="me-3" routerLink=''>Continue Shopping</button>
+                <!-- <button id="btn4" (click)="makePayment(totalPrice(cart))">Place Order</button> -->
+            </div>
+        </div>
+    </div>
+</div>

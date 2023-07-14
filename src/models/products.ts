@@ -20,3 +20,12 @@ export interface User {
     pincode: number,
     logged: boolean
 }
+
+export interface Cart{
+    id:number,
+    image:string,
+    title:string,
+    quantity:number,
+    price:number,
+    total:number
+}

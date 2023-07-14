@@ -5,6 +5,7 @@ import { SignupComponent } from './signup/signup.component';
 import { ProductsComponent } from './products/products.component';
 import { HomeComponent } from './home/home.component';
 import { ControlsComponent } from './controls/controls.component';
+import { CartComponent } from './cart/cart.component';
 import { AuthGuard } from 'src/shared/authguard';
 const routes: Routes = [
   {
@@ -17,10 +18,13 @@ const routes: Routes = [
     path: 'signup', component: SignupComponent
   },
   {
-    path: 'products', component: ProductsComponent, canActivate: [AuthGuard]
+    path: 'products', component: ProductsComponent
   },
   {
     path: 'control', component: ControlsComponent, canActivate: [AuthGuard]
+  },
+  {
+    path: 'cart', component: CartComponent, canActivate: [AuthGuard]
   }
 ];
 

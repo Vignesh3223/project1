@@ -134,5 +134,13 @@
       "description": "Smart Watch with 1.3 (3.3 cm) Full Touch Curved Display, Health Monitoring, Daily Activity Tracker",
       "price": 2999
     }
+  ],
+  "carts": [
+    {
+      "id": 1,
+      "image": "https://www.boat-lifestyle.com/cdn/shop/products/nirvana-1007-blue_600x.png?v=1613457329",
+      "price": 1299,
+      "quantity": 1
+    }
   ]
 }

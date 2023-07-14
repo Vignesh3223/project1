@@ -18,6 +18,7 @@ import { NavbarComponent } from './navbar/navbar.component';
 import { CardModule } from 'primeng/card';
 import { ControlsComponent } from './controls/controls.component';
 import { AvatarModule } from 'primeng/avatar';
+import { CartComponent } from './cart/cart.component';
 
 @NgModule({
   declarations: [
@@ -28,6 +29,7 @@ import { AvatarModule } from 'primeng/avatar';
     HomeComponent,
     NavbarComponent,
     ControlsComponent,
+    CartComponent,
   ],
   imports: [
     BrowserModule,
