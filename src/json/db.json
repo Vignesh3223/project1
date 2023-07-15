@@ -38,6 +38,45 @@
       "pincode": "641041",
       "logged": false,
       "id": 3
+    },
+    {
+      "firstname": "Yamini",
+      "lastname": "Priya",
+      "useremail": "yamini@gmail.com",
+      "password": "yamini123",
+      "confirmpassword": "yamini123",
+      "profession": "Tester",
+      "city": "Coimbatore",
+      "state": "Tamil Nadu",
+      "pincode": "641078",
+      "logged": false,
+      "id": 4
+    },
+    {
+      "firstname": "Dharshan",
+      "lastname": "Hitman",
+      "useremail": "dharshan@gmail.com",
+      "password": "dharshan12",
+      "confirmpassword": "dharshan12",
+      "profession": "Trainee",
+      "city": "Coimbatore",
+      "state": "Tamil Nadu",
+      "pincode": "641014",
+      "logged": false,
+      "id": 5
+    },
+    {
+      "firstname": "Arun",
+      "lastname": "Joseph",
+      "useremail": "amigos@gmail.com",
+      "password": "amigo123",
+      "confirmpassword": "amigo123",
+      "profession": "Trainer",
+      "city": "Gudalur",
+      "state": "Tamil Nadu",
+      "pincode": "632075",
+      "logged": false,
+      "id": 6
     }
   ],
   "products": [
@@ -172,11 +211,12 @@
   ],
   "tasks": [
     {
-      "topic": "design a page",
-      "content": "create a design for register and login page ",
-      "duedate": "2023-07-17",
-      "assignto": "Designer",
-      "id": 1
+      "topic": "test the Login Page",
+      "content": "Test the login with validations and check for alerts",
+      "duedate": "2023-07-20",
+      "assignto": "Tester",
+      "id": 1,
+      "status": "in progress"
     }
   ]
 }

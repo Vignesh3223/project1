@@ -20,7 +20,7 @@
                             <a class="nav-link" routerLink='/cart'>Cart</a>
                         </li>
                         <div *ngFor="let user of userlist">
-                            <div class="d-flex" *ngIf="user.firstname === 'Admin';else users">
+                            <div class="d-flex" *ngIf="user.profession === 'Admin';else users">
                                 <li class="nav-item">
                                     <a class="nav-link" routerLink="/control">Assign Tasks</a>
                                 </li>

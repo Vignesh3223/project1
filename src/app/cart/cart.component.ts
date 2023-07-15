@@ -20,6 +20,7 @@ export class CartComponent implements OnInit {
   paymentFailure() {
     this.messageService.add({ severity: 'danger', summary: 'error', detail: 'Error in generating Stripe Payment Gateway' });
   }
+  
   //make payment function
   makePayment(amount: any) {
     const paymentHandler = (<any>window).StripeCheckout.configure({

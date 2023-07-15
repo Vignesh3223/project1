@@ -35,4 +35,5 @@ export interface Task {
     content: string;
     date: Date;
     assignto: string;
+    status:string;
 }
