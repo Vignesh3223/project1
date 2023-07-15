@@ -13,7 +13,7 @@ import { User } from 'src/models/products';
 })
 export class SignupComponent implements OnInit {
 
-  user = environment.userurl;
+  userapi = environment.userurl;
 
   SignUpForm: FormGroup | any;
   firstname: FormControl | any;
@@ -25,7 +25,6 @@ export class SignupComponent implements OnInit {
   city: FormControl | any;
   state: FormControl | any;
   pincode: FormControl | any;
-
 
   logged: boolean | any;
 
@@ -66,11 +65,7 @@ export class SignupComponent implements OnInit {
         Validators.pattern('[A-Za-z0-9]*')
       ]);
     this.confirmpassword = new FormControl('', [Validators.required]);
-    this.profession = new FormControl('',
-      [
-        Validators.required,
-        Validators.pattern('[A-Za-z ]*')
-      ]);
+    this.profession = new FormControl('');
     this.city = new FormControl('', [Validators.required]);
     this.state = new FormControl('');
     this.pincode = new FormControl('',
@@ -89,7 +84,7 @@ export class SignupComponent implements OnInit {
       profession: this.profession,
       city: this.city,
       state: this.state,
-      pincode: this.pincode
+      pincode: this.pincode,
     });
   }
 
@@ -107,9 +102,9 @@ export class SignupComponent implements OnInit {
       this.showError();
     }
     else {
-      this.SignUpForm.logged = false;
+      const user: User = { ...this.SignUpForm.value, logged: false };
       console.log(this.SignUpForm);
-      this.http.post<User[]>(this.user, this.SignUpForm.value)
+      this.http.post<User[]>(this.userapi, user)
         .subscribe((res) => {
           console.log(res);
           this.showSuccess();

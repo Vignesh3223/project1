@@ -19,17 +19,29 @@
                         <li class="nav-item">
                             <a class="nav-link" routerLink='/cart'>Cart</a>
                         </li>
-                        <li class="nav-item">
-                            <a class="nav-link disabled" routerLink='/control'>Controls</a>
-                        </li>
+                        <div *ngFor="let user of userlist">
+                            <div class="d-flex" *ngIf="user.firstname === 'Admin';else users">
+                                <li class="nav-item">
+                                    <a class="nav-link" routerLink="/control">Assign Tasks</a>
+                                </li>
+                                <li class="nav-item">
+                                    <a class="nav-link" routerLink="/viewtask">View Tasks</a>
+                                </li>
+                            </div>
+                            <ng-template #users>
+                                <li class="nav-item">
+                                    <a class="nav-link" routerLink="/viewtask">View Tasks</a>
+                                </li>
+                            </ng-template>
+                        </div>
                     </ul>
                     <form class="d-flex">
                         <div *ngIf="auth;else logged">
+                            <p-toast position="top-center"></p-toast>
                             <span *ngFor="let user of userlist" class="inline me-3"><i class="pi pi-user"
-                                    style="font-size: 1.5rem"></i>
-                                {{user.firstname}}</span>
+                                    style="font-size: 1.5rem"></i> {{user.firstname}}</span>
                             <p-button icon="pi pi-sign-out" iconPos="right" label="sign out"
-                                styleClass="p-button-rounded p-button-help me-3" (onClick)="logout()"></p-button>
+                                styleClass="p-button-rounded p-button-help me-3" (click)="logout()"></p-button>
                         </div>
                         <ng-template #logged>
                             <p-button icon="pi pi-sign-in" iconPos="right" label="sign in"

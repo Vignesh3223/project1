@@ -13,11 +13,13 @@ import { Router } from '@angular/router';
 })
 export class LoginComponent implements OnInit {
 
-  user = environment.userurl;
+  userapi = environment.userurl;
 
   LoginForm: FormGroup | any;
   useremail: FormControl | any;
   password: FormControl | any;
+
+  logged: boolean | any;
 
   submitted = false;
 
@@ -67,7 +69,7 @@ export class LoginComponent implements OnInit {
       this.showError();
     }
     else {
-      this.http.get<any>(this.user).subscribe((res) => {
+      this.http.get<any>(this.userapi).subscribe((res) => {
         const user = res.find((a: any) => {
           return (
             a.useremail === this.LoginForm.value.useremail &&
@@ -75,8 +77,8 @@ export class LoginComponent implements OnInit {
           );
         });
         if (user) {
-          user.logged = true
-          this.http.put<any>(user, this.user).subscribe();
+          user.logged = true;
+          this.http.put<any>(`${this.userapi}/${user.id}`, user).subscribe();
           this.showSuccess();
           this.LoginForm.reset();
           setTimeout(() => { this.router.navigate(['']) }, 2000);

@@ -19,6 +19,7 @@ import { CardModule } from 'primeng/card';
 import { ControlsComponent } from './controls/controls.component';
 import { AvatarModule } from 'primeng/avatar';
 import { CartComponent } from './cart/cart.component';
+import { ViewtaskComponent } from './viewtask/viewtask.component';
 
 @NgModule({
   declarations: [
@@ -30,6 +31,7 @@ import { CartComponent } from './cart/cart.component';
     NavbarComponent,
     ControlsComponent,
     CartComponent,
+    ViewtaskComponent,
   ],
   imports: [
     BrowserModule,

@@ -1,0 +1,28 @@
+<section>
+    <div class="container-fluid">
+        <h1>Tasks</h1>
+        <hr>
+    </div>
+    <div class="container">
+        <div class="card" *ngFor="let work of tasks">
+            <div class="card-header">
+                Task assigned to : {{work.assignto}}
+            </div>
+            <div class="card-body">
+                <h5 class="card-title">Title : {{work.topic}}</h5>
+                <p class="card-text">Task : {{work.content}}</p>
+                <p class="card-text">Due date : {{work.duedate}}</p>
+                <div *ngFor="let user of userlist">
+                    <div *ngIf="user.firstname==='Admin';else users">
+                        <button type="button" class="btn btn-info me-3">Edit</button>
+                        <button type="button" class="btn btn-danger">Delete</button>
+                    </div>
+                    <ng-template #users>
+                        <button type="button" class="btn btn-warning me-3">In Progress</button>
+                        <button type="button" class="btn btn-success">Completed</button>
+                    </ng-template>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>

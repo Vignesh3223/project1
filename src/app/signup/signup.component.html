@@ -87,16 +87,14 @@
                 </div>
                 <div class="form-group mb-3">
                     <label for="profession">Profession</label>
-                    <input type="text" class="form-control" placeholder="Profession" formControlName="profession"
-                        [ngClass]="{'is-invalid':profession.errors && (profession.touched || profession.dirty),'is-valid': profession.valid}" />
-                    <div class="valid-feedback" *ngIf="lastname.valid">
-                        <p class="text text-success">Profession is Good</p>
-                    </div>
-                    <div class="invalid-feedback">
-                        <strong *ngIf="profession.errors?.required">Required Field</strong>
-                        <strong *ngIf="profession.errors?.pattern">Profession must contain only aphabets and
-                            spaces</strong>
-                    </div>
+                    <select class="form-control" name="profession" formControlName="profession">
+                        <option value="profession" disabled>Choose any one</option>
+                        <option value="Developer">Developer</option>
+                        <option value="Designer">Designer</option>
+                        <option value="Tester">Tester</option>
+                        <option value="Trainer">Trainer</option>
+                        <option value="Trainee">Trainee</option>
+                    </select>
                 </div>
                 <div class="form-group mb-3">
                     <label for="city">City</label>
@@ -112,7 +110,7 @@
                 <div class="form-group mb-3">
                     <label for="state">State</label>
                     <select class="form-control" name="state" formControlName="state">
-                        <option value="state" disabled></option>
+                        <option value="state" disabled>Please select a State</option>
                         <option value="Andhra Pradesh">Andhra Pradesh</option>
                         <option value="Andaman and Nicobar Islands">Andaman and Nicobar Islands</option>
                         <option value="Arunachal Pradesh">Arunachal Pradesh</option>

@@ -1,0 +1,71 @@
+section {
+    background-color: whitesmoke;
+    padding: 50px 0 100px 0;
+}
+
+.total {
+    font-family: proxima;
+    color: #000000;
+}
+
+/*product/item contents*/
+.name,
+.price {
+    font-family: proxima;
+    color: #000000;
+    font-size: 25px;
+    font-weight: 700;
+}
+
+/*product/item quantity*/
+.quantity {
+    border: 1px solid #e2dddd;
+    font-family: proxima;
+    color: #000000;
+    background: transparent;
+    font-size: 18px;
+    padding: 1px 2px;
+    font-weight: 200;
+    width: 35px;
+    height: 25px;
+}
+
+/*Quantity increase and decrease*/
+.decrement,
+.increment {
+    cursor: pointer;
+}
+
+#remove {
+    font-family: proxima;
+    color: #FF0000;
+    font-size: 15px;
+    cursor: pointer;
+
+}
+
+#btn1,
+#btn2,
+#btnshop {
+    border: 1px solid black;
+    font-family: proxima;
+    font-size: 18px;
+    color: #000000;
+    background: transparent;
+    padding: 5px;
+}
+
+#sub {
+    font-family: proxima;
+    font-size: 20px;
+    color: #808080;
+    font-weight: 700;
+    margin-top: 2em;
+}
+
+#tot {
+    font-family: proxima;
+    font-size: 25px;
+    color: #000000;
+    font-weight: 700;
+}

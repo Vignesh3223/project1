@@ -36,7 +36,7 @@ export class ProductsComponent implements OnInit {
   //function to add products to cart
   addtoCart(item: any) {
     this.carts.id = item.id;
-    this.carts.title = item.text;
+    this.carts.title = item.title;
     this.carts.image = item.image;
     this.carts.quantity = this.quantity;
     this.carts.price = item.price;

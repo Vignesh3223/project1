@@ -7,6 +7,7 @@ import { MessageService } from 'primeng/api';
 @Injectable({
   providedIn: 'root'
 })
+
 export class CartService {
 
   url: string = '';
@@ -16,7 +17,7 @@ export class CartService {
     this.url = this.carturl + '/';
   }
 
-  ShowUpdateMessage() {
+  showUpdate() {
     this.messageService.add({ severity: 'success', summary: 'Success', detail: 'Quantity updated successfully' });
   }
   
@@ -33,7 +34,7 @@ export class CartService {
   updateCart(product: Cart) {
     let updateurl = this.carturl + '/' + product.id
     this.http.put<Cart[]>(updateurl, product).subscribe(() => {
-      this.ShowUpdateMessage();
+      this.showUpdate();
     })
   }
 

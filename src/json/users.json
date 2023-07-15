@@ -12,6 +12,19 @@
       "state": "",
       "pincode": "",
       "logged": false
+    },
+    {
+      "firstname": "Vignesh",
+      "lastname": "Vicky",
+      "useremail": "vicky@gmail.com",
+      "password": "vicky12",
+      "confirmpassword": "vicky12",
+      "profession": "Developer",
+      "city": "Kovai",
+      "state": "Tamil Nadu",
+      "pincode": "641007",
+      "logged": false,
+      "id": 2
     }
   ],
   "products": [
@@ -137,10 +150,20 @@
   ],
   "carts": [
     {
-      "id": 1,
-      "image": "https://www.boat-lifestyle.com/cdn/shop/products/nirvana-1007-blue_600x.png?v=1613457329",
-      "price": 1299,
+      "id": 2,
+      "title": "Rockerz 185 pro",
+      "image": "https://www.boat-lifestyle.com/cdn/shop/products/01red_black-PhotoRoom.png-PhotoRoom_1280x.png?v=1681373674",
+      "price": 1199,
       "quantity": 1
+    }
+  ],
+  "tasks": [
+    {
+      "topic": "design a page",
+      "content": "create a design for register and login page ",
+      "duedate": "2023-07-17",
+      "assignto": "Designer",
+      "id": 1
     }
   ]
 }

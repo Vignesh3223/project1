@@ -6,7 +6,9 @@ import { ProductsComponent } from './products/products.component';
 import { HomeComponent } from './home/home.component';
 import { ControlsComponent } from './controls/controls.component';
 import { CartComponent } from './cart/cart.component';
+import { ViewtaskComponent } from './viewtask/viewtask.component';
 import { AuthGuard } from 'src/shared/authguard';
+
 const routes: Routes = [
   {
     path: '', component: HomeComponent
@@ -21,10 +23,13 @@ const routes: Routes = [
     path: 'products', component: ProductsComponent
   },
   {
-    path: 'control', component: ControlsComponent, canActivate: [AuthGuard]
+    path: 'control', component: ControlsComponent
   },
   {
     path: 'cart', component: CartComponent, canActivate: [AuthGuard]
+  },
+  {
+    path: 'viewtask', component: ViewtaskComponent
   }
 ];
 

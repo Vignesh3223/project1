@@ -4,6 +4,7 @@
         <hr>
         <div class="container">
             <div class="row mb-3">
+                <p-toast position="top-center"></p-toast>
                 <div class="col-4 mb-3" *ngFor="let prod of prodslist">
                     <div class="card" style="width: 22rem;height:40rem">
                         <img src="{{prod.image}}" class="card-img-top" alt="...">
@@ -11,6 +12,7 @@
                             <h5 class="card-title">{{prod.title}}</h5>
                             <h3 class="card-text">{{prod.price | currency : "INR" : "symbol" : "3.0"}}</h3>
                             <p class="card-text">{{prod.description}}</p>
+                           
                             <button (click)="addtoCart(prod)" class="btn btn-secondary">Add to Cart</button>
                         </div>
                     </div>

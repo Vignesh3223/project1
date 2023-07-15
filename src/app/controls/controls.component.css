@@ -1,0 +1,35 @@
+section {
+    background-color: whitesmoke;
+    padding: 0 0 50px 0;
+}
+
+h1 {
+    text-align: center;
+    font-family: times new roman;
+}
+
+form {
+    width: 500px;
+    margin: 0 auto 0 auto;
+    padding: 20px;
+    border: 1px groove rgb(223, 217, 217);
+}
+
+h2 {
+    font-family: times new roman;
+    font-style: oblique;
+    font-weight: bold;
+}
+
+label {
+    font-family: times new roman;
+    font-size: 18px;
+    font-weight: 300;
+    color: #000000;
+    letter-spacing: 1px;
+}
+
+input,
+select {
+    border-radius: 0%;
+}
