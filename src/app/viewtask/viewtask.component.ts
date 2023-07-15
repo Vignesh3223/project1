@@ -34,16 +34,17 @@ export class ViewtaskComponent implements OnInit {
     this.messageService.add({ severity: 'success', summary: 'Success', detail: 'Task removed successfully' });
   }
 
-
   ngOnInit(): void {
     this.taskService.getTaskItems().subscribe(
       (response) => {
         this.tasks = response;
       });
-      
+
     this.authService.getActiveUser().subscribe(
       (res) => {
         this.userlist = res;
       });
+      
   }
+  
 }

@@ -7,7 +7,7 @@
       "useremail": "boatadmin@gmail.com",
       "password": "b3che4asd",
       "confirmpassword": "b3che4asd",
-      "profession": "",
+      "profession": "Admin",
       "city": "",
       "state": "",
       "pincode": "",
@@ -25,6 +25,19 @@
       "pincode": "641007",
       "logged": false,
       "id": 2
+    },
+    {
+      "firstname": "Harshan",
+      "lastname": "Harsha",
+      "useremail": "harsha@gmail.com",
+      "password": "harsha12",
+      "confirmpassword": "harsha12",
+      "profession": "Designer",
+      "city": "Kovai",
+      "state": "Tamil Nadu",
+      "pincode": "641041",
+      "logged": false,
+      "id": 3
     }
   ],
   "products": [

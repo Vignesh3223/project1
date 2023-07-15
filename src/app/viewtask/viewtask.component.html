@@ -4,25 +4,35 @@
         <hr>
     </div>
     <div class="container">
-        <div class="card" *ngFor="let work of tasks">
-            <div class="card-header">
-                Task assigned to : {{work.assignto}}
-            </div>
-            <div class="card-body">
-                <h5 class="card-title">Title : {{work.topic}}</h5>
-                <p class="card-text">Task : {{work.content}}</p>
-                <p class="card-text">Due date : {{work.duedate}}</p>
+            <div class="card" *ngFor="let work of tasks">
                 <div *ngFor="let user of userlist">
-                    <div *ngIf="user.firstname==='Admin';else users">
-                        <button type="button" class="btn btn-info me-3">Edit</button>
-                        <button type="button" class="btn btn-danger">Delete</button>
-                    </div>
-                    <ng-template #users>
-                        <button type="button" class="btn btn-warning me-3">In Progress</button>
-                        <button type="button" class="btn btn-success">Completed</button>
-                    </ng-template>
+                    <ng-container *ngIf="user.firstname === 'Admin' || user.profession === work.assignto;else empty">
+                        <div class="card-header">
+                            Task assigned to: {{ work.assignto }}
+                        </div>
+                        <div class="card-body">
+                            <h5 class="card-title">Title: {{ work.topic }}</h5>
+                            <p class="card-text">Task: {{ work.content }}</p>
+                            <p class="card-text">Due date: {{ work.duedate }}</p>
+                            <div *ngIf="user.firstname === 'Admin'; else users">
+                                <button type="button" class="btn btn-info me-3">Edit</button>
+                                <button type="button" class="btn btn-danger">Delete</button>
+                            </div>
+                            <ng-template #users>
+                                <button type="button" class="btn btn-warning me-3">In Progress</button>
+                                <button type="button" class="btn btn-success">Completed</button>
+                            </ng-template>
+                        </div>
+                    </ng-container>
                 </div>
             </div>
-        </div>
     </div>
+    <ng-template #empty>
+        <div class="container" style="padding-bottom: 400px;">
+            <div class="row">
+                <h3 class="empty">Congratulations! No pending tasks</h3>
+                <button id="btnshop" routerLink=''>Continue</button>
+            </div>
+        </div>
+    </ng-template>
 </section>

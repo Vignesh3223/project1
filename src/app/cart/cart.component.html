@@ -2,7 +2,7 @@
     <div class="container" *ngIf="cart.length==0; else cartitems" style="padding-bottom: 400px;">
         <div class="row">
             <h3 class="empty">Your shopping cart is empty!</h3>
-            <button id="btnshop" routerLink=''>Continue Shopping</button>
+            <button id="btnshop" routerLink='/products'>Continue Shopping</button>
         </div>
     </div>
     <ng-template #cartitems>
