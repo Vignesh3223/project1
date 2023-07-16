@@ -33,7 +33,7 @@ export interface Task {
     id: number;
     topic: string;
     content: string;
-    date: Date;
+    duedate: Date;
     assignto: string;
-    status:string;
+    status: string;
 }

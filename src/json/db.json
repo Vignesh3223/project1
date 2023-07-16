@@ -223,13 +223,6 @@
       "duedate": "2023-07-17",
       "assignto": "Developer",
       "id": 2
-    },
-    {
-      "topic": "HTTP Client",
-      "content": "Complete HTTP Client request and respone",
-      "duedate": "2023-07-18",
-      "assignto": "Trainer",
-      "id": 3
     }
   ]
 }

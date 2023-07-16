@@ -39,69 +39,41 @@
         </div>
     </div>
 </section>
-<div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+<!-- <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
     <div class="modal-dialog">
         <div class="modal-content">
             <div class="modal-header">
-                <h5 class="modal-title" id="exampleModalLabel">Edit Task</h5>
+                <h5 class="modal-title">Modal title</h5>
                 <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
             </div>
-            <div class="modal-body" *ngFor="let work of tasks">
-                <p-toast position="top-center"></p-toast>
-                <form [formGroup]="AssignmentForm" novalidate>
-                    <div class="form-group mb-3">
-                        <label for="firstname">Topic</label>
-                        <input type="text" class="form-control" placeholder="Enter a Title" formControlName="topic"
-                            value="{{work.topic}}"
-                            [ngClass]="{'is-invalid':topic.errors && (topic.touched || topic.dirty),'is-valid': topic.valid}" />
-                        <div class="valid-feedback" *ngIf="topic.valid">
-                            <p class="text text-success">Topic is Good</p>
-                        </div>
-                        <div class="invalid-feedback">
-                            <strong *ngIf="topic.errors?.required">Required Field</strong>
-                        </div>
-                    </div>
-                    <div class="form-group mb-3">
-                        <label for="content">Content</label>
-                        <textarea rows="5" class="form-control" placeholder="Enter the Task Contents"
-                            formControlName="content" value="{{work.content}}"
-                            [ngClass]="{'is-invalid':content.errors && (content.touched || content.dirty),'is-valid': content.valid}"></textarea>
-                        <div class="valid-feedback" *ngIf="content.valid">
-                            <p class="text text-success">Content is Good</p>
-                        </div>
-                        <div class="invalid-feedback">
-                            <strong *ngIf="content.errors?.required">Required Field</strong>
-                        </div>
-                    </div>
-                    <div class="form-group mb-3">
-                        <label for="duedate">Due Date</label>
-                        <input type="date" class="form-control" formControlName="duedate" value="{{work.duedate}}"
-                            [ngClass]="{'is-invalid':duedate.errors && (duedate.touched || duedate.dirty),'is-valid': duedate.valid}" />
-                        <div class="valid-feedback" *ngIf="duedate.valid">
-                            <p class="text text-success">Valid Date</p>
-                        </div>
-                        <div class="invalid-feedback">
-                            <strong *ngIf="duedate.errors?.required">Required Field</strong>
-                        </div>
-                    </div>
-                    <div class="form-group mb-5">
-                        <label for="assignto">Assign Task to</label>
-                        <select class="form-control" name="assignto" formControlName="assignto"
-                            value="{{work.assignto}}">
-                            <option value="assignto" disabled>Choose any one</option>
-                            <option value="Developer">Developer</option>
-                            <option value="Designer">Designer</option>
-                            <option value="Tester">Tester</option>
-                            <option value="Trainer">Trainer</option>
-                            <option value="Trainee">Trainee</option>
-                        </select>
-                    </div>
-                </form>
+            <div class="modal-body" *ngIf="editMode" [formGroup]="editForm">
+                <div class="form-group mb-3">
+                    <label for="topic">Topic</label>
+                    <input type="text" id="topic" class="form-control" formControlName="topic" required>
+                </div>
+                <div class="form-group mb-3">
+                    <label for="content">Content</label>
+                    <textarea id="content" class="form-control" formControlName="content" required></textarea>
+                </div>
+                <div class="form-group mb-3">
+                    <label for="duedate">Due Date</label>
+                    <input type="date" id="duedate" class="form-control" formControlName="duedate" required>
+                </div>
+                <div class="form-group mb-3">
+                    <label for="assignto">Assign Task to</label>
+                    <select id="assignto" class="form-control" formControlName="assignto" required>
+                        <option value="Developer">Developer</option>
+                        <option value="Designer">Designer</option>
+                        <option value="Tester">Tester</option>
+                        <option value="Trainer">Trainer</option>
+                        <option value="Trainee">Trainee</option>
+                    </select>
+                </div>
             </div>
-            <div class="modal-footer">
+            <div class="modal-footer" *ngIf="editMode">
                 <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-                <button type="button" (click)="edit()" class="btn btn-primary">Save changes</button>
+                <button type="button" class="btn btn-primary" (click)="saveChanges()">Save changes</button>
             </div>
         </div>
     </div>
-</div>
+</div> -->

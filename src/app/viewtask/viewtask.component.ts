@@ -24,6 +24,10 @@ export class ViewtaskComponent implements OnInit {
 
   tasks: any[] = [];
 
+  // editMode = false;
+
+  // editForm: FormGroup | any;
+
   userlist: any[] = [];
 
   auth: boolean = false;
@@ -76,6 +80,48 @@ export class ViewtaskComponent implements OnInit {
     this.ngOnInit();
   }
 
+
+  // loadTasks(): void {
+  //   this.taskService.getTaskItems().subscribe((data: Task[]) => {
+  //     this.tasks = data;
+  //   });
+  // }
+
+  // initializeForm(): void {
+  //   this.editForm = ({
+  //     id: [null],
+  //     topic: ['', Validators.required],
+  //     content: ['', Validators.required],
+  //     duedate: ['', Validators.required],
+  //     assignto: ['', Validators.required]
+  //   });
+  // }
+
+  // edit(work: Task): void {
+  //   this.editMode = true;
+  //   this.editForm.patchValue({
+  //     id: work.id,
+  //     topic: work.topic,
+  //     content: work.content,
+  //     duedate: work.duedate,
+  //     assignto: work.assignto
+  //   });
+  // }
+
+  // saveChanges(): void {
+  //   const editedTask: Task = this.editForm.value;
+  //   const index = this.tasks.findIndex(task => task.id === editedTask.id);
+  //   if (index !== -1) {
+  //     this.tasks[index] = editedTask;
+  //     this.http.put('', this.tasks).subscribe(() => {
+  //       console.log('Task updated successfully');
+  //       this.editMode = false;
+  //     }, (error: any) => {
+  //       console.error('Error updating task:', error);
+  //     });
+  //   }
+  // }
+
   ngOnInit(): void {
     this.taskService.getTaskItems().subscribe(
       (response) => {
@@ -98,6 +144,9 @@ export class ViewtaskComponent implements OnInit {
       duedate: this.duedate,
       assignto: this.assignto
     });
+
+    // this.loadTasks();
+    // this.initializeForm();
   }
 
   hasMatchingAssignment(): boolean {
@@ -109,18 +158,6 @@ export class ViewtaskComponent implements OnInit {
       }
     }
     return false;
-  }
-
-  edit() {
-    this.submitted = true;
-    if (this.AssignmentForm.invalid) {
-      this.showError();
-    }
-    else {
-      this.taskService.updateTask(this.AssignmentForm.value);
-      this.showSuccess();
-      this.AssignmentForm.reset();
-    }
   }
 
 }
