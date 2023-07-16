@@ -2,6 +2,7 @@
     <h1>Welcome Admin!!!</h1>
     <hr>
     <div class="container mt-5 text-center">
+        <p-toast position="top-center"></p-toast>
         <form [formGroup]="AssignmentForm" novalidate>
             <h2>Assign a Task</h2>
             <hr>
@@ -50,7 +51,6 @@
                 </select>
             </div>
             <div class="form-group text-center">
-                <p-toast position="top-center"></p-toast>
                 <button type="button" class="btn btn-info btn-block" (click)="onSubmit()">Assign Task </button>
             </div>
         </form>

@@ -215,8 +215,21 @@
       "content": "Test the login with validations and check for alerts",
       "duedate": "2023-07-20",
       "assignto": "Tester",
-      "id": 1,
-      "status": "in progress"
+      "id": 1
+    },
+    {
+      "topic": "Reactive Forms ",
+      "content": "create a Registration Form using Reactive Forms Module",
+      "duedate": "2023-07-17",
+      "assignto": "Developer",
+      "id": 2
+    },
+    {
+      "topic": "HTTP Client",
+      "content": "Complete HTTP Client request and respone",
+      "duedate": "2023-07-18",
+      "assignto": "Trainer",
+      "id": 3
     }
   ]
 }
