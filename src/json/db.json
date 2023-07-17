@@ -211,18 +211,52 @@
   ],
   "tasks": [
     {
-      "topic": "test the Login Page",
-      "content": "Test the login with validations and check for alerts",
-      "duedate": "2023-07-20",
-      "assignto": "Tester",
-      "id": 1
+      "topic": "Logo Design",
+      "content": "create a logo design for a Vetenary Hospital",
+      "duedate": "2023-07-19",
+      "assignto": "Designer",
+      "status": "",
+      "id": 2
     },
     {
-      "topic": "Reactive Forms ",
-      "content": "create a Registration Form using Reactive Forms Module",
-      "duedate": "2023-07-17",
+      "topic": "usecart in React",
+      "content": "create a cart to display the products with the help of uecart hook in react",
+      "duedate": "2023-07-19",
+      "assignto": "Trainee",
+      "status": "",
+      "id": 4
+    },
+    {
+      "topic": "Assesement",
+      "content": "Conduct an assessement for the angular batch trainees and report the feedback",
+      "duedate": "2023-07-21",
+      "assignto": "Trainer",
+      "status": "",
+      "id": 5
+    },
+    {
+      "topic": "Formik Validations",
+      "content": "create a Registration Form with Formik Validations",
+      "duedate": "2023-07-20",
       "assignto": "Developer",
-      "id": 2
+      "status": "",
+      "id": 6
+    },
+    {
+      "topic": "Home page design",
+      "content": "create a home page design for Desserts Shop",
+      "duedate": "2023-07-25",
+      "assignto": "Designer",
+      "status": "",
+      "id": 7
+    },
+    {
+      "topic": "Test the usecart",
+      "content": "Test the usecart task functionalities and alerts",
+      "duedate": "2023-07-19",
+      "assignto": "Tester",
+      "status": "",
+      "id": 8
     }
   ]
 }

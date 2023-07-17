@@ -3,29 +3,101 @@
         <h1>Tasks</h1>
         <hr>
     </div>
+    <div *ngFor="let user of userlist">
+        <div class="container" *ngIf="user.profession === 'Admin'">
+            <div class="row mt-5 mb-5">
+                <div class="col-4 text-center">
+                    <label>Filter Tasks by Profession</label><br />
+                    <select class="form-control" id="filter">
+                        <option value="" disabled selected hidden>Filter by:</option>
+                        <option for="designer">Profession : Designer</option>
+                        <option for="developer">Profession : Developer</option>
+                        <option for="tester">Profession : Tester</option>
+                        <option for="trainer">Profession : Trainer</option>
+                        <option for="trainee">Profession : Trainee</option>
+                    </select>
+                </div>
+                <div class="col-4 text-center">
+                    <label>Sort by Due Date</label><br />
+                    <select class="form-control" (change)="onOptionsSelected($event)" id="sort">
+                        <option value="" disabled selected hidden>Sort by:</option>
+                        <option value="n-f">Date : Nearest Date</option>
+                        <option value="f-n">Date : Farest Date</option>
+                    </select>
+                </div>
+                <div class="col-4 text-center">
+                    <label for="search-text">Search by Topic</label>
+                    <input type="text" class="form-control" id="search" aria-describedby="search-text"
+                        [(ngModel)]="searchText" placeholder="Enter Title to search" autofocus>
+                </div>
+            </div>
+        </div>
+        <div class="container" *ngIf="user.profession!='Admin'">
+            <div class="row">
+                <div class="col-6 text-center">
+                    <label>Sort by Due Date</label><br />
+                    <select class="form-control" (change)="onOptionsSelected($event)" id="sort">
+                        <option value="" disabled selected hidden>Sort by:</option>
+                        <option value="n-f">Date : Nearest Date</option>
+                        <option value="f-n">Date : Farest Date</option>
+                    </select>
+                </div>
+                <div class="col-6 text-center">
+                    <label for="search-text">Search by Topic</label>
+                    <input type="text" class="form-control" id="search" aria-describedby="search-text"
+                        [(ngModel)]="searchText" placeholder="Enter Title to search" autofocus>
+                </div>
+            </div>
+        </div>
+    </div>
+    <hr>
     <div class="container">
-        <div class="card" *ngFor="let work of tasks">
+        <p-toast position="top-center"></p-toast>
+        <div class="card" *ngFor="let work of tasks | sort : [sortParam , sortDirection] | search: searchText">
             <div *ngFor="let user of userlist">
                 <ng-container *ngIf="user.profession === 'Admin' || user.profession === work.assignto">
                     <div class="card-header">
-                        Task assigned to: {{ work.assignto }}
+                        Task assigned to : {{ work.assignto }}
                     </div>
                     <div class="card-body">
-                        <h4 class="card-title">Title: {{ work.topic }}</h4>
-                        <p class="card-text">Task: {{ work.content }}</p>
-                        <p class="card-text">Due date: {{ work.duedate }}</p>
-                        <div *ngIf="user.firstname === 'Admin'; else users">
-                            <p-toast position="top-center"></p-toast>
-                            <button type="button" data-bs-toggle="modal" data-bs-target="#exampleModal"
-                                class="btn btn-info me-3">Edit</button>
-                            <button type="button" (click)="delete(work)" class="btn btn-danger">Delete</button>
+                        <h4 class="card-title">Title : {{ work.topic }}</h4>
+                        <p class="card-text">Task : {{ work.content }}</p>
+                        <p class="card-text">Due date : {{ work.duedate }}</p>
+                        <div *ngIf="user.firstname === 'Admin'">
+                            <div *ngIf="work.status==='';else InProgress">
+                                <button type="button" data-bs-toggle="modal" data-bs-target="#exampleModal"
+                                    (click)="edit(work)" class="btn btn-info me-3">Edit</button>
+                                <button type="button" (click)="delete(work)" class="btn btn-danger">Delete</button>
+                            </div>
+                            <ng-template #InProgress>
+                                <div *ngIf="work.status==='in progress';else completed">
+                                    <h4>Status : {{work.status}}</h4>
+                                    <button type="button" (click)="delete(work)" class="btn btn-danger">Delete</button>
+                                </div>
+                            </ng-template>
+                            <ng-template #completed>
+                                <h4>Status : {{work.status}}</h4>
+                                <button type="button" (click)="delete(work)" class="btn btn-danger">Delete</button>
+                            </ng-template>
                         </div>
-                        <ng-template #users>
-                            <p-toast position="top-center"></p-toast>
-                            <button type="button" (click)="progress(work)" class="btn btn-warning me-3">In
-                                Progress</button>
-                            <button type="button" (click)="complete(work)" class="btn btn-success">Completed</button>
-                        </ng-template>
+                        <div *ngIf="user.firstname !== 'Admin'">
+                            <div *ngIf="work.status==='';else InProgress">
+                                <button type="button" (click)="progress(work)" class="btn btn-warning me-3">In
+                                    Progress</button>
+                                <button type="button" (click)="complete(work)"
+                                    class="btn btn-success">Completed</button>
+                            </div>
+                            <ng-template #InProgress>
+                                <div *ngIf="work.status==='in progress';else completed">
+                                    <h4>Status : {{work.status}}</h4>
+                                    <button type="button" (click)="complete(work)"
+                                        class="btn btn-success">Completed</button>
+                                </div>
+                            </ng-template>
+                            <ng-template #completed>
+                                <h4>Status : {{work.status}}</h4>
+                            </ng-template>
+                        </div>
                     </div>
                 </ng-container>
             </div>
@@ -39,41 +111,44 @@
         </div>
     </div>
 </section>
-<!-- <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+<div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
     <div class="modal-dialog">
         <div class="modal-content">
             <div class="modal-header">
-                <h5 class="modal-title">Modal title</h5>
+                <h2 class="modal-title">Edit Task</h2>
                 <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
             </div>
-            <div class="modal-body" *ngIf="editMode" [formGroup]="editForm">
-                <div class="form-group mb-3">
-                    <label for="topic">Topic</label>
-                    <input type="text" id="topic" class="form-control" formControlName="topic" required>
-                </div>
-                <div class="form-group mb-3">
-                    <label for="content">Content</label>
-                    <textarea id="content" class="form-control" formControlName="content" required></textarea>
-                </div>
-                <div class="form-group mb-3">
-                    <label for="duedate">Due Date</label>
-                    <input type="date" id="duedate" class="form-control" formControlName="duedate" required>
-                </div>
-                <div class="form-group mb-3">
-                    <label for="assignto">Assign Task to</label>
-                    <select id="assignto" class="form-control" formControlName="assignto" required>
-                        <option value="Developer">Developer</option>
-                        <option value="Designer">Designer</option>
-                        <option value="Tester">Tester</option>
-                        <option value="Trainer">Trainer</option>
-                        <option value="Trainee">Trainee</option>
-                    </select>
-                </div>
+            <div class="modal-body">
+                <form [formGroup]="taskForm" novalidate>
+                    <div class="form-group mb-3">
+                        <label for="topic">Topic</label>
+                        <input type="text" id="topic" class="form-control" formControlName="topic" required>
+                    </div>
+                    <div class="form-group mb-3">
+                        <label for="content">Content</label>
+                        <textarea id="content" class="form-control" formControlName="content" required></textarea>
+                    </div>
+                    <div class="form-group mb-3">
+                        <label for="duedate">Due Date</label>
+                        <input type="date" id="duedate" class="form-control" formControlName="duedate" required>
+                    </div>
+                    <div class="form-group mb-5">
+                        <label for="assignto">Assign Task to</label>
+                        <select class="form-control" name="assignto" formControlName="assignto">
+                            <option value="assignto" disabled>Choose any one</option>
+                            <option value="Developer">Developer</option>
+                            <option value="Designer">Designer</option>
+                            <option value="Tester">Tester</option>
+                            <option value="Trainer">Trainer</option>
+                            <option value="Trainee">Trainee</option>
+                        </select>
+                    </div>
+                </form>
             </div>
-            <div class="modal-footer" *ngIf="editMode">
+            <div class="modal-footer">
                 <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-                <button type="button" class="btn btn-primary" (click)="saveChanges()">Save changes</button>
+                <button type="button" class="btn btn-primary" (click)="savechanges()">Save changes</button>
             </div>
         </div>
     </div>
-</div> -->
+</div>

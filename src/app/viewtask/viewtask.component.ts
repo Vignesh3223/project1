@@ -12,21 +12,20 @@ import { Task } from 'src/models/products';
   templateUrl: './viewtask.component.html',
   styleUrls: ['./viewtask.component.css']
 })
+
 export class ViewtaskComponent implements OnInit {
 
-  AssignmentForm: FormGroup | any;
+  taskForm: FormGroup | any;
   topic: FormControl | any;
   content: FormControl | any;
   duedate: FormControl | any;
   assignto: FormControl | any;
 
+  status: string | any;
+
   submitted = false;
 
   tasks: any[] = [];
-
-  // editMode = false;
-
-  // editForm: FormGroup | any;
 
   userlist: any[] = [];
 
@@ -40,7 +39,7 @@ export class ViewtaskComponent implements OnInit {
     private router: Router
   ) { }
 
-  showEdit() {
+  showSuccess() {
     this.messageService.add({ severity: 'success', summary: 'Success', detail: 'Task updated successfully' });
   }
 
@@ -52,12 +51,36 @@ export class ViewtaskComponent implements OnInit {
     this.messageService.add({ severity: 'success', summary: 'Success', detail: 'Status updated successfully' });
   }
 
-  showSuccess() {
+  showEdit() {
     this.messageService.add({ severity: 'success', summary: 'Success', detail: 'Task edited successfully' });
   }
 
   showError() {
     this.messageService.add({ severity: 'error', summary: 'Error', detail: 'Please fill in all the details' });
+  }
+
+  ngOnInit(): void {
+    this.taskService.getTaskItems().subscribe(
+      (response) => {
+        this.tasks = response;
+      });
+
+    this.authService.getActiveUser().subscribe(
+      (res) => {
+        this.userlist = res;
+      });
+
+    this.topic = new FormControl('', [Validators.required]);
+    this.content = new FormControl('', [Validators.required]);
+    this.duedate = new FormControl('', [Validators.required]);
+    this.assignto = new FormControl('');
+
+    this.taskForm = new FormGroup({
+      topic: this.topic,
+      content: this.content,
+      duedate: this.duedate,
+      assignto: this.assignto
+    });
   }
 
   progress(work: Task) {
@@ -80,73 +103,43 @@ export class ViewtaskComponent implements OnInit {
     this.ngOnInit();
   }
 
+  updateId: number = 0
+  edit(work: Task) {
+    this.updateId = work.id;
+    this.topic.setValue(work.topic);
+    this.content.setValue(work.content);
+    this.duedate.setValue(work.duedate);
+    this.assignto.setValue(work.assignto);
+    this.status(work.status);
+  }
 
-  // loadTasks(): void {
-  //   this.taskService.getTaskItems().subscribe((data: Task[]) => {
-  //     this.tasks = data;
-  //   });
-  // }
+  savechanges() {
+    const workurl = this.taskService.taskurl + '/' + this.updateId;
+    this.http.put<Task[]>(workurl, this.taskForm.value).subscribe(
+      () => {
+        console.log(this.taskForm.value);
+        this.showEdit();
+        this.ngOnInit()
+      }
+    )
+  }
 
-  // initializeForm(): void {
-  //   this.editForm = ({
-  //     id: [null],
-  //     topic: ['', Validators.required],
-  //     content: ['', Validators.required],
-  //     duedate: ['', Validators.required],
-  //     assignto: ['', Validators.required]
-  //   });
-  // }
+  searchText = '';
 
-  // edit(work: Task): void {
-  //   this.editMode = true;
-  //   this.editForm.patchValue({
-  //     id: work.id,
-  //     topic: work.topic,
-  //     content: work.content,
-  //     duedate: work.duedate,
-  //     assignto: work.assignto
-  //   });
-  // }
+  sortParam: any;
+  sortDirection: any;
+  optionSelected: any;
 
-  // saveChanges(): void {
-  //   const editedTask: Task = this.editForm.value;
-  //   const index = this.tasks.findIndex(task => task.id === editedTask.id);
-  //   if (index !== -1) {
-  //     this.tasks[index] = editedTask;
-  //     this.http.put('', this.tasks).subscribe(() => {
-  //       console.log('Task updated successfully');
-  //       this.editMode = false;
-  //     }, (error: any) => {
-  //       console.error('Error updating task:', error);
-  //     });
-  //   }
-  // }
-
-  ngOnInit(): void {
-    this.taskService.getTaskItems().subscribe(
-      (response) => {
-        this.tasks = response;
-      });
-
-    this.authService.getActiveUser().subscribe(
-      (res) => {
-        this.userlist = res;
-      });
-
-    this.topic = new FormControl('', [Validators.required]);
-    this.content = new FormControl('', [Validators.required]);
-    this.duedate = new FormControl('', [Validators.required]);
-    this.assignto = new FormControl('');
-
-    this.AssignmentForm = new FormGroup({
-      topic: this.topic,
-      content: this.content,
-      duedate: this.duedate,
-      assignto: this.assignto
-    });
-
-    // this.loadTasks();
-    // this.initializeForm();
+  //function for sorting purpose
+  onOptionsSelected(event: any) {
+    console.log(event.target.value);
+    this.optionSelected = event.target.value;
+    if (this.optionSelected === 'n-f') {
+      (this.sortParam = 'duedate'), (this.sortDirection = 'asc');
+    }
+    else if (this.optionSelected === 'f-n') {
+      (this.sortParam = 'duedate'), (this.sortDirection = 'desc');
+    }
   }
 
   hasMatchingAssignment(): boolean {
@@ -159,5 +152,4 @@ export class ViewtaskComponent implements OnInit {
     }
     return false;
   }
-
 }

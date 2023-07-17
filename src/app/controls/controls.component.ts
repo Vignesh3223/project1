@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
+import { HttpClient } from '@angular/common/http';
 import { TaskService } from 'src/services/task.service';
+import { Task } from 'src/models/products';
 import { MessageService } from 'primeng/api';
 
 @Component({
@@ -16,11 +18,16 @@ export class ControlsComponent implements OnInit {
   duedate: FormControl | any;
   assignto: FormControl | any;
 
+  status: string | any;
+
   submitted = false;
 
   constructor(
     private taskService: TaskService,
+    private http: HttpClient,
     private messageService: MessageService) { }
+
+  tasks = this.taskService.taskurl;
 
   ngOnInit(): void {
     this.topic = new FormControl('', [Validators.required]);
@@ -32,7 +39,7 @@ export class ControlsComponent implements OnInit {
       topic: this.topic,
       content: this.content,
       duedate: this.duedate,
-      assignto: this.assignto
+      assignto: this.assignto,
     });
   }
 
@@ -49,10 +56,16 @@ export class ControlsComponent implements OnInit {
     if (this.AssignmentForm.invalid) {
       this.showError();
     }
+
     else {
-      this.taskService.createTask(this.AssignmentForm.value);
-      this.showSuccess();
-      this.AssignmentForm.reset();
+      const status: Task = { ...this.AssignmentForm.value, status: '' };
+      console.log(this.AssignmentForm);
+      this.http.post<Task[]>(this.tasks, status)
+        .subscribe((res) => {
+          console.log(res);
+          this.showSuccess();
+          this.AssignmentForm.reset();
+        });
     }
   }
 }

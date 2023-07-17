@@ -20,6 +20,9 @@ import { ControlsComponent } from './controls/controls.component';
 import { AvatarModule } from 'primeng/avatar';
 import { CartComponent } from './cart/cart.component';
 import { ViewtaskComponent } from './viewtask/viewtask.component';
+import { SortPipe } from 'src/shared/sort.pipe';
+import { FilterPipe } from '../shared/filter.pipe';
+import { SearchPipe } from '../shared/search.pipe';
 
 @NgModule({
   declarations: [
@@ -32,6 +35,9 @@ import { ViewtaskComponent } from './viewtask/viewtask.component';
     ControlsComponent,
     CartComponent,
     ViewtaskComponent,
+    SortPipe,
+    FilterPipe,
+    SearchPipe,
   ],
   imports: [
     BrowserModule,
