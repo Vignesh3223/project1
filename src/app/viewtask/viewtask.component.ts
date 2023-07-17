@@ -110,7 +110,7 @@ export class ViewtaskComponent implements OnInit {
     this.content.setValue(work.content);
     this.duedate.setValue(work.duedate);
     this.assignto.setValue(work.assignto);
-    this.status(work.status);
+    this.status.setValue(work.status);
   }
 
   savechanges() {
