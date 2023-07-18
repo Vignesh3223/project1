@@ -1,8 +1,13 @@
 import { Component, OnInit } from '@angular/core';
+//UserService from Service
 import { UserService } from 'src/services/user.service';
+//HTTPClient Module
 import { HttpClient } from '@angular/common/http';
+//user environment
 import { environment } from 'src/environment/environment';
+//primeNG Message Service
 import { MessageService } from 'primeng/api';
+//router
 import { Router } from '@angular/router';
 
 @Component({
@@ -12,10 +17,12 @@ import { Router } from '@angular/router';
 })
 export class NavbarComponent implements OnInit {
 
+  //userurl
   userapi = environment.userurl;
 
   userlist: any[] = [];
 
+  //boat logo
   logo = "/assets/images/logo.png";
 
   auth: boolean = false;
@@ -26,7 +33,7 @@ export class NavbarComponent implements OnInit {
     private messageService: MessageService,
     private router: Router) { }
 
-
+  //primeNG toast for logout
   showLogout() {
     this.messageService.add({ severity: 'success', summary: 'Success', detail: 'Signed Out Successfully' });
   }
@@ -35,7 +42,6 @@ export class NavbarComponent implements OnInit {
     this.authService.authSubject.subscribe(
       data => {
         this.auth = data;
-        console.log("logged in");
         this.ngOnInit();
       });
 
@@ -45,6 +51,7 @@ export class NavbarComponent implements OnInit {
       });
   }
 
+  //logout function
   logout() {
     this.http.get<any>(`${this.userapi}?logged_like=true`).subscribe((res) => {
       const activeUser = res.find((a: any) => a.logged === true);

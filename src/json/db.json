@@ -211,43 +211,19 @@
   ],
   "tasks": [
     {
-      "topic": "Logo Design",
-      "content": "create a logo design for a Vetenary Hospital",
-      "duedate": "2023-07-19",
-      "assignto": "Designer",
-      "status": "",
-      "id": 2
-    },
-    {
-      "topic": "usecart in React",
-      "content": "create a cart to display the products with the help of uecart hook in react",
-      "duedate": "2023-07-19",
-      "assignto": "Trainee",
-      "status": "",
-      "id": 4
-    },
-    {
-      "topic": "Assesement",
-      "content": "Conduct an assessement for the angular batch trainees and report the feedback",
-      "duedate": "2023-07-21",
-      "assignto": "Trainer",
-      "status": "",
-      "id": 5
-    },
-    {
-      "topic": "Formik Validations",
+      "topic": "Formik Validations-1",
       "content": "create a Registration Form with Formik Validations",
-      "duedate": "2023-07-20",
+      "duedate": "2023-07-21",
       "assignto": "Developer",
-      "status": "",
+      "status": "in progress",
       "id": 6
     },
     {
-      "topic": "Home page design",
+      "topic": "Home page design - 1",
       "content": "create a home page design for Desserts Shop",
-      "duedate": "2023-07-25",
+      "duedate": "2023-07-23",
       "assignto": "Designer",
-      "status": "",
+      "status": "completed",
       "id": 7
     },
     {

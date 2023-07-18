@@ -3,8 +3,10 @@
         <h1 class="text-center">Become a Member!</h1>
         <hr>
         <div class="row mt-5">
+            <!--form-->
             <form [formGroup]="SignUpForm" novalidate>
                 <div class="form-group mb-3">
+                    <!--firstname-->
                     <label for="firstname">Firstname</label>
                     <input type="text" class="form-control" placeholder="First Name" formControlName="firstname"
                         [ngClass]="{'is-invalid':firstname.errors && (firstname.touched || firstname.dirty),'is-valid': firstname.valid}" />
@@ -23,6 +25,7 @@
                             spaces</strong>
                     </div>
                 </div>
+                <!--lastname-->
                 <div class="form-group mb-3">
                     <label for="lastname">Lastname</label>
                     <input type="text" class="form-control" placeholder="Last Name" formControlName="lastname"
@@ -41,6 +44,7 @@
                         <strong *ngIf="lastname.errors?.pattern">Name must contain only aphabets and spaces</strong>
                     </div>
                 </div>
+                <!--email-->
                 <div class="form-group mb-3">
                     <label for="email">Email</label>
                     <input type="email" class="form-control" placeholder="Email" formControlName="useremail"
@@ -54,6 +58,7 @@
                         <strong *ngIf="useremail.errors?.pattern">Enter a valid Email</strong>
                     </div>
                 </div>
+                <!--password-->
                 <div class="form-group mb-3">
                     <label for="password">Password</label>
                     <input type="password" class="form-control" placeholder="Password" formControlName="password"
@@ -73,6 +78,7 @@
                             numbers</strong>
                     </div>
                 </div>
+                <!--confirm password-->
                 <div class="form-group mb-3">
                     <label for="confirmpassword">Confirm Password</label>
                     <input type="password" class="form-control" placeholder="Re-enter Password"
@@ -85,6 +91,7 @@
                         <strong *ngIf="confirmpassword.errors?.required">Required Field</strong>
                     </div>
                 </div>
+                <!--profession-->
                 <div class="form-group mb-3">
                     <label for="profession">Profession</label>
                     <select class="form-control" name="profession" formControlName="profession">
@@ -96,6 +103,7 @@
                         <option value="Trainee">Trainee</option>
                     </select>
                 </div>
+                <!--city-->
                 <div class="form-group mb-3">
                     <label for="city">City</label>
                     <input type="text" class="form-control" formControlName="city" placeholder="City"
@@ -107,6 +115,7 @@
                         <strong *ngIf="city.errors?.required">Required Field</strong>
                     </div>
                 </div>
+                <!--state-->
                 <div class="form-group mb-3">
                     <label for="state">State</label>
                     <select class="form-control" name="state" formControlName="state">
@@ -149,6 +158,7 @@
                         <option value="West Bengal">West Bengal</option>
                     </select>
                 </div>
+                <!--pin code-->
                 <div class="form-group mb-5">
                     <label for="pincode">Pin Code</label>
                     <input type="text" class="form-control" placeholder="Pin Code" formControlName="pincode"
@@ -165,8 +175,11 @@
                     </div>
                 </div>
                 <div class="form-group text-center">
+                    <!--primeNG toast-->
                     <p-toast position="top-center"></p-toast>
+                    <!--back to home button-->
                     <button class="btn btn-danger btn-block me-3" routerLink=''>Back to Home</button>
+                    <!--submit button-->
                     <button type="button" class="btn btn-info btn-block" (click)="onSubmit()">Sign Up </button>
                 </div>
             </form>

@@ -1,15 +1,19 @@
 <section>
+    <!--empty cart-->
     <div class="container" *ngIf="cart.length==0; else cartitems" style="padding-bottom: 400px;">
         <div class="row">
             <h3 class="empty">Your shopping cart is empty!</h3>
             <button id="btnshop" routerLink='/products'>Continue Shopping</button>
         </div>
     </div>
+      <!--cart-->
     <ng-template #cartitems>
         <div class="container text-center">
+              <!--total price-->
             <h1 class="total">Your bag total is {{ TotalPrice(cart) | currency : "INR" : "symbol" : "3.0" }}</h1>
             <hr>
         </div>
+          <!--cart details-->
         <div class="container" *ngFor="let item of cart">
             <div class="row">
                 <div class="col-3">
@@ -46,8 +50,10 @@
                     <span id="tot">{{ TotalPrice(cart) | currency : "INR" : "symbol" : "3.0" }}</span>
                     <br /><br />
                     <div class="form d-flex text-end">
+                        <!--primeNG toast-->
                         <p-toast position="top-center"></p-toast>
                         <button id="btn1" class="me-3" routerLink=''>Continue Shopping</button>
+                          <!--payment button-->
                         <button id="btn2" (click)="makePayment(TotalPrice(cart))">Place Order</button>
                     </div>
                 </div>

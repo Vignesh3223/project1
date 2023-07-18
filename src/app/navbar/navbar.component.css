@@ -1,12 +1,14 @@
-section{
+section {
     padding: 100px 0 0 0;
     background-color: whitesmoke;
 }
-.logo{
-    width:120px;
-    height:75px;
+
+/*boat logo*/
+.logo {
+    width: 120px;
+    height: 75px;
 }
 
-span{
+span {
     font-size: 30px;
 }

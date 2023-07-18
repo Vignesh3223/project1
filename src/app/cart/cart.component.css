@@ -3,12 +3,13 @@ section {
     padding: 50px 0 100px 0;
 }
 
+/*total price*/
 .total {
     font-family: proxima;
     color: #000000;
 }
 
-/*product/item contents*/
+/*cart details*/
 .name,
 .price {
     font-family: proxima;
@@ -17,7 +18,7 @@ section {
     font-weight: 700;
 }
 
-/*product/item quantity*/
+/*quantity*/
 .quantity {
     border: 1px solid #e2dddd;
     font-family: proxima;
@@ -36,6 +37,7 @@ section {
     cursor: pointer;
 }
 
+/*product remove*/
 #remove {
     font-family: proxima;
     color: #FF0000;

@@ -2,12 +2,15 @@
     <h1>Welcome Admin!!!</h1>
     <hr>
     <div class="container mt-5 text-center">
+        <!--primeNG toast-->
         <p-toast position="top-center"></p-toast>
+        <!--task assign form-->
         <form [formGroup]="AssignmentForm" novalidate>
             <h2>Assign a Task</h2>
             <hr>
+            <!--topic-->
             <div class="form-group mb-3">
-                <label for="firstname">Topic</label>
+                <label for="topic">Topic</label>
                 <input type="text" class="form-control" placeholder="Enter a Title" formControlName="topic"
                     [ngClass]="{'is-invalid':topic.errors && (topic.touched || topic.dirty),'is-valid': topic.valid}" />
                 <div class="valid-feedback" *ngIf="topic.valid">
@@ -17,6 +20,7 @@
                     <strong *ngIf="topic.errors?.required">Required Field</strong>
                 </div>
             </div>
+             <!--content-->
             <div class="form-group mb-3">
                 <label for="content">Content</label>
                 <textarea rows="5" class="form-control" placeholder="Enter the Task Contents" formControlName="content"
@@ -28,6 +32,7 @@
                     <strong *ngIf="content.errors?.required">Required Field</strong>
                 </div>
             </div>
+             <!--duedate-->
             <div class="form-group mb-3">
                 <label for="duedate">Due Date</label>
                 <input type="date" class="form-control" formControlName="duedate"
@@ -39,6 +44,7 @@
                     <strong *ngIf="duedate.errors?.required">Required Field</strong>
                 </div>
             </div>
+             <!--assign to-->
             <div class="form-group mb-5">
                 <label for="assignto">Assign Task to</label>
                 <select class="form-control" name="assignto" formControlName="assignto">
@@ -50,6 +56,7 @@
                     <option value="Trainee">Trainee</option>
                 </select>
             </div>
+             <!--submit button-->
             <div class="form-group text-center">
                 <button type="button" class="btn btn-info btn-block" (click)="onSubmit()">Assign Task </button>
             </div>

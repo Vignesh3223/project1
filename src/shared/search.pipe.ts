@@ -4,6 +4,7 @@ import { Pipe, PipeTransform } from '@angular/core';
   name: 'search'
 })
 export class SearchPipe implements PipeTransform {
+   //searching tasks based on title
   transform(items: any[], searchText: string): any[] {
     if (!items) {
       return [];
@@ -11,11 +12,10 @@ export class SearchPipe implements PipeTransform {
     if (!searchText) {
       return items;
     }
-    searchText = searchText.toLocaleLowerCase();
-
-    return items.filter(it => {
-      return it.toLocaleLowerCase().includes(searchText);
+    searchText = searchText.toLowerCase();
+    return items.filter(item => {
+      const itemTitle = item.topic.toLowerCase();
+      return itemTitle.includes(searchText);
     });
   }
-
 }

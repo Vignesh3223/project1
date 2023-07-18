@@ -4,8 +4,11 @@ import { Pipe, PipeTransform } from '@angular/core';
   name: 'filter'
 })
 export class FilterPipe implements PipeTransform {
-
-  transform(items: any[], args: any[]): any {
-    return items.filter(item => item.id.indexOf(args[0]) !== -1);
+  //filtering tasks based on profession
+  transform(tasks: any[], selectedProfession: string): any[] {
+    if (!selectedProfession) {
+      return tasks;
+    }
+      return tasks.filter(work => work.assignto === selectedProfession);
   }
 }

@@ -1,22 +1,24 @@
 <section>
     <div class="container-fluid">
+        <!--title-->
         <h1>Tasks</h1>
         <hr>
     </div>
     <div *ngFor="let user of userlist">
         <div class="container" *ngIf="user.profession === 'Admin'">
             <div class="row mt-5 mb-5">
+                <!--filter tasks based on profession-->
                 <div class="col-4 text-center">
                     <label>Filter Tasks by Profession</label><br />
-                    <select class="form-control" id="filter">
-                        <option value="" disabled selected hidden>Filter by:</option>
-                        <option for="designer">Profession : Designer</option>
-                        <option for="developer">Profession : Developer</option>
-                        <option for="tester">Profession : Tester</option>
-                        <option for="trainer">Profession : Trainer</option>
-                        <option for="trainee">Profession : Trainee</option>
+                    <select class="form-control" id="filter" [(ngModel)]="selectedProfession">
+                        <option value="designer">Profession: Designer</option>
+                        <option value="developer">Profession: Developer</option>
+                        <option value="tester">Profession: Tester</option>
+                        <option value="trainer">Profession: Trainer</option>
+                        <option value="trainee">Profession: Trainee</option>
                     </select>
                 </div>
+                <!--sort tasks based on duedate-->
                 <div class="col-4 text-center">
                     <label>Sort by Due Date</label><br />
                     <select class="form-control" (change)="onOptionsSelected($event)" id="sort">
@@ -25,8 +27,9 @@
                         <option value="f-n">Date : Farest Date</option>
                     </select>
                 </div>
+                <!--search tasks based on title-->
                 <div class="col-4 text-center">
-                    <label for="search-text">Search by Topic</label>
+                    <label for="search-text">Search by Title of the Task</label>
                     <input type="text" class="form-control" id="search" aria-describedby="search-text"
                         [(ngModel)]="searchText" placeholder="Enter Title to search" autofocus>
                 </div>
@@ -34,16 +37,18 @@
         </div>
         <div class="container" *ngIf="user.profession!='Admin'">
             <div class="row">
+                <!--sort tasks based on duedate-->
                 <div class="col-6 text-center">
                     <label>Sort by Due Date</label><br />
                     <select class="form-control" (change)="onOptionsSelected($event)" id="sort">
-                        <option value="" disabled selected hidden>Sort by:</option>
+                        <option value="">Sort by:</option>
                         <option value="n-f">Date : Nearest Date</option>
                         <option value="f-n">Date : Farest Date</option>
                     </select>
                 </div>
+                <!--search tasks based on title-->
                 <div class="col-6 text-center">
-                    <label for="search-text">Search by Topic</label>
+                    <label for="search-text">Search by Profession</label>
                     <input type="text" class="form-control" id="search" aria-describedby="search-text"
                         [(ngModel)]="searchText" placeholder="Enter Title to search" autofocus>
                 </div>
@@ -52,10 +57,13 @@
     </div>
     <hr>
     <div class="container">
+        <!--primeNG toast-->
         <p-toast position="top-center"></p-toast>
-        <div class="card" *ngFor="let work of tasks | sort : [sortParam , sortDirection] | search: searchText">
-            <div *ngFor="let user of userlist">
-                <ng-container *ngIf="user.profession === 'Admin' || user.profession === work.assignto">
+        <div *ngFor="let user of userlist">
+            <!--card to display tasks-->
+            <div class="card"
+                *ngFor="let work of tasks | search:searchText | filter:selectedProfession | sort:[sortParam,sortDirection]">
+                <div *ngIf="user.profession === 'Admin' || user.profession === work.assignto">
                     <div class="card-header">
                         Task assigned to : {{ work.assignto }}
                     </div>
@@ -63,6 +71,7 @@
                         <h4 class="card-title">Title : {{ work.topic }}</h4>
                         <p class="card-text">Task : {{ work.content }}</p>
                         <p class="card-text">Due date : {{ work.duedate }}</p>
+                        <!--operations of admin-->
                         <div *ngIf="user.firstname === 'Admin'">
                             <div *ngIf="work.status==='';else InProgress">
                                 <button type="button" data-bs-toggle="modal" data-bs-target="#exampleModal"
@@ -80,6 +89,7 @@
                                 <button type="button" (click)="delete(work)" class="btn btn-danger">Delete</button>
                             </ng-template>
                         </div>
+                        <!--operations of user-->
                         <div *ngIf="user.firstname !== 'Admin'">
                             <div *ngIf="work.status==='';else InProgress">
                                 <button type="button" (click)="progress(work)" class="btn btn-warning me-3">In
@@ -99,10 +109,11 @@
                             </ng-template>
                         </div>
                     </div>
-                </ng-container>
+                </div>
             </div>
         </div>
     </div>
+    <!--task is empty-->
     <div class="container" *ngIf="tasks.length===0||!hasMatchingAssignment()"
         style="padding-bottom: 400px; border: none;">
         <div class="row mt-5">
@@ -111,6 +122,7 @@
         </div>
     </div>
 </section>
+<!--modal to edit task-->
 <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
     <div class="modal-dialog">
         <div class="modal-content">
@@ -145,12 +157,14 @@
                     </div>
                     <div class="form-group mb-3">
                         <label for="status">Status</label>
-                        <input type="text" class="form-control" id="status" formControlName="status" [attr.disabled]="true">
+                        <input type="text" class="form-control" id="status" formControlName="status">
                     </div>
                 </form>
             </div>
             <div class="modal-footer">
+                <!--close modal button-->
                 <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                <!--update changes button-->
                 <button type="button" class="btn btn-primary" (click)="savechanges()">Save changes</button>
             </div>
         </div>

@@ -1,10 +1,17 @@
 import { Component, OnInit } from '@angular/core';
+//Form attributes
 import { FormControl, FormGroup, Validators } from '@angular/forms';
+//TaskService from Service
 import { TaskService } from 'src/services/task.service';
+//UserService from Service
 import { UserService } from 'src/services/user.service';
+//HTTPClient Module
 import { HttpClient } from '@angular/common/http';
+//primeNG Message Service
 import { MessageService } from 'primeng/api';
+//router
 import { Router } from '@angular/router';
+//Task Interface
 import { Task } from 'src/models/products';
 
 @Component({
@@ -15,13 +22,14 @@ import { Task } from 'src/models/products';
 
 export class ViewtaskComponent implements OnInit {
 
+  //Form name
   taskForm: FormGroup | any;
+  //Form fields
   topic: FormControl | any;
   content: FormControl | any;
   duedate: FormControl | any;
   assignto: FormControl | any;
-
-  status: string | any;
+  status: FormControl | any;
 
   submitted = false;
 
@@ -31,6 +39,10 @@ export class ViewtaskComponent implements OnInit {
 
   auth: boolean = false;
 
+  selectedProfession: string | any;
+
+  searchText = '';
+
   constructor(
     private taskService: TaskService,
     private authService: UserService,
@@ -39,22 +51,27 @@ export class ViewtaskComponent implements OnInit {
     private router: Router
   ) { }
 
+  //primeNG toast for task update
   showSuccess() {
     this.messageService.add({ severity: 'success', summary: 'Success', detail: 'Task updated successfully' });
   }
 
+  //primeNG toast for task delete
   deleteTask() {
     this.messageService.add({ severity: 'success', summary: 'Success', detail: 'Task removed successfully' });
   }
 
+  //primeNG toast for status update
   statusUpdate() {
     this.messageService.add({ severity: 'success', summary: 'Success', detail: 'Status updated successfully' });
   }
 
+  //primeNG toast for task edit
   showEdit() {
     this.messageService.add({ severity: 'success', summary: 'Success', detail: 'Task edited successfully' });
   }
 
+  //primeNG toast for form error
   showError() {
     this.messageService.add({ severity: 'error', summary: 'Error', detail: 'Please fill in all the details' });
   }
@@ -70,25 +87,30 @@ export class ViewtaskComponent implements OnInit {
         this.userlist = res;
       });
 
+    //Form Validations
     this.topic = new FormControl('', [Validators.required]);
     this.content = new FormControl('', [Validators.required]);
     this.duedate = new FormControl('', [Validators.required]);
     this.assignto = new FormControl('');
+    this.status = new FormControl({ value: '', disabled: true });
 
     this.taskForm = new FormGroup({
       topic: this.topic,
       content: this.content,
       duedate: this.duedate,
-      assignto: this.assignto
+      assignto: this.assignto,
+      status: this.status,
     });
   }
 
+  //Function to change status as progress
   progress(work: Task) {
     work.status = 'in progress';
     this.statusUpdate();
     this.taskService.updateTask(work);
   }
 
+  //Function to change status as completed
   complete(work: Task) {
     work.status = 'completed';
     this.statusUpdate();
@@ -96,6 +118,7 @@ export class ViewtaskComponent implements OnInit {
     setTimeout(() => { this.router.navigate(['/viewtask']); }, 1000);
   }
 
+  //Function to delete task
   delete(deleteWork: Task) {
     this.taskService.removeTask(deleteWork).subscribe(
       () => console.log(deleteWork.id));
@@ -103,6 +126,7 @@ export class ViewtaskComponent implements OnInit {
     this.ngOnInit();
   }
 
+  //Function to edit task
   updateId: number = 0
   edit(work: Task) {
     this.updateId = work.id;
@@ -113,24 +137,25 @@ export class ViewtaskComponent implements OnInit {
     this.status.setValue(work.status);
   }
 
+  //Function to update task
   savechanges() {
+    console.log(this.taskForm.value)
+    this.taskForm.value.status = ''
     const workurl = this.taskService.taskurl + '/' + this.updateId;
     this.http.put<Task[]>(workurl, this.taskForm.value).subscribe(
       () => {
         console.log(this.taskForm.value);
         this.showEdit();
-        this.ngOnInit()
+        this.ngOnInit();
       }
     )
   }
-
-  searchText = '';
 
   sortParam: any;
   sortDirection: any;
   optionSelected: any;
 
-  //function for sorting purpose
+  //function to sort tasks
   onOptionsSelected(event: any) {
     console.log(event.target.value);
     this.optionSelected = event.target.value;
@@ -142,6 +167,7 @@ export class ViewtaskComponent implements OnInit {
     }
   }
 
+  //function to check matching professions
   hasMatchingAssignment(): boolean {
     for (const work of this.tasks) {
       for (const user of this.userlist) {

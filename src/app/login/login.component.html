@@ -3,46 +3,52 @@
         <h1>Welcome Back!</h1>
         <hr>
         <div class="row text-center mt-5">
-        <form [formGroup]="LoginForm" novalidate>
-            <div class="form-group mb-3">
-                <label for="email">Email</label>
-                <input type="email" class="form-control" placeholder="Email" formControlName="useremail"
-                    [ngClass]="{'is-invalid':useremail.errors && (useremail.touched || useremail.dirty),'is-valid': useremail.valid}" />
-                <div class="valid-feedback" *ngIf="useremail.valid">
-                    <p class="text text-success">Email is Good</p>
+            <!--login form-->
+            <form [formGroup]="LoginForm" novalidate>
+                <!--email-->
+                <div class="form-group mb-3">
+                    <label for="email">Email</label>
+                    <input type="email" class="form-control" placeholder="Email" formControlName="useremail"
+                        [ngClass]="{'is-invalid':useremail.errors && (useremail.touched || useremail.dirty),'is-valid': useremail.valid}" />
+                    <div class="valid-feedback" *ngIf="useremail.valid">
+                        <p class="text text-success">Email is Good</p>
+                    </div>
+                    <div class="invalid-feedback">
+                        <strong *ngIf="useremail.errors?.required">Required Field</strong>
+                        <strong *ngIf="useremail.errors?.email">Enter a valid Email</strong>
+                        <strong *ngIf="useremail.errors?.pattern">Enter a valid Email</strong>
+                    </div>
                 </div>
-                <div class="invalid-feedback">
-                    <strong *ngIf="useremail.errors?.required">Required Field</strong>
-                    <strong *ngIf="useremail.errors?.email">Enter a valid Email</strong>
-                    <strong *ngIf="useremail.errors?.pattern">Enter a valid Email</strong>
+                <!--password-->
+                <div class="form-group mb-5">
+                    <label for="password">Password</label>
+                    <input type="password" class="form-control" placeholder="Password" formControlName="password"
+                        [ngClass]="{'is-invalid':password.errors && (password.touched || password.dirty),'is-valid': password.valid}" />
+                    <div class="valid-feedback" *ngIf="password.valid">
+                        <p class="text text-success">Password is Good</p>
+                    </div>
+                    <div class="invalid-feedback">
+                        <strong *ngIf="password.errors?.required">Required Field</strong>
+                        <strong *ngIf="password.errors?.minlength">Password must be greater than
+                            6 characters.
+                        </strong>
+                        <strong *ngIf="password.errors?.maxlength">Password must be less than 14
+                            characters
+                        </strong>
+                        <strong *ngIf="password.errors?.pattern">Password must contain only aphabets and
+                            numbers</strong>
+                    </div>
                 </div>
-            </div>
-            <div class="form-group mb-5">
-                <label for="password">Password</label>
-                <input type="password" class="form-control" placeholder="Password" formControlName="password"
-                    [ngClass]="{'is-invalid':password.errors && (password.touched || password.dirty),'is-valid': password.valid}" />
-                <div class="valid-feedback" *ngIf="password.valid">
-                    <p class="text text-success">Password is Good</p>
+                <div class="form-group text-center">
+                    <!--primeNG toast-->
+                    <p-toast position="top-center"></p-toast>
+                    <!--back to home page-->
+                    <button class="btn btn-danger btn-block me-3" routerLink=''>Back to Home</button>
+                    <!--submit button-->
+                    <button type="button" class="btn btn-info btn-block" (click)="onSubmit()">
+                        Sign In </button>
                 </div>
-                <div class="invalid-feedback">
-                    <strong *ngIf="password.errors?.required">Required Field</strong>
-                    <strong *ngIf="password.errors?.minlength">Password must be greater than
-                        6 characters.
-                    </strong>
-                    <strong *ngIf="password.errors?.maxlength">Password must be less than 14
-                        characters
-                    </strong>
-                    <strong *ngIf="password.errors?.pattern">Password must contain only aphabets and
-                        numbers</strong>
-                </div>
-            </div>
-            <div class="form-group text-center">
-                <p-toast position="top-center"></p-toast>
-                <button class="btn btn-danger btn-block me-3" routerLink=''>Back to Home</button>
-                <button type="button" class="btn btn-info btn-block" (click)="onSubmit()">
-                Sign In </button>
-            </div>
-        </form>
-    </div>
+            </form>
+        </div>
     </div>
 </section>

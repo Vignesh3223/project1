@@ -6,6 +6,7 @@ h1 {
     letter-spacing: 2px;
 }
 
+/*task is empty*/
 .empty {
     text-align: center;
 }
@@ -16,4 +17,14 @@ button {
 
 .row {
     width: 100%;
+}
+
+/*card*/
+.card:nth-child(odd) {
+    background-color: lightslategray;
+    color: whitesmoke;
+}
+
+.card:nth-child(even) {
+    background-color: lightgrey;
 }

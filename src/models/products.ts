@@ -1,3 +1,4 @@
+//Products Interface
 export interface Products {
     id: number;
     title: string;
@@ -6,6 +7,7 @@ export interface Products {
     price: number;
 }
 
+//User Interface
 export interface User {
     id: number;
     firstname: string;
@@ -20,6 +22,7 @@ export interface User {
     logged: boolean;
 }
 
+//Cart Interface
 export interface Cart {
     id: number;
     image: string;
@@ -29,6 +32,7 @@ export interface Cart {
     total: number;
 }
 
+//Task Interface
 export interface Task {
     id: number;
     topic: string;

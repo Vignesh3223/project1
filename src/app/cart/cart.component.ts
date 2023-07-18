@@ -1,7 +1,11 @@
 import { Component, OnInit } from '@angular/core';
+//CartService from Service
 import { CartService } from 'src/services/cart.service';
+//Cart Interface
 import { Cart } from 'src/models/products';
+//router
 import { Router } from '@angular/router';
+//primeNG Message Service
 import { MessageService } from 'primeng/api';
 
 @Component({
@@ -13,10 +17,12 @@ export class CartComponent implements OnInit {
 
   paymentHandler: any = null;
 
+  //primeNG toast for payment success
   paymentSuccess() {
     this.messageService.add({ severity: 'success', summary: 'Success', detail: 'Order placed successfully' });
   }
 
+  //primeNG toast for payment failure
   paymentFailure() {
     this.messageService.add({ severity: 'danger', summary: 'error', detail: 'Error in generating Stripe Payment Gateway' });
   }
@@ -63,6 +69,7 @@ export class CartComponent implements OnInit {
     private router: Router,
     private messageService: MessageService) { }
 
+  //Cart 
   carts: Cart = {
     id: 0,
     title: '',
@@ -75,10 +82,12 @@ export class CartComponent implements OnInit {
   total: number = 0;
   quantity: number = 1;
 
+  //primeNG toast for product deletion
   showRemove() {
     this.messageService.add({ severity: 'success', summary: 'Success', detail: 'Product removed successfully' });
   }
 
+  //function to calculate the total price of items in the cart
   TotalPrice(data: any) {
     const initialValue = 0;
     this.cartData = data
@@ -88,11 +97,13 @@ export class CartComponent implements OnInit {
 
   cart: Cart[] = [];
 
+  //function to increase the quantity of items in the cart
   increase(item: Cart) {
     item.quantity++;
     this.cartService.updateCart(item);
   }
 
+  //function to decrease the quantity of items in the cart
   decrease(item: Cart) {
     if (item.quantity <= 1) {
       this.delete(item)
@@ -103,6 +114,7 @@ export class CartComponent implements OnInit {
     this.cartService.updateCart(item);
   }
 
+    //function to delete items from the cart
   delete(deleteItem: Cart) {
     this.cartService.removeItemFromCart(deleteItem).subscribe(
       () => console.log(deleteItem.id));

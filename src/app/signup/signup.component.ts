@@ -1,9 +1,15 @@
 import { Component, OnInit } from '@angular/core';
+//HTTPClient Module
 import { HttpClient } from '@angular/common/http';
+//user environment
 import { environment } from 'src/environment/environment';
+//Form attributes
 import { FormGroup, FormControl, Validators } from '@angular/forms';
+//primeNG Message Service
 import { MessageService } from 'primeng/api';
+//router
 import { Router } from '@angular/router';
+//User Interface
 import { User } from 'src/models/products';
 
 @Component({
@@ -13,9 +19,12 @@ import { User } from 'src/models/products';
 })
 export class SignupComponent implements OnInit {
 
+  //userurl
   userapi = environment.userurl;
 
+  //Form name
   SignUpForm: FormGroup | any;
+  //Form fields
   firstname: FormControl | any;
   lastname: FormControl | any;
   useremail: FormControl | any;
@@ -26,6 +35,7 @@ export class SignupComponent implements OnInit {
   state: FormControl | any;
   pincode: FormControl | any;
 
+  //logged property
   logged: boolean | any;
 
   submitted = false;
@@ -37,6 +47,7 @@ export class SignupComponent implements OnInit {
   ) { }
 
   ngOnInit(): void {
+    //Form Validations
     this.firstname = new FormControl('',
       [
         Validators.required,
@@ -88,19 +99,24 @@ export class SignupComponent implements OnInit {
     });
   }
 
+  //primeNG toast for successful signup
   showSuccess() {
     this.messageService.add({ severity: 'success', summary: 'Success', detail: 'Signed Up Successfully' });
   }
 
+  //primeNG toast for form error
   showError() {
     this.messageService.add({ severity: 'error', summary: 'Error', detail: 'Please fill in all the details' });
   }
 
+  //function on submit
   onSubmit() {
     this.submitted = true;
+    //Form invalid
     if (this.SignUpForm.invalid) {
       this.showError();
     }
+    //From valid post the date into json
     else {
       const user: User = { ...this.SignUpForm.value, logged: false };
       console.log(this.SignUpForm);

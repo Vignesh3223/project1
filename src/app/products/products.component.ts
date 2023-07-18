@@ -1,7 +1,11 @@
 import { Component, OnInit } from '@angular/core';
+//ProductService from Service
 import { ProductService } from 'src/services/product.service';
+//CartService from Service
 import { CartService } from 'src/services/cart.service';
+//Cart Interface
 import { Cart } from 'src/models/products';
+//primeNG Message Service
 import { MessageService } from 'primeng/api';
 
 @Component({
@@ -19,6 +23,7 @@ export class ProductsComponent implements OnInit {
 
   prodslist: any[] = [];
 
+  //primeNG toast for adding product
   showAddMessage() {
     this.messageService.add({ severity: 'success', summary: 'Success', detail: 'Product added successfully' });
   }

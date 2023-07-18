@@ -1,7 +1,11 @@
 import { Injectable } from '@angular/core';
+//HTTPClient
 import { HttpClient } from '@angular/common/http';
+//Subject
 import { Subject } from 'rxjs';
+//Cart Interface
 import { Cart } from 'src/models/products';
+//Message Service for toast
 import { MessageService } from 'primeng/api';
 
 @Injectable({
@@ -10,6 +14,7 @@ import { MessageService } from 'primeng/api';
 
 export class CartService {
 
+  //cart url
   url: string = '';
   carturl = 'http://localhost:3000/carts';
 
@@ -17,20 +22,24 @@ export class CartService {
     this.url = this.carturl + '/';
   }
 
+  //primeng toast
   showUpdate() {
     this.messageService.add({ severity: 'success', summary: 'Success', detail: 'Quantity updated successfully' });
   }
-  
+
+  //function to add products to cart
   addToCart(product: Cart) {
     this.http.post<Cart>(this.carturl, product).subscribe((data) => {
       console.log(data);
     });
   }
 
+  //function to fetch cart items
   getCartItems() {
     return this.http.get<Cart[]>(this.carturl);
   }
 
+  //function to update cart
   updateCart(product: Cart) {
     let updateurl = this.carturl + '/' + product.id
     this.http.put<Cart[]>(updateurl, product).subscribe(() => {
@@ -38,15 +47,8 @@ export class CartService {
     })
   }
 
+  //function to delete items from cart
   removeItemFromCart(item: any) {
     return this.http.delete(this.url + item.id);
-  }
-
-  public countSubject = new Subject<number>();
-  getCount() {
-    return this.getCartItems().subscribe((res) => {
-      this.countSubject.next(res.length);
-      console.log(this.countSubject + 'inside sub');
-    });
   }
 }

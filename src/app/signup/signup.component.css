@@ -2,18 +2,23 @@ section{
     background-color: lavender;
     padding: 0 0 100px 0;
 }
+
 h1{
     font-family: times new roman;
     font-weight: 700;
     color: midnightblue;
     text-decoration: dashed;
 }
+
+/*form*/
 form{
     border: 1px groove rgb(223, 217, 217);
     padding: 25px;
     width:500px;
     margin: 0 auto 0 auto;
 }
+
+/*form label*/
 label{
     font-family: times new roman;
     font-size: 18px;
@@ -21,6 +26,8 @@ label{
     color: #000000;
     letter-spacing: 1px;
 }
+
+/*form input,select*/
 input,select{
     border-radius: 0%;
 }

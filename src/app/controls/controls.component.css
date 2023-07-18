@@ -8,6 +8,7 @@ h1 {
     font-family: times new roman;
 }
 
+/*form*/
 form {
     width: 500px;
     margin: 0 auto 0 auto;
@@ -15,12 +16,14 @@ form {
     border: 1px groove rgb(223, 217, 217);
 }
 
+/*form title*/
 h2 {
     font-family: times new roman;
     font-style: oblique;
     font-weight: bold;
 }
 
+/*form label*/
 label {
     font-family: times new roman;
     font-size: 18px;
@@ -29,6 +32,7 @@ label {
     letter-spacing: 1px;
 }
 
+/*form input,select*/
 input,
 select {
     border-radius: 0%;
