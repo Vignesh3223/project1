@@ -28,3 +28,12 @@ button {
 .card:nth-child(even) {
     background-color: lightgrey;
 }
+
+.example-full-width {
+    width: 100%;
+}
+
+.example-full-width input {
+   height: 38px;
+}
+

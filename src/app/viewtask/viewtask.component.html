@@ -9,39 +9,47 @@
             <div class="row mt-5 mb-5">
                 <!--filter tasks based on profession-->
                 <div class="col-3 text-center">
-                    <label>Filter by Profession</label><br />
-                    <select class="form-control" id="filter" [(ngModel)]="selectedProfession">
-                        <option value="">Filter by:</option>
-                        <option value="Designer">Profession: Designer</option>
-                        <option value="Developer">Profession: Developer</option>
-                        <option value="Tester">Profession: Tester</option>
-                        <option value="Trainer">Profession: Trainer</option>
-                        <option value="Trainee">Profession: Trainee</option>
-                    </select>
+                    <mat-form-field appearance="outline" class="example-full-width">
+                        <mat-label>Filter by Profession</mat-label>
+                        <mat-select class="form-control" id="filter" [(ngModel)]="selectedProfession">
+                            <mat-option value="">Filter by :</mat-option>
+                            <mat-option value="Designer">Designer</mat-option>
+                            <mat-option value="Developer">Developer</mat-option>
+                            <mat-option value="Tester">Tester</mat-option>
+                            <mat-option value="Trainer">Trainer</mat-option>
+                            <mat-option value="Trainee">Trainee</mat-option>
+                        </mat-select>
+                    </mat-form-field>
                 </div>
                 <!--sort tasks based on duedate-->
                 <div class="col-3 text-center">
-                    <label>Sort by Due Date</label><br />
-                    <select class="form-control" (change)="onOptionsSelected($event)" id="sort">
-                        <option value="">Sort by:</option>
-                        <option value="n-f">Date : Nearest Date</option>
-                        <option value="f-n">Date : Farest Date</option>
-                    </select>
-                </div>
-                <!--search tasks based on title-->
-                <div class="col-3 text-center">
-                    <label for="search-text">Search by Title</label>
-                    <input type="text" class="form-control" id="search" aria-describedby="search-text"
-                        [(ngModel)]="searchText" placeholder="Enter Title to search" autofocus>
+                    <!-- <mat-form-field appearance="outline" class="example-full-width"> -->
+                        <label>Sort by Due Date</label>
+                        <select class="form-control" (change)="onOptionsSelected($event)" id="sort">
+                            <option value="">Sort by :</option>
+                            <option value="n-f">Nearest Date</option>
+                            <option value="f-n">Farest Date</option>
+                        </select>
+                    <!-- </mat-form-field> -->
                 </div>
                 <!--filter tasks based on status-->
                 <div class="col-3 text-center">
-                    <label>Filter by Status</label><br />
-                    <select class="form-control" id="filterstatus" [(ngModel)]="selectedStatus">
-                        <option value="">Filter by:</option>
-                        <option value="in progress">Status : In Progress</option>
-                        <option value="completed">Status : Completed</option>
-                    </select>
+                    <mat-form-field appearance="outline" class="example-full-width">
+                        <mat-label>Filter by Status</mat-label>
+                        <mat-select class="form-control" id="filterstatus" [(ngModel)]="selectedStatus">
+                            <mat-option value="">Filter by :</mat-option>
+                            <mat-option value="in progress">In Progress</mat-option>
+                            <mat-option value="completed">Completed</mat-option>
+                        </mat-select>
+                    </mat-form-field>
+                </div>
+                <!--search tasks based on title-->
+                <div class="col-3 text-center">
+                    <mat-form-field appearance="outline" class="example-full-width">
+                        <mat-label>Search by Title</mat-label>
+                        <mat-icon matSuffix>search</mat-icon>
+                        <input type="text" matInput placeholder="Enter Title to search" [(ngModel)]="searchText">
+                    </mat-form-field>
                 </div>
             </div>
         </div>
@@ -49,27 +57,33 @@
             <div class="row">
                 <!--sort tasks based on duedate-->
                 <div class="col-4 text-center">
-                    <label>Sort by Due Date</label><br />
-                    <select class="form-control" (change)="onOptionsSelected($event)" id="sort">
-                        <option value="">Sort by:</option>
-                        <option value="n-f">Date : Nearest Date</option>
-                        <option value="f-n">Date : Farest Date</option>
-                    </select>
-                </div>
-                <!--search tasks based on title-->
-                <div class="col-4 text-center">
-                    <label for="search-text">Search by Title</label>
-                    <input type="text" class="form-control" id="search" aria-describedby="search-text"
-                        [(ngModel)]="searchText" placeholder="Enter Title to search" autofocus>
+                    <!-- <mat-form-field appearance="outline" class="example-full-width"> -->
+                        <label>Sort by Due Date</label>
+                        <select class="form-control" (change)="onOptionsSelected($event)" id="sort">
+                            <option value="">Sort by :</option>
+                            <option value="n-f">Nearest Date</option>
+                            <option value="f-n">Farest Date</option>
+                        </select>
+                    <!-- </mat-form-field> -->
                 </div>
                 <!--filter tasks based on status-->
                 <div class="col-4 text-center">
-                    <label>Filter by Status</label><br />
-                    <select class="form-control" id="filterstatus" [(ngModel)]="selectedStatus">
-                        <option value="">Filter by:</option>
-                        <option value="in progress">Status : In Progress</option>
-                        <option value="completed">Status : Completed</option>
-                    </select>
+                    <mat-form-field appearance="outline" class="example-full-width">
+                        <mat-label>Filter by Status</mat-label>
+                        <mat-select class="form-control" id="filterstatus" [(ngModel)]="selectedStatus">
+                            <mat-option value="">Filter by :</mat-option>
+                            <mat-option value="in progress">In Progress</mat-option>
+                            <mat-option value="completed">Completed</mat-option>
+                        </mat-select>
+                    </mat-form-field>
+                </div>
+                <!--search tasks based on title-->
+                <div class="col-4 text-center">
+                    <mat-form-field appearance="outline" class="example-full-width">
+                        <mat-label>Search by Title</mat-label>
+                        <mat-icon matSuffix>search</mat-icon>
+                        <input type="text" matInput placeholder="Enter Title to search" [(ngModel)]="searchText">
+                    </mat-form-field>
                 </div>
             </div>
         </div>
@@ -93,35 +107,39 @@
                         <!--operations of admin-->
                         <div *ngIf="user.firstname === 'Admin'">
                             <div *ngIf="work.status==='';else InProgress">
-                                <button type="button" data-bs-toggle="modal" data-bs-target="#exampleModal"
-                                    (click)="edit(work)" class="btn btn-info me-3">Edit</button>
-                                <button type="button" (click)="deleteTask(work)" class="btn btn-danger">Delete</button>
+                                <button class="me-3" mat-raised-button color="accent" (click)="edit(work)"
+                                    data-bs-toggle="modal" data-bs-target="#exampleModal">
+                                    Edit<mat-icon>mode_edit</mat-icon></button>
+                                <button mat-icon mat-raised-button color="warn" (click)="deleteTask(work)">
+                                    Delete<mat-icon>delete</mat-icon></button>
                             </div>
                             <ng-template #InProgress>
                                 <div *ngIf="work.status==='in progress';else completed">
                                     <h4>Status : {{work.status}}</h4>
-                                    <button type="button" (click)="deleteTask(work)"
-                                        class="btn btn-danger">Delete</button>
+                                    <button mat-icon mat-raised-button color="warn" (click)="deleteTask(work)">
+                                        Delete<mat-icon>delete</mat-icon></button>
                                 </div>
                             </ng-template>
                             <ng-template #completed>
                                 <h4>Status : {{work.status}}</h4>
-                                <button type="button" (click)="deleteTask(work)" class="btn btn-danger">Delete</button>
+                                <button mat-icon mat-raised-button color="warn" (click)="deleteTask(work)">
+                                    Delete<mat-icon>delete</mat-icon></button>
                             </ng-template>
                         </div>
                         <!--operations of user-->
                         <div *ngIf="user.firstname !== 'Admin'">
                             <div *ngIf="work.status==='';else InProgress">
-                                <button type="button" (click)="progress(work)" class="btn btn-warning me-3">In
-                                    Progress</button>
-                                <button type="button" (click)="complete(work)"
-                                    class="btn btn-success">Completed</button>
+                                <button class="me-3" mat-icon mat-raised-button color="primary"
+                                    (click)="progress(work)">
+                                    In Progress<mat-icon>star_half</mat-icon></button>
+                                <button mat-icon mat-raised-button color="accent" (click)="complete(work)">
+                                    Completed<mat-icon>done_all</mat-icon></button>
                             </div>
                             <ng-template #InProgress>
                                 <div *ngIf="work.status==='in progress';else completed">
                                     <h4>Status : {{work.status}}</h4>
-                                    <button type="button" (click)="complete(work)"
-                                        class="btn btn-success">Completed</button>
+                                    <button mat-icon mat-raised-button color="accent" (click)="complete(work)">
+                                        Completed<mat-icon>done_all</mat-icon></button>
                                 </div>
                             </ng-template>
                             <ng-template #completed>
@@ -183,9 +201,11 @@
             </div>
             <div class="modal-footer">
                 <!--close modal button-->
-                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                <button mat-icon mat-raised-button color="warn" data-bs-dismiss="modal">
+                    Close<mat-icon>close</mat-icon></button>
                 <!--update changes button-->
-                <button type="button" class="btn btn-primary" (click)="savechanges()">Save changes</button>
+                <button mat-icon mat-raised-button color="primary" (click)="savechanges()">
+                    Save<mat-icon>check</mat-icon></button>
             </div>
         </div>
     </div>

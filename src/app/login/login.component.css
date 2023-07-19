@@ -31,3 +31,7 @@ input,
 select {
     border-radius: 0%;
 }
+
+.example-full-width {
+    width: 100%;
+}

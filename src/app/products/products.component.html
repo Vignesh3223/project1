@@ -16,7 +16,9 @@
                             <h3 class="card-text">{{prod.price | currency : "INR" : "symbol" : "3.0"}}</h3>
                             <p class="card-text">{{prod.description}}</p>
                             <!--add to cart button-->
-                            <button (click)="addtoCart(prod)" class="btn btn-secondary">Add to Cart</button>
+                            <button mat-fab color="accent" (click)="addtoCart(prod)">
+                                <mat-icon>add_shopping_cart</mat-icon>
+                            </button>
                         </div>
                     </div>
                 </div>

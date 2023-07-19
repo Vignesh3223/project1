@@ -10,55 +10,71 @@
             <hr>
             <!--topic-->
             <div class="form-group mb-3">
-                <label for="topic">Topic</label>
-                <input type="text" class="form-control" placeholder="Enter a Title" formControlName="topic"
-                    [ngClass]="{'is-invalid':topic.errors && (topic.touched || topic.dirty),'is-valid': topic.valid}" />
-                <div class="valid-feedback" *ngIf="topic.valid">
-                    <p class="text text-success">Topic is Good</p>
-                </div>
-                <div class="invalid-feedback">
-                    <strong *ngIf="topic.errors?.required">Required Field</strong>
-                </div>
+                <mat-form-field class="example-full-width">
+                    <mat-label>Topic</mat-label>
+                    <mat-icon matSuffix>title</mat-icon>
+                    <input type="text" class="form-control" matInput placeholder="Enter a Title" formControlName="topic"
+                        [ngClass]="{'is-invalid':topic.errors && (topic.touched || topic.dirty),'is-valid': topic.valid}" />
+                    <div class="valid-feedback" *ngIf="topic.valid">
+                        <p class="text text-success">Topic is Good</p>
+                    </div>
+                    <div class="invalid-feedback">
+                        <strong *ngIf="topic.errors?.required">Required Field</strong>
+                    </div>
+                </mat-form-field>
             </div>
-             <!--content-->
+            <!--content-->
             <div class="form-group mb-3">
-                <label for="content">Content</label>
-                <textarea rows="5" class="form-control" placeholder="Enter the Task Contents" formControlName="content"
-                    [ngClass]="{'is-invalid':content.errors && (content.touched || content.dirty),'is-valid': content.valid}"></textarea>
-                <div class="valid-feedback" *ngIf="content.valid">
-                    <p class="text text-success">Content is Good</p>
-                </div>
-                <div class="invalid-feedback">
-                    <strong *ngIf="content.errors?.required">Required Field</strong>
-                </div>
+                <mat-form-field class="example-full-width">
+                    <mat-label>Content</mat-label>
+                    <mat-icon matSuffix>forum</mat-icon>
+                    <textarea rows="5" class="form-control" matInput placeholder="Enter the Task Contents"
+                        formControlName="content"
+                        [ngClass]="{'is-invalid':content.errors && (content.touched || content.dirty),'is-valid': content.valid}"></textarea>
+                    <div class="valid-feedback" *ngIf="content.valid">
+                        <p class="text text-success">Content is Good</p>
+                    </div>
+                    <div class="invalid-feedback">
+                        <strong *ngIf="content.errors?.required">Required Field</strong>
+                    </div>
+                </mat-form-field>
             </div>
-             <!--duedate-->
+            <!--duedate-->
             <div class="form-group mb-3">
-                <label for="duedate">Due Date</label>
-                <input type="date" class="form-control" formControlName="duedate"
-                    [ngClass]="{'is-invalid':duedate.errors && (duedate.touched || duedate.dirty),'is-valid': duedate.valid}" />
-                <div class="valid-feedback" *ngIf="duedate.valid">
-                    <p class="text text-success">Valid Date</p>
-                </div>
-                <div class="invalid-feedback">
-                    <strong *ngIf="duedate.errors?.required">Required Field</strong>
-                </div>
+                <mat-form-field class="example-full-width">
+                    <mat-label>Choose a date</mat-label>
+                    <input matInput [matDatepicker]="picker" class="form-control" formControlName="duedate"
+                        [ngClass]="{'is-invalid':duedate.errors && (duedate.touched || duedate.dirty),'is-valid': duedate.valid}" />
+                    <mat-hint>MM/DD/YYYY</mat-hint>
+                    <div class="valid-feedback" *ngIf="duedate.valid">
+                        <p class="text text-success">Valid Date</p>
+                    </div>
+                    <div class="invalid-feedback">
+                        <strong *ngIf="duedate.errors?.required">Required Field</strong>
+                    </div>
+                    <mat-datepicker-toggle matIconSuffix [for]="picker"></mat-datepicker-toggle>
+                    <mat-datepicker #picker></mat-datepicker>
+                </mat-form-field>
             </div>
-             <!--assign to-->
+            <!--assign to-->
             <div class="form-group mb-5">
-                <label for="assignto">Assign Task to</label>
-                <select class="form-control" name="assignto" formControlName="assignto">
-                    <option value="assignto" disabled>Choose any one</option>
-                    <option value="Developer">Developer</option>
-                    <option value="Designer">Designer</option>
-                    <option value="Tester">Tester</option>
-                    <option value="Trainer">Trainer</option>
-                    <option value="Trainee">Trainee</option>
-                </select>
+                <mat-form-field appearance="outline" class="example-full-width">
+                    <mat-label>Assign to</mat-label>
+                    <mat-icon matSuffix>person</mat-icon>
+                    <mat-select class="form-control" name="assignto" formControlName="assignto">
+                        <mat-option value="assignto" disabled>Choose any one</mat-option>
+                        <mat-option value="Developer">Developer</mat-option>
+                        <mat-option value="Designer">Designer</mat-option>
+                        <mat-option value="Tester">Tester</mat-option>
+                        <mat-option value="Trainer">Trainer</mat-option>
+                        <mat-option value="Trainee">Trainee</mat-option>
+                    </mat-select>
+                </mat-form-field>
             </div>
-             <!--submit button-->
+            <!--submit button-->
             <div class="form-group text-center">
-                <button type="button" class="btn btn-info btn-block" (click)="onSubmit()">Assign Task </button>
+                <button mat-icon mat-raised-button color="primary" (click)="onSubmit()">
+                    Assign Task<mat-icon>edit</mat-icon></button>
             </div>
         </form>
     </div>

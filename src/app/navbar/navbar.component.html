@@ -43,16 +43,16 @@
                     <form class="d-flex">
                         <div *ngIf="auth;else logged">
                             <p-toast position="top-center"></p-toast>
-                            <span *ngFor="let user of userlist" class="inline me-3"><i class="pi pi-user"
-                                    style="font-size: 1.5rem"></i> {{user.firstname}}</span>
-                            <p-button icon="pi pi-sign-out" iconPos="right" label="sign out"
-                                styleClass="p-button-rounded p-button-help me-3" (click)="logout()"></p-button>
+                            <span *ngFor="let user of userlist" class="inline me-3">
+                                <mat-icon style="font-size: 26px;">account_circle</mat-icon>{{user.firstname}}</span>
+                            <button mat-icon mat-raised-button color="warn" (click)="logout()">
+                                Sign Out<mat-icon>arrow_backward</mat-icon></button>
                         </div>
                         <ng-template #logged>
-                            <p-button icon="pi pi-sign-in" iconPos="right" label="sign in"
-                                styleClass="p-button-rounded p-button-help me-3" routerLink='/login'></p-button>
-                            <p-button icon="pi pi-user-plus" iconPos="right" label="sign up"
-                                styleClass="p-button-rounded p-button-info me-3" routerLink='/signup'></p-button>
+                            <button class="me-3" mat-icon mat-raised-button color="primary" routerLink='/login'>
+                                Sign In<mat-icon>arrow_forward</mat-icon></button>
+                            <button mat-icon mat-raised-button color="accent" routerLink='/signup'>
+                                Sign Up<mat-icon>person_add</mat-icon></button>
                         </ng-template>
                     </form>
                 </div>
