@@ -211,28 +211,44 @@
   ],
   "tasks": [
     {
-      "topic": "Formik Validations-1",
-      "content": "create a Registration Form with Formik Validations",
-      "duedate": "2023-07-21",
-      "assignto": "Developer",
-      "status": "in progress",
-      "id": 6
-    },
-    {
-      "topic": "Home page design - 1",
-      "content": "create a home page design for Desserts Shop",
-      "duedate": "2023-07-23",
-      "assignto": "Designer",
-      "status": "completed",
-      "id": 7
-    },
-    {
       "topic": "Test the usecart",
       "content": "Test the usecart task functionalities and alerts",
       "duedate": "2023-07-19",
       "assignto": "Tester",
       "status": "",
       "id": 8
+    },
+    {
+      "topic": "Template driven forms",
+      "content": "create a registration form using Template driven forms",
+      "duedate": "2023-07-22",
+      "assignto": "Developer",
+      "status": "",
+      "id": 9
+    },
+    {
+      "topic": "HTTP request and response",
+      "content": "create a presentation on HTTP client request and response",
+      "duedate": "2023-07-21",
+      "assignto": "Trainee",
+      "status": "",
+      "id": 10
+    },
+    {
+      "topic": "Auth Guard",
+      "content": "Complete the Concept of Auth Guard",
+      "duedate": "2023-07-24",
+      "assignto": "Trainer",
+      "status": "",
+      "id": 11
+    },
+    {
+      "topic": "Logo for clothing",
+      "content": "create a logo for clothing web application",
+      "duedate": "2023-07-20",
+      "assignto": "Designer",
+      "status": "",
+      "id": 12
     }
   ]
 }

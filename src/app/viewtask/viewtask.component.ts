@@ -13,6 +13,8 @@ import { MessageService } from 'primeng/api';
 import { Router } from '@angular/router';
 //Task Interface
 import { Task } from 'src/models/products';
+//sweetalert
+import Swal from 'sweetalert2';
 
 @Component({
   selector: 'app-viewtask',
@@ -43,6 +45,8 @@ export class ViewtaskComponent implements OnInit {
 
   searchText = '';
 
+  selectedStatus: string | any;
+
   constructor(
     private taskService: TaskService,
     private authService: UserService,
@@ -57,7 +61,7 @@ export class ViewtaskComponent implements OnInit {
   }
 
   //primeNG toast for task delete
-  deleteTask() {
+  deleteMessage() {
     this.messageService.add({ severity: 'success', summary: 'Success', detail: 'Task removed successfully' });
   }
 
@@ -119,11 +123,24 @@ export class ViewtaskComponent implements OnInit {
   }
 
   //Function to delete task
-  delete(deleteWork: Task) {
-    this.taskService.removeTask(deleteWork).subscribe(
-      () => console.log(deleteWork.id));
-    this.deleteTask();
-    this.ngOnInit();
+  deleteTask(deleteWork: Task) {
+    Swal.fire({
+      title: 'Are you sure?',
+      text: "You won't be able to revert this!",
+      icon: 'warning',
+      showCancelButton: true,
+      confirmButtonColor: '#3085d6',
+      cancelButtonColor: '#d33',
+      confirmButtonText: 'Yes, delete it!'
+    }).then((result) => {
+      if (result.isConfirmed) {
+        this.taskService.removeTask(deleteWork).subscribe(
+          () => console.log(deleteWork.id));
+        setTimeout(() => { this.ngOnInit(); }, 1000);
+        this.deleteMessage();
+        console.log('in delete')
+      }
+    })
   }
 
   //Function to edit task
@@ -159,10 +176,9 @@ export class ViewtaskComponent implements OnInit {
   onOptionsSelected(event: any) {
     console.log(event.target.value);
     this.optionSelected = event.target.value;
-    if (this.optionSelected === 'n-f') {
-      (this.sortParam = 'duedate'), (this.sortDirection = 'asc');
-    }
-    else if (this.optionSelected === 'f-n') {
+    this.sortParam = 'duedate';
+    this.sortDirection = 'asc';
+    if (this.optionSelected === 'f-n') {
       (this.sortParam = 'duedate'), (this.sortDirection = 'desc');
     }
   }

@@ -44,6 +44,7 @@ import { SortPipe } from 'src/shared/sort.pipe';
 import { FilterPipe } from '../shared/filter.pipe';
 //Search pipe
 import { SearchPipe } from '../shared/search.pipe';
+import { FilterstatusPipe } from '../shared/filterstatus.pipe';
 
 @NgModule({
   declarations: [
@@ -59,6 +60,7 @@ import { SearchPipe } from '../shared/search.pipe';
     SortPipe,
     FilterPipe,
     SearchPipe,
+    FilterstatusPipe,
   ],
   imports: [
     BrowserModule,

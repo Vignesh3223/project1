@@ -26,7 +26,7 @@ export class CartComponent implements OnInit {
   paymentFailure() {
     this.messageService.add({ severity: 'danger', summary: 'error', detail: 'Error in generating Stripe Payment Gateway' });
   }
-  
+
   //make payment function
   makePayment(amount: any) {
     const paymentHandler = (<any>window).StripeCheckout.configure({
@@ -114,12 +114,12 @@ export class CartComponent implements OnInit {
     this.cartService.updateCart(item);
   }
 
-    //function to delete items from the cart
+  //function to delete items from the cart
   delete(deleteItem: Cart) {
     this.cartService.removeItemFromCart(deleteItem).subscribe(
       () => console.log(deleteItem.id));
+    setTimeout(() => { this.ngOnInit(); }, 500);
     this.showRemove();
-    this.ngOnInit();
   }
 
   ngOnInit(): void {

@@ -8,37 +8,19 @@
         <div class="container" *ngIf="user.profession === 'Admin'">
             <div class="row mt-5 mb-5">
                 <!--filter tasks based on profession-->
-                <div class="col-4 text-center">
-                    <label>Filter Tasks by Profession</label><br />
+                <div class="col-3 text-center">
+                    <label>Filter by Profession</label><br />
                     <select class="form-control" id="filter" [(ngModel)]="selectedProfession">
-                        <option value="designer">Profession: Designer</option>
-                        <option value="developer">Profession: Developer</option>
-                        <option value="tester">Profession: Tester</option>
-                        <option value="trainer">Profession: Trainer</option>
-                        <option value="trainee">Profession: Trainee</option>
+                        <option value="">Filter by:</option>
+                        <option value="Designer">Profession: Designer</option>
+                        <option value="Developer">Profession: Developer</option>
+                        <option value="Tester">Profession: Tester</option>
+                        <option value="Trainer">Profession: Trainer</option>
+                        <option value="Trainee">Profession: Trainee</option>
                     </select>
                 </div>
                 <!--sort tasks based on duedate-->
-                <div class="col-4 text-center">
-                    <label>Sort by Due Date</label><br />
-                    <select class="form-control" (change)="onOptionsSelected($event)" id="sort">
-                        <option value="" disabled selected hidden>Sort by:</option>
-                        <option value="n-f">Date : Nearest Date</option>
-                        <option value="f-n">Date : Farest Date</option>
-                    </select>
-                </div>
-                <!--search tasks based on title-->
-                <div class="col-4 text-center">
-                    <label for="search-text">Search by Title of the Task</label>
-                    <input type="text" class="form-control" id="search" aria-describedby="search-text"
-                        [(ngModel)]="searchText" placeholder="Enter Title to search" autofocus>
-                </div>
-            </div>
-        </div>
-        <div class="container" *ngIf="user.profession!='Admin'">
-            <div class="row">
-                <!--sort tasks based on duedate-->
-                <div class="col-6 text-center">
+                <div class="col-3 text-center">
                     <label>Sort by Due Date</label><br />
                     <select class="form-control" (change)="onOptionsSelected($event)" id="sort">
                         <option value="">Sort by:</option>
@@ -47,10 +29,47 @@
                     </select>
                 </div>
                 <!--search tasks based on title-->
-                <div class="col-6 text-center">
-                    <label for="search-text">Search by Profession</label>
+                <div class="col-3 text-center">
+                    <label for="search-text">Search by Title</label>
                     <input type="text" class="form-control" id="search" aria-describedby="search-text"
                         [(ngModel)]="searchText" placeholder="Enter Title to search" autofocus>
+                </div>
+                <!--filter tasks based on status-->
+                <div class="col-3 text-center">
+                    <label>Filter by Status</label><br />
+                    <select class="form-control" id="filterstatus" [(ngModel)]="selectedStatus">
+                        <option value="">Filter by:</option>
+                        <option value="in progress">Status : In Progress</option>
+                        <option value="completed">Status : Completed</option>
+                    </select>
+                </div>
+            </div>
+        </div>
+        <div class="container" *ngIf="user.profession!='Admin'">
+            <div class="row">
+                <!--sort tasks based on duedate-->
+                <div class="col-4 text-center">
+                    <label>Sort by Due Date</label><br />
+                    <select class="form-control" (change)="onOptionsSelected($event)" id="sort">
+                        <option value="">Sort by:</option>
+                        <option value="n-f">Date : Nearest Date</option>
+                        <option value="f-n">Date : Farest Date</option>
+                    </select>
+                </div>
+                <!--search tasks based on title-->
+                <div class="col-4 text-center">
+                    <label for="search-text">Search by Title</label>
+                    <input type="text" class="form-control" id="search" aria-describedby="search-text"
+                        [(ngModel)]="searchText" placeholder="Enter Title to search" autofocus>
+                </div>
+                <!--filter tasks based on status-->
+                <div class="col-4 text-center">
+                    <label>Filter by Status</label><br />
+                    <select class="form-control" id="filterstatus" [(ngModel)]="selectedStatus">
+                        <option value="">Filter by:</option>
+                        <option value="in progress">Status : In Progress</option>
+                        <option value="completed">Status : Completed</option>
+                    </select>
                 </div>
             </div>
         </div>
@@ -62,7 +81,7 @@
         <div *ngFor="let user of userlist">
             <!--card to display tasks-->
             <div class="card"
-                *ngFor="let work of tasks | search:searchText | filter:selectedProfession | sort:[sortParam,sortDirection]">
+                *ngFor="let work of tasks | search:searchText | filter:selectedProfession | sort:[sortParam,sortDirection]| filterstatus:selectedStatus">
                 <div *ngIf="user.profession === 'Admin' || user.profession === work.assignto">
                     <div class="card-header">
                         Task assigned to : {{ work.assignto }}
@@ -76,17 +95,18 @@
                             <div *ngIf="work.status==='';else InProgress">
                                 <button type="button" data-bs-toggle="modal" data-bs-target="#exampleModal"
                                     (click)="edit(work)" class="btn btn-info me-3">Edit</button>
-                                <button type="button" (click)="delete(work)" class="btn btn-danger">Delete</button>
+                                <button type="button" (click)="deleteTask(work)" class="btn btn-danger">Delete</button>
                             </div>
                             <ng-template #InProgress>
                                 <div *ngIf="work.status==='in progress';else completed">
                                     <h4>Status : {{work.status}}</h4>
-                                    <button type="button" (click)="delete(work)" class="btn btn-danger">Delete</button>
+                                    <button type="button" (click)="deleteTask(work)"
+                                        class="btn btn-danger">Delete</button>
                                 </div>
                             </ng-template>
                             <ng-template #completed>
                                 <h4>Status : {{work.status}}</h4>
-                                <button type="button" (click)="delete(work)" class="btn btn-danger">Delete</button>
+                                <button type="button" (click)="deleteTask(work)" class="btn btn-danger">Delete</button>
                             </ng-template>
                         </div>
                         <!--operations of user-->
