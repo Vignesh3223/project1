@@ -11,7 +11,7 @@
       "city": "",
       "state": "",
       "pincode": "",
-      "logged": true
+      "logged": false
     },
     {
       "firstname": "Vignesh",
@@ -238,7 +238,7 @@
       "content": "create a presentation on HTTP client request and response",
       "duedate": "2023-07-21",
       "assignto": "Trainee",
-      "status": "",
+      "status": "in progress",
       "id": 10
     },
     {
@@ -254,8 +254,16 @@
       "content": "create a logo for clothing web application",
       "duedate": "2023-07-20",
       "assignto": "Designer",
-      "status": "",
+      "status": "completed",
       "id": 12
+    },
+    {
+      "topic": "Home page for pizza hut",
+      "content": "create  a Home page design for pizza hut application",
+      "duedate": "2023-07-21",
+      "assignto": "Designer",
+      "status": "",
+      "id": 13
     }
   ]
 }

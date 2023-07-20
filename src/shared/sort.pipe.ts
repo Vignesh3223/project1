@@ -15,6 +15,7 @@ export class SortPipe implements PipeTransform {
     return value.sort((a, b) => {
       const dateA = new Date(a[sortField]);
       const dateB = new Date(b[sortField]);
+      console.log((dateA.getTime() - dateB.getTime())*multiplier);
       return (dateA.getTime() - dateB.getTime()) * multiplier;
     });
   }
