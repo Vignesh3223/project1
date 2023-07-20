@@ -46,11 +46,11 @@
                             <span *ngFor="let user of userlist" class="inline me-3">
                                 <mat-icon style="font-size: 26px;">account_circle</mat-icon>{{user.firstname}}</span>
                             <button mat-icon mat-raised-button color="warn" (click)="logout()">
-                                Sign Out<mat-icon>arrow_backward</mat-icon></button>
+                                Sign Out<mat-icon>logout</mat-icon></button>
                         </div>
                         <ng-template #logged>
                             <button class="me-3" mat-icon mat-raised-button color="primary" routerLink='/login'>
-                                Sign In<mat-icon>arrow_forward</mat-icon></button>
+                                Sign In<mat-icon>login</mat-icon></button>
                             <button mat-icon mat-raised-button color="accent" routerLink='/signup'>
                                 Sign Up<mat-icon>person_add</mat-icon></button>
                         </ng-template>

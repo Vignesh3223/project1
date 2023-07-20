@@ -3,17 +3,19 @@
     <div class="container" *ngIf="cart.length==0; else cartitems" style="padding-bottom: 400px;">
         <div class="row">
             <h3 class="empty">Your shopping cart is empty!</h3>
-            <button id="btnshop" routerLink='/products'>Continue Shopping</button>
+            <button mat-icon mat-raised-button color="primary" routerLink='/products'>Continue Shopping
+                <mat-icon>shopping_cart_checkout</mat-icon>
+            </button>
         </div>
     </div>
-      <!--cart-->
+    <!--cart-->
     <ng-template #cartitems>
         <div class="container text-center">
-              <!--total price-->
+            <!--total price-->
             <h1 class="total">Your bag total is {{ TotalPrice(cart) | currency : "INR" : "symbol" : "3.0" }}</h1>
             <hr>
         </div>
-          <!--cart details-->
+        <!--cart details-->
         <div class="container" *ngFor="let item of cart">
             <div class="row">
                 <div class="col-3">
@@ -31,11 +33,11 @@
                 </div>
                 <div class="col-2 text-center">
                     <h3 class="price">{{item.price*item.quantity | currency : "INR" : "symbol" : "3.0"}}</h3>
-                    <span (click)="delete(item)" id="remove">Remove</span>
+                    <span (click)="delete(item)" id="remove">Remove<mat-icon>remove_shopping_cart</mat-icon></span>
                 </div>
             </div>
+            <hr>
         </div>
-        <hr>
         <div class="container">
             <div class="row">
                 <div class="col-6"></div>
@@ -52,9 +54,11 @@
                     <div class="form d-flex text-end">
                         <!--primeNG toast-->
                         <p-toast position="top-center"></p-toast>
-                        <button id="btn1" class="me-3" routerLink=''>Continue Shopping</button>
-                          <!--payment button-->
-                        <button id="btn2" (click)="makePayment(TotalPrice(cart))">Place Order</button>
+                        <button class="me-3" mat-icon mat-raised-button color="accent" routerLink=''>
+                            Continue Shopping<mat-icon>shopping_cart_checkout</mat-icon></button>
+                        <!--payment button-->
+                        <button mat-icon mat-raised-button color="warn" (click)="makePayment(TotalPrice(cart))">Place
+                            Order<mat-icon>paid</mat-icon></button>
                     </div>
                 </div>
             </div>

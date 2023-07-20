@@ -46,17 +46,6 @@ section {
 
 }
 
-#btn1,
-#btn2,
-#btnshop {
-    border: 1px solid black;
-    font-family: proxima;
-    font-size: 18px;
-    color: #000000;
-    background: transparent;
-    padding: 5px;
-}
-
 #sub {
     font-family: proxima;
     font-size: 20px;
