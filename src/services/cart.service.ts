@@ -1,8 +1,6 @@
 import { Injectable } from '@angular/core';
 //HTTPClient
 import { HttpClient } from '@angular/common/http';
-//Subject
-import { Subject } from 'rxjs';
 //Cart Interface
 import { Cart } from 'src/models/products';
 //Message Service for toast

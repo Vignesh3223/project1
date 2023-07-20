@@ -58,11 +58,10 @@ export class NavbarComponent implements OnInit {
         this.userlist = res;
       });
 
-    setTimeout(() => {
-      this.cartService.getCartItems().subscribe((res) => {
-        this.cartcount = res.length;
-      });
-    }, 200);
+    this.cartService.getCartItems().subscribe((res) => {
+      this.cartcount = res.length;
+      // this.ngOnInit();
+    });
   }
 
   //logout function
