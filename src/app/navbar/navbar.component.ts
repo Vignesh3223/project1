@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 //UserService from Service
 import { UserService } from 'src/services/user.service';
+//CartService from Service
+import { CartService } from 'src/services/cart.service';
 //HTTPClient Module
 import { HttpClient } from '@angular/common/http';
 //user environment
@@ -65,5 +67,4 @@ export class NavbarComponent implements OnInit {
       }
     });
   }
-
 }
