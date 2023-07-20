@@ -94,13 +94,13 @@
         <p-toast position="top-center"></p-toast>
         <div *ngFor="let user of userlist">
             <!--card to display tasks-->
-            <div class="card"
+            <mat-card
                 *ngFor="let work of tasks | search:searchText | filter:selectedProfession | sort:[sortParam,sortDirection]| filterstatus:selectedStatus">
                 <div *ngIf="user.profession === 'Admin' || user.profession === work.assignto">
-                    <div class="card-header">
-                        Task assigned to : {{ work.assignto }}
-                    </div>
-                    <div class="card-body">
+                    <mat-card-header>
+                        <h2>Task assigned to : {{ work.assignto }}</h2>
+                    </mat-card-header>
+                    <mat-card-content>
                         <h4 class="card-title">Title : {{ work.topic }}</h4>
                         <p class="card-text">Task : {{ work.content }}</p>
                         <p class="card-text">Due date : {{ work.duedate }}</p>
@@ -146,9 +146,9 @@
                                 <h4>Status : {{work.status}}</h4>
                             </ng-template>
                         </div>
-                    </div>
+                    </mat-card-content>
                 </div>
-            </div>
+            </mat-card>
         </div>
     </div>
     <!--task is empty-->

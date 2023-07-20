@@ -20,12 +20,16 @@ button {
 }
 
 /*card*/
-.card:nth-child(odd) {
+mat-card {
+    margin-bottom: 10px;
+}
+
+mat-card:nth-child(odd) {
     background-color: lightslategray;
     color: whitesmoke;
 }
 
-.card:nth-child(even) {
+mat-card:nth-child(even) {
     background-color: lightgrey;
 }
 
@@ -34,9 +38,9 @@ button {
 }
 
 .example-full-width input {
-   height: 38px;
+    height: 38px;
 }
 
-.example-full-select{
+.example-full-select {
     margin-top: 8px;
 }

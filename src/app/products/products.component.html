@@ -9,18 +9,20 @@
                 <p-toast position="top-center"></p-toast>
                 <!--products-->
                 <div class="col-4 mb-3" *ngFor="let prod of prodslist">
-                    <div class="card" style="width: 22rem;height:40rem">
+                    <mat-card style="width: 22rem;height:40rem">
                         <img src="{{prod.image}}" class="card-img-top" alt="...">
-                        <div class="card-body">
+                        <mat-card-content>
                             <h5 class="card-title">{{prod.title}}</h5>
                             <h3 class="card-text">{{prod.price | currency : "INR" : "symbol" : "3.0"}}</h3>
                             <p class="card-text">{{prod.description}}</p>
-                            <!--add to cart button-->
+                        </mat-card-content>
+                        <!--add to cart button-->
+                        <mat-card-actions>
                             <button mat-fab color="accent" (click)="addtoCart(prod)">
                                 <mat-icon>add_shopping_cart</mat-icon>
                             </button>
-                        </div>
-                    </div>
+                        </mat-card-actions>
+                    </mat-card>
                 </div>
             </div>
         </div>
