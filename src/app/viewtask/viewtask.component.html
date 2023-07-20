@@ -23,7 +23,7 @@
                 </div>
                 <!--sort tasks based on duedate-->
                 <div class="col-3 text-center">
-                    <mat-form-field appearance="outline" class="example-full-select">
+                    <mat-form-field appearance="outline" class="example-full-width">
                         <mat-label>Sort by Due Date</mat-label>
                         <select class="form-control" matNativeControl (change)="onOptionsSelected($event)" id="sort">
                             <option value="">Sort by :</option>
@@ -59,11 +59,11 @@
                 <div class="col-4 text-center">
                     <mat-form-field appearance="outline" class="example-full-width">
                         <mat-label>Sort by Due Date</mat-label>
-                        <mat-select class="form-control" (change)="onOptionsSelected($event)" id="sort">
-                            <mat-option value="">Sort by :</mat-option>
-                            <mat-option value="n-f">Nearest Date</mat-option>
-                            <mat-option value="f-n">Farest Date</mat-option>
-                        </mat-select>
+                        <select class="form-control" matNativeControl (change)="onOptionsSelected($event)" id="sort">
+                            <option value="">Sort by :</option>
+                            <option value="n-f">Nearest Date</option>
+                            <option value="f-n">Farest Date</option>
+                        </select>
                     </mat-form-field>
                 </div>
                 <!--filter tasks based on status-->
@@ -94,8 +94,8 @@
         <p-toast position="top-center"></p-toast>
         <div *ngFor="let user of userlist">
             <!--card to display tasks-->
-            <mat-card
-                *ngFor="let work of tasks | search:searchText | filter:selectedProfession | sort:[sortParam,sortDirection]| filterstatus:selectedStatus">
+            <mat-card *ngFor="let work of tasks | search:searchText | filter:selectedProfession  
+            | sort: [sortParam , sortDirection] | filterstatus:selectedStatus">
                 <div *ngIf="user.profession === 'Admin' || user.profession === work.assignto">
                     <mat-card-header>
                         <h2>Task assigned to : {{ work.assignto }}</h2>

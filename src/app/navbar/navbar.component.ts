@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ChangeDetectorRef } from '@angular/core';
 //UserService from Service
 import { UserService } from 'src/services/user.service';
 //CartService from Service
@@ -29,9 +29,15 @@ export class NavbarComponent implements OnInit {
 
   auth: boolean = false;
 
+  //cartcount
+
+  cartcount: number = 0;
+
   constructor(
     private http: HttpClient,
     private authService: UserService,
+    private cartService: CartService,
+    private changeDetectorRef: ChangeDetectorRef,
     private messageService: MessageService,
     private router: Router) { }
 
@@ -51,6 +57,12 @@ export class NavbarComponent implements OnInit {
       (res) => {
         this.userlist = res;
       });
+
+    setTimeout(() => {
+      this.cartService.getCartItems().subscribe((res) => {
+        this.cartcount = res.length;
+      });
+    }, 200);
   }
 
   //logout function
