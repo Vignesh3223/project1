@@ -23,14 +23,14 @@
                 </div>
                 <!--sort tasks based on duedate-->
                 <div class="col-3 text-center">
-                    <!-- <mat-form-field appearance="outline" class="example-full-width"> -->
-                    <label>Sort by Due Date</label>
-                    <select class="form-control" (change)="onOptionsSelected($event)" id="sort">
-                        <option value="">Sort by :</option>
-                        <option value="n-f">Nearest Date</option>
-                        <option value="f-n">Farest Date</option>
-                    </select>
-                    <!-- </mat-form-field> -->
+                    <mat-form-field appearance="outline" class="example-full-select">
+                        <mat-label>Sort by Due Date</mat-label>
+                        <select class="form-control" matNativeControl (change)="onOptionsSelected($event)" id="sort">
+                            <option value="">Sort by :</option>
+                            <option value="n-f">Nearest Date</option>
+                            <option value="f-n">Farest Date</option>
+                        </select>
+                    </mat-form-field>
                 </div>
                 <!--filter tasks based on status-->
                 <div class="col-3 text-center">
@@ -57,14 +57,14 @@
             <div class="row">
                 <!--sort tasks based on duedate-->
                 <div class="col-4 text-center">
-                    <!-- <mat-form-field appearance="outline" class="example-full-width"> -->
-                    <label>Sort by Due Date</label>
-                    <select class="form-control" (change)="onOptionsSelected($event)" id="sort">
-                        <option value="">Sort by :</option>
-                        <option value="n-f">Nearest Date</option>
-                        <option value="f-n">Farest Date</option>
-                    </select>
-                    <!-- </mat-form-field> -->
+                    <mat-form-field appearance="outline" class="example-full-width">
+                        <mat-label>Sort by Due Date</mat-label>
+                        <mat-select class="form-control" (change)="onOptionsSelected($event)" id="sort">
+                            <mat-option value="">Sort by :</mat-option>
+                            <mat-option value="n-f">Nearest Date</mat-option>
+                            <mat-option value="f-n">Farest Date</mat-option>
+                        </mat-select>
+                    </mat-form-field>
                 </div>
                 <!--filter tasks based on status-->
                 <div class="col-4 text-center">

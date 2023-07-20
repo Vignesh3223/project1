@@ -19,6 +19,9 @@ import { Router } from '@angular/router';
 })
 export class LoginComponent implements OnInit {
 
+  //password hide property
+  hide = true;
+
   //userurl
   userapi = environment.userurl;
 

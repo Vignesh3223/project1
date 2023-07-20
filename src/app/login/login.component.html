@@ -26,8 +26,13 @@
                 <div class="form-group mb-5">
                     <mat-form-field appearance="outline" class="example-full-width">
                         <mat-label>Enter your password</mat-label>
-                        <input type="password" class="form-control" matInput placeholder="Password" formControlName="password"
+                        <input type="password" class="form-control" matInput [type]="hide ? 'password' : 'text'"
+                            placeholder="Password" formControlName="password"
                             [ngClass]="{'is-invalid':password.errors && (password.touched || password.dirty),'is-valid': password.valid}" />
+                        <button mat-icon-button matSuffix (click)="hide = !hide" [attr.aria-label]="'Hide password'"
+                            [attr.aria-pressed]="hide">
+                            <mat-icon>{{hide ? 'visibility_off' : 'visibility'}}</mat-icon>
+                        </button>
                         <div class="valid-feedback" *ngIf="password.valid">
                             <p class="text text-success">Password is Good</p>
                         </div>
