@@ -9,44 +9,33 @@
                 <div class="form-group mb-3">
                     <mat-form-field appearance="outline" class="example-full-width">
                         <mat-label>Enter your email</mat-label>
-                        <input type="email" class="form-control" matInput placeholder="Email"
-                            formControlName="useremail"
-                            [ngClass]="{'is-invalid':useremail.errors && (useremail.touched || useremail.dirty),'is-valid': useremail.valid}" />
-                        <div class="valid-feedback" *ngIf="useremail.valid">
-                            <p class="text text-success">Email is Good</p>
-                        </div>
-                        <div class="invalid-feedback">
-                            <strong *ngIf="useremail.errors?.required">Required Field</strong>
-                            <strong *ngIf="useremail.errors?.email">Enter a valid Email</strong>
-                            <strong *ngIf="useremail.errors?.pattern">Enter a valid Email</strong>
-                        </div>
+                        <input type="email" matInput placeholder="Email" formControlName="useremail"
+                            [ngClass]="{'is-invalid':useremail.errors && (useremail.touched || useremail.dirty)}" />
+                        <mat-error *ngIf="useremail.errors?.required">Required Field</mat-error>
+                        <mat-error *ngIf="useremail.errors?.email && useremail.errors?.pattern">Enter a valid
+                            Email</mat-error>
                     </mat-form-field>
                 </div>
                 <!--password-->
                 <div class="form-group mb-5">
                     <mat-form-field appearance="outline" class="example-full-width">
                         <mat-label>Enter your password</mat-label>
-                        <input type="password" class="form-control" matInput [type]="hide ? 'password' : 'text'"
-                            placeholder="Password" formControlName="password"
-                            [ngClass]="{'is-invalid':password.errors && (password.touched || password.dirty),'is-valid': password.valid}" />
+                        <input type="password" matInput [type]="hide ? 'password' : 'text'" placeholder="Password"
+                            formControlName="password"
+                            [ngClass]="{'is-invalid':password.errors && (password.touched || password.dirty)}" />
                         <button mat-icon-button matSuffix (click)="hide = !hide" [attr.aria-label]="'Hide password'"
                             [attr.aria-pressed]="hide">
                             <mat-icon>{{hide ? 'visibility_off' : 'visibility'}}</mat-icon>
                         </button>
-                        <div class="valid-feedback" *ngIf="password.valid">
-                            <p class="text text-success">Password is Good</p>
-                        </div>
-                        <div class="invalid-feedback">
-                            <strong *ngIf="password.errors?.required">Required Field</strong>
-                            <strong *ngIf="password.errors?.minlength">Password must be greater than
-                                6 characters.
-                            </strong>
-                            <strong *ngIf="password.errors?.maxlength">Password must be less than 14
-                                characters
-                            </strong>
-                            <strong *ngIf="password.errors?.pattern">Password must contain only aphabets and
-                                numbers</strong>
-                        </div>
+                        <mat-error *ngIf="password.errors?.required">Required Field</mat-error>
+                        <mat-error *ngIf="password.errors?.minlength">Password must be greater than
+                            6 characters.
+                        </mat-error>
+                        <mat-error *ngIf="password.errors?.maxlength">Password must be less than 14
+                            characters
+                        </mat-error>
+                        <mat-error *ngIf="password.errors?.pattern">Password must contain only aphabets and
+                            numbers</mat-error>
                     </mat-form-field>
                 </div>
                 <div class="form-group text-center">

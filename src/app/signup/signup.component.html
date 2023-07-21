@@ -9,189 +9,154 @@
                     <!--firstname-->
                     <mat-form-field appearance="outline" class="example-full-width">
                         <mat-label>Firstname</mat-label>
-                        <input type="text" class="form-control" matInput placeholder="First Name"
-                            formControlName="firstname"
-                            [ngClass]="{'is-invalid':firstname.errors && (firstname.touched || firstname.dirty),'is-valid': firstname.valid}" />
-                        <div class="valid-feedback" *ngIf="firstname.valid">
-                            <p class="text text-success">Firstname is Good</p>
-                        </div>
-                        <div class="invalid-feedback">
-                            <strong *ngIf="firstname.errors?.required">Required Field</strong>
-                            <strong *ngIf="firstname.errors?.minlength">Firstname must be greater than
-                                3 characters.
-                            </strong>
-                            <strong *ngIf="firstname.errors?.maxlength">Firstname must be less than 12
-                                characters
-                            </strong>
-                            <strong *ngIf="firstname.errors?.pattern">Name must contain only aphabets and
-                                spaces</strong>
-                        </div>
+                        <input type="text" matInput placeholder="First Name" formControlName="firstname"
+                            [ngClass]="{'is-invalid':firstname.errors && (firstname.touched || firstname.dirty)}" />
+                        <mat-error *ngIf="firstname.errors?.required">Required Field</mat-error>
+                        <mat-error *ngIf="firstname.errors?.minlength">Firstname must be greater than
+                            3 characters.
+                        </mat-error>
+                        <mat-error *ngIf="firstname.errors?.maxlength">Firstname must be less than 12
+                            characters
+                        </mat-error>
+                        <mat-error *ngIf="firstname.errors?.pattern">Name must contain only aphabets and
+                            spaces</mat-error>
                     </mat-form-field>
                 </div>
                 <!--lastname-->
                 <div class="form-group mb-3">
                     <mat-form-field appearance="outline" class="example-full-width">
-                    <mat-label>Lastname</mat-label>
-                    <input type="text" class="form-control" matInput placeholder="Last Name" formControlName="lastname"
-                        [ngClass]="{'is-invalid':lastname.errors && (lastname.touched || lastname.dirty),'is-valid': lastname.valid}" />
-                    <div class="valid-feedback" *ngIf="lastname.valid">
-                        <p class="text text-success">Lastname is Good</p>
-                    </div>
-                    <div class="invalid-feedback">
-                        <strong *ngIf="lastname.errors?.required">Required Field</strong>
-                        <strong *ngIf="lastname.errors?.minlength">Lastname must be greater than
+                        <mat-label>Lastname</mat-label>
+                        <input type="text" matInput placeholder="Last Name" formControlName="lastname"
+                            [ngClass]="{'is-invalid':lastname.errors && (lastname.touched || lastname.dirty)}" />
+                        <mat-error *ngIf="lastname.errors?.required">Required Field</mat-error>
+                        <mat-error *ngIf="lastname.errors?.minlength">Lastname must be greater than
                             3 characters.
-                        </strong>
-                        <strong *ngIf="lastname.errors?.maxlength">Lastname must be less than 12
+                        </mat-error>
+                        <mat-error *ngIf="lastname.errors?.maxlength">Lastname must be less than 12
                             characters
-                        </strong>
-                        <strong *ngIf="lastname.errors?.pattern">Name must contain only aphabets and spaces</strong>
-                    </div>
-                </mat-form-field>
+                        </mat-error>
+                        <mat-error *ngIf="lastname.errors?.pattern">Name must contain only aphabets and
+                            spaces</mat-error>
+                    </mat-form-field>
                 </div>
                 <!--email-->
                 <div class="form-group mb-3">
                     <mat-form-field appearance="outline" class="example-full-width">
-                    <mat-label for="email">Email</mat-label>
-                    <input type="email" class="form-control" matInput placeholder="Email" formControlName="useremail"
-                        [ngClass]="{'is-invalid':useremail.errors && (useremail.touched || useremail.dirty),'is-valid': useremail.valid}" />
-                    <div class="valid-feedback" *ngIf="useremail.valid">
-                        <p class="text text-success">Email is Good</p>
-                    </div>
-                    <div class="invalid-feedback">
-                        <strong *ngIf="useremail.errors?.required">Required Field</strong>
-                        <strong *ngIf="useremail.errors?.email">Enter a valid Email</strong>
-                        <strong *ngIf="useremail.errors?.pattern">Enter a valid Email</strong>
-                    </div>
-                </mat-form-field>
+                        <mat-label for="email">Email</mat-label>
+                        <input type="email" matInput placeholder="Email" formControlName="useremail"
+                            [ngClass]="{'is-invalid':useremail.errors && (useremail.touched || useremail.dirty)}" />
+                        <mat-error *ngIf="useremail.errors?.required">Required Field</mat-error>
+                        <mat-error *ngIf="useremail.errors?.email && useremail.errors?.pattern">Enter a valid
+                            Email</mat-error>
+                    </mat-form-field>
                 </div>
                 <!--password-->
                 <div class="form-group mb-3">
                     <mat-form-field appearance="outline" class="example-full-width">
-                    <mat-label>Password</mat-label>
-                    <input type="password" class="form-control" matInput placeholder="Password" formControlName="password"
-                        [ngClass]="{'is-invalid':password.errors && (password.touched || password.dirty),'is-valid': password.valid}" />
-                    <div class="valid-feedback" *ngIf="password.valid">
-                        <p class="text text-success">Password is Good</p>
-                    </div>
-                    <div class="invalid-feedback">
-                        <strong *ngIf="password.errors?.required">Required Field</strong>
-                        <strong *ngIf="password.errors?.minlength">Password must be greater than
+                        <mat-label>Password</mat-label>
+                        <input type="password" matInput placeholder="Password" formControlName="password"
+                            [ngClass]="{'is-invalid':password.errors && (password.touched || password.dirty)}" />
+                        <mat-error *ngIf="password.errors?.required">Required Field</mat-error>
+                        <mat-error *ngIf="password.errors?.minlength">Password must be greater than
                             6 characters.
-                        </strong>
-                        <strong *ngIf="password.errors?.maxlength">Password must be less than 14
+                        </mat-error>
+                        <mat-error *ngIf="password.errors?.maxlength">Password must be less than 14
                             characters
-                        </strong>
-                        <strong *ngIf="password.errors?.pattern">Password must contain only aphabets and
-                            numbers</strong>
-                    </div>
-                </mat-form-field>
+                        </mat-error>
+                        <mat-error *ngIf="password.errors?.pattern">Password must contain only aphabets and
+                            numbers</mat-error>
+                    </mat-form-field>
                 </div>
                 <!--confirm password-->
                 <div class="form-group mb-3">
                     <mat-form-field appearance="outline" class="example-full-width">
-                    <mat-label>Confirm Password</mat-label>
-                    <input type="password" class="form-control" matInput placeholder="Re-enter Password"
-                        formControlName="confirmpassword"
-                        [ngClass]="{'is-invalid':confirmpassword.errors && (confirmpassword.touched || confirmpassword.dirty),'is-valid': confirmpassword.valid}" />
-                    <div class="valid-feedback" *ngIf="confirmpassword.valid">
-                        <p class="text text-success">Password is Good</p>
-                    </div>
-                    <div class="invalid-feedback">
-                        <strong *ngIf="confirmpassword.errors?.required">Required Field</strong>
-                    </div>
-                </mat-form-field>
+                        <mat-label>Confirm Password</mat-label>
+                        <input type="password" matInput placeholder="Re-enter Password"
+                            formControlName="confirmpassword"
+                            [ngClass]="{'is-invalid':confirmpassword.errors && (confirmpassword.touched || confirmpassword.dirty)}" />
+                        <mat-error *ngIf="confirmpassword.errors?.required">Required Field</mat-error>
+                    </mat-form-field>
                 </div>
                 <!--profession-->
                 <div class="form-group mb-3">
                     <mat-form-field appearance="outline" class="example-full-width">
-                    <mat-label>Profession</mat-label>
-                    <mat-select class="form-control" name="profession" formControlName="profession">
-                        <mat-option value="profession" disabled>Choose any one</mat-option>
-                        <mat-option value="Developer">Developer</mat-option>
-                        <mat-option value="Designer">Designer</mat-option>
-                        <mat-option value="Tester">Tester</mat-option>
-                        <mat-option value="Trainer">Trainer</mat-option>
-                        <mat-option value="Trainee">Trainee</mat-option>
-                    </mat-select>
-                </mat-form-field>
+                        <mat-label>Profession</mat-label>
+                        <mat-select class="form-control" name="profession" formControlName="profession">
+                            <mat-option value="profession" disabled>Choose any one</mat-option>
+                            <mat-option value="Developer">Developer</mat-option>
+                            <mat-option value="Designer">Designer</mat-option>
+                            <mat-option value="Tester">Tester</mat-option>
+                            <mat-option value="Trainer">Trainer</mat-option>
+                            <mat-option value="Trainee">Trainee</mat-option>
+                        </mat-select>
+                    </mat-form-field>
                 </div>
                 <!--city-->
                 <div class="form-group mb-3">
                     <mat-form-field appearance="outline" class="example-full-width">
-                    <mat-label>City</mat-label>
-                    <input type="text" class="form-control" matInput formControlName="city" placeholder="City"
-                        [ngClass]="{'is-invalid':city.errors && (city.touched || city.dirty),'is-valid': city.valid}" />
-                    <div class="valid-feedback" *ngIf="city.valid">
-                        <p class="text text-success">City is Good</p>
-                    </div>
-                    <div class="invalid-feedback">
-                        <strong *ngIf="city.errors?.required">Required Field</strong>
-                    </div>
-                </mat-form-field>
+                        <mat-label>City</mat-label>
+                        <input type="text" matInput formControlName="city" placeholder="City"
+                            [ngClass]="{'is-invalid':city.errors && (city.touched || city.dirty),'is-valid': city.valid}" />
+                        <mat-error *ngIf="city.errors?.required">Required Field</mat-error>
+                    </mat-form-field>
                 </div>
                 <!--state-->
                 <div class="form-group mb-3">
                     <mat-form-field appearance="outline" class="example-full-width">
-                    <mat-label>State</mat-label>
-                    <mat-select class="form-control" name="state" formControlName="state">
-                        <mat-option value="state" disabled>Please select a State</mat-option>
-                        <mat-option value="Andhra Pradesh">Andhra Pradesh</mat-option>
-                        <mat-option value="Andaman and Nicobar Islands">Andaman and Nicobar Islands</mat-option>
-                        <mat-option value="Arunachal Pradesh">Arunachal Pradesh</mat-option>
-                        <mat-option value="Assam">Assam</mat-option>
-                        <mat-option value="Bihar">Bihar</mat-option>
-                        <mat-option value="Chandigarh">Chandigarh</mat-option>
-                        <mat-option value="Chhattisgarh">Chhattisgarh</mat-option>
-                        <mat-option value="Dadar and Nagar Haveli">Dadar and Nagar Haveli</mat-option>
-                        <mat-option value="Daman and Diu">Daman and Diu</mat-option>
-                        <mat-option value="Delhi">Delhi</mat-option>
-                        <mat-option value="Lakshadweep">Lakshadweep</mat-option>
-                        <mat-option value="Puducherry">Puducherry</mat-option>
-                        <mat-option value="Goa">Goa</mat-option>
-                        <mat-option value="Gujarat">Gujarat</mat-option>
-                        <mat-option value="Haryana">Haryana</mat-option>
-                        <mat-option value="Himachal Pradesh">Himachal Pradesh</mat-option>
-                        <mat-option value="Jammu and Kashmir">Jammu and Kashmir</mat-option>
-                        <mat-option value="Jharkhand">Jharkhand</mat-option>
-                        <mat-option value="Karnataka">Karnataka</mat-option>
-                        <mat-option value="Kerala">Kerala</mat-option>
-                        <mat-option value="Madhya Pradesh">Madhya Pradesh</mat-option>
-                        <mat-option value="Maharashtra">Maharashtra</mat-option>
-                        <mat-option value="Manipur">Manipur</mat-option>
-                        <mat-option value="Meghalaya">Meghalaya</mat-option>
-                        <mat-option value="Mizoram">Mizoram</mat-option>
-                        <mat-option value="Nagaland">Nagaland</mat-option>
-                        <mat-option value="Odisha">Odisha</mat-option>
-                        <mat-option value="Punjab">Punjab</mat-option>
-                        <mat-option value="Rajasthan">Rajasthan</mat-option>
-                        <mat-option value="Sikkim">Sikkim</mat-option>
-                        <mat-option value="Tamil Nadu">Tamil Nadu</mat-option>
-                        <mat-option value="Telangana">Telangana</mat-option>
-                        <mat-option value="Tripura">Tripura</mat-option>
-                        <mat-option value="Uttar Pradesh">Uttar Pradesh</mat-option>
-                        <mat-option value="Uttarakhand">Uttarakhand</mat-option>
-                        <mat-option value="West Bengal">West Bengal</mat-option>
-                    </mat-select>
-                </mat-form-field>
+                        <mat-label>State</mat-label>
+                        <mat-select class="form-control" name="state" formControlName="state">
+                            <mat-option value="state" disabled>Please select a State</mat-option>
+                            <mat-option value="Andhra Pradesh">Andhra Pradesh</mat-option>
+                            <mat-option value="Andaman and Nicobar Islands">Andaman and Nicobar Islands</mat-option>
+                            <mat-option value="Arunachal Pradesh">Arunachal Pradesh</mat-option>
+                            <mat-option value="Assam">Assam</mat-option>
+                            <mat-option value="Bihar">Bihar</mat-option>
+                            <mat-option value="Chandigarh">Chandigarh</mat-option>
+                            <mat-option value="Chhattisgarh">Chhattisgarh</mat-option>
+                            <mat-option value="Dadar and Nagar Haveli">Dadar and Nagar Haveli</mat-option>
+                            <mat-option value="Daman and Diu">Daman and Diu</mat-option>
+                            <mat-option value="Delhi">Delhi</mat-option>
+                            <mat-option value="Lakshadweep">Lakshadweep</mat-option>
+                            <mat-option value="Puducherry">Puducherry</mat-option>
+                            <mat-option value="Goa">Goa</mat-option>
+                            <mat-option value="Gujarat">Gujarat</mat-option>
+                            <mat-option value="Haryana">Haryana</mat-option>
+                            <mat-option value="Himachal Pradesh">Himachal Pradesh</mat-option>
+                            <mat-option value="Jammu and Kashmir">Jammu and Kashmir</mat-option>
+                            <mat-option value="Jharkhand">Jharkhand</mat-option>
+                            <mat-option value="Karnataka">Karnataka</mat-option>
+                            <mat-option value="Kerala">Kerala</mat-option>
+                            <mat-option value="Madhya Pradesh">Madhya Pradesh</mat-option>
+                            <mat-option value="Maharashtra">Maharashtra</mat-option>
+                            <mat-option value="Manipur">Manipur</mat-option>
+                            <mat-option value="Meghalaya">Meghalaya</mat-option>
+                            <mat-option value="Mizoram">Mizoram</mat-option>
+                            <mat-option value="Nagaland">Nagaland</mat-option>
+                            <mat-option value="Odisha">Odisha</mat-option>
+                            <mat-option value="Punjab">Punjab</mat-option>
+                            <mat-option value="Rajasthan">Rajasthan</mat-option>
+                            <mat-option value="Sikkim">Sikkim</mat-option>
+                            <mat-option value="Tamil Nadu">Tamil Nadu</mat-option>
+                            <mat-option value="Telangana">Telangana</mat-option>
+                            <mat-option value="Tripura">Tripura</mat-option>
+                            <mat-option value="Uttar Pradesh">Uttar Pradesh</mat-option>
+                            <mat-option value="Uttarakhand">Uttarakhand</mat-option>
+                            <mat-option value="West Bengal">West Bengal</mat-option>
+                        </mat-select>
+                    </mat-form-field>
                 </div>
                 <!--pin code-->
                 <div class="form-group mb-5">
                     <mat-form-field appearance="outline" class="example-full-width">
-                    <mat-label>Pin Code</mat-label>
-                    <input type="text" class="form-control" matInput placeholder="Pin Code" formControlName="pincode"
-                        [ngClass]="{'is-invalid':pincode.errors && (pincode.touched || pincode.dirty),'is-valid': pincode.valid}" />
-                    <div class="valid-feedback" *ngIf="pincode.valid">
-                        <p class="text text-success">Pin Code is Good</p>
-                    </div>
-                    <div class="invalid-feedback">
-                        <strong *ngIf="pincode.errors?.required">Required Field</strong>
-                        <strong *ngIf="pincode.errors?.minlength">Pin Code must contain 6 characters</strong>
-                        <strong *ngIf="pincode.errors?.maxlength">Pin Code must not exceed 6 characters
-                        </strong>
-                        <strong *ngIf="pincode.errors?.pattern">Pin Code must contain only numbers</strong>
-                    </div>
-                </mat-form-field>
+                        <mat-label>Pin Code</mat-label>
+                        <input type="text" matInput placeholder="Pin Code" formControlName="pincode"
+                            [ngClass]="{'is-invalid':pincode.errors && (pincode.touched || pincode.dirty)}" />
+                        <mat-error *ngIf="pincode.errors?.required">Required Field</mat-error>
+                        <mat-error *ngIf="pincode.errors?.minlength">Pin Code must contain 6 characters</mat-error>
+                        <mat-error *ngIf="pincode.errors?.maxlength">Pin Code must not exceed 6 characters
+                        </mat-error>
+                        <mat-error *ngIf="pincode.errors?.pattern">Pin Code must contain only numbers</mat-error>
+                    </mat-form-field>
                 </div>
                 <div class="form-group text-center">
                     <!--primeNG toast-->
@@ -200,7 +165,7 @@
                     <button class="me-3" mat-icon mat-raised-button color="warn" routerLink=''>
                         Go Back<mat-icon>home</mat-icon></button>
                     <!--submit button-->
-                    <button  mat-icon mat-raised-button color="primary" (click)="onSubmit()">
+                    <button mat-icon mat-raised-button color="primary" (click)="onSubmit()">
                         Sign Up<mat-icon>done</mat-icon></button>
                 </div>
             </form>
