@@ -7,6 +7,8 @@ import { Cart } from 'src/models/products';
 import { Router } from '@angular/router';
 //primeNG Message Service
 import { MessageService } from 'primeng/api';
+//sweetlaert
+import Swal from 'sweetalert2';
 
 @Component({
   selector: 'app-cart',
@@ -116,10 +118,23 @@ export class CartComponent implements OnInit {
 
   //function to delete items from the cart
   delete(deleteItem: Cart) {
-    this.cartService.removeItemFromCart(deleteItem).subscribe(
-      () => console.log(deleteItem.id));
-    setTimeout(() => { this.ngOnInit(); }, 500);
-    this.showRemove();
+    Swal.fire({
+      title: 'Are you sure?',
+      text: "Want to remove item from cart",
+      icon: 'warning',
+      showCancelButton: true,
+      confirmButtonColor: '#3085d6',
+      cancelButtonColor: '#d33',
+      confirmButtonText: 'Yes, delete it!'
+    }).then((result) => {
+      if (result.isConfirmed) {
+        this.cartService.removeItemFromCart(deleteItem).subscribe(
+          () => console.log(deleteItem.id));
+        setTimeout(() => { this.ngOnInit(); }, 500);
+        this.showRemove();
+      }
+    });
+
   }
 
   ngOnInit(): void {
