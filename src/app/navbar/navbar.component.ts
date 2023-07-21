@@ -49,6 +49,7 @@ export class NavbarComponent implements OnInit {
     this.authService.authSubject.subscribe(
       data => {
         this.auth = data;
+        this.ngOnInit();
       });
 
     this.authService.getActiveUser().subscribe(
