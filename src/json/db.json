@@ -202,13 +202,6 @@
   ],
   "carts": [
     {
-      "id": 7,
-      "title": "Bassheads 900",
-      "image": "https://www.boat-lifestyle.com/cdn/shop/products/8ec58553-3255-48ec-929e-4838215b640c_1400x.png?v=1625046271",
-      "price": 899,
-      "quantity": 1
-    },
-    {
       "id": 11,
       "title": "Party Pal 50",
       "image": "https://www.boat-lifestyle.com/cdn/shop/products/main---1_600x.png?v=1640081208",
@@ -264,6 +257,14 @@
       "assignto": "Designer",
       "status": "",
       "id": 13
+    },
+    {
+      "topic": "Material UI",
+      "content": "Develop a Registration Form using Material UI Form-field with validations",
+      "duedate": "2023-07-23",
+      "assignto": "Trainee",
+      "status": "",
+      "id": 14
     }
   ]
 }

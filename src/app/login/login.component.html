@@ -10,10 +10,14 @@
                     <mat-form-field appearance="outline" class="example-full-width">
                         <mat-label>Enter your email</mat-label>
                         <input type="email" matInput placeholder="Email" formControlName="useremail"
-                            [ngClass]="{'is-invalid':useremail.errors && (useremail.touched || useremail.dirty)}" />
+                            [ngClass]="{'is-invalid':useremail.errors && (useremail.touched || useremail.dirty),'is-valid':useremail.valid}" />
                         <mat-error *ngIf="useremail.errors?.required">Required Field</mat-error>
                         <mat-error *ngIf="useremail.errors?.email && useremail.errors?.pattern">Enter a valid
                             Email</mat-error>
+                        <mat-icon style="color:red;margin-bottom: -9px;" *ngIf="useremail.invalid"
+                            matTextSuffix>thumb_down</mat-icon>
+                        <mat-icon style="color:green;margin-bottom: -9px;" *ngIf="useremail.valid"
+                            matTextSuffix>thumb_up</mat-icon>
                     </mat-form-field>
                 </div>
                 <!--password-->
@@ -22,7 +26,7 @@
                         <mat-label>Enter your password</mat-label>
                         <input type="password" matInput [type]="hide ? 'password' : 'text'" placeholder="Password"
                             formControlName="password"
-                            [ngClass]="{'is-invalid':password.errors && (password.touched || password.dirty)}" />
+                            [ngClass]="{'is-invalid':password.errors && (password.touched || password.dirty),'is-valid':password.valid}" />
                         <button mat-icon-button matSuffix (click)="hide = !hide" [attr.aria-label]="'Hide password'"
                             [attr.aria-pressed]="hide">
                             <mat-icon>{{hide ? 'visibility_off' : 'visibility'}}</mat-icon>
@@ -36,6 +40,10 @@
                         </mat-error>
                         <mat-error *ngIf="password.errors?.pattern">Password must contain only aphabets and
                             numbers</mat-error>
+                        <mat-icon style="color:red;margin-bottom: -9px;" *ngIf="password.invalid"
+                            matTextSuffix>thumb_down</mat-icon>
+                        <mat-icon style="color:green;margin-bottom: -9px;" *ngIf="password.valid"
+                            matTextSuffix>thumb_up</mat-icon>
                     </mat-form-field>
                 </div>
                 <div class="form-group text-center">

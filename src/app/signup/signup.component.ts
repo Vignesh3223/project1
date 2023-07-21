@@ -78,9 +78,9 @@ export class SignupComponent implements OnInit {
         Validators.pattern('[A-Za-z0-9]*')
       ]);
     this.confirmpassword = new FormControl('', [Validators.required]);
-    this.profession = new FormControl('');
+    this.profession = new FormControl('', [Validators.required]);
     this.city = new FormControl('', [Validators.required]);
-    this.state = new FormControl('');
+    this.state = new FormControl('', [Validators.required]);
     this.pincode = new FormControl('',
       [
         Validators.required,

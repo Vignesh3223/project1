@@ -40,7 +40,7 @@ export class ControlsComponent implements OnInit {
     this.topic = new FormControl('', [Validators.required]);
     this.content = new FormControl('', [Validators.required]);
     this.duedate = new FormControl('', [Validators.required]);
-    this.assignto = new FormControl('');
+    this.assignto = new FormControl('',[Validators.required]);
 
     this.AssignmentForm = new FormGroup({
       topic: this.topic,
