@@ -92,7 +92,7 @@ export class CartComponent implements OnInit {
   //function to calculate the total price of items in the cart
   TotalPrice(data: any) {
     const initialValue = 0;
-    this.cartData = data
+    this.cartData = data;
     const a = this.cartData.reduce((sum: any, item: any) => sum + (item.price * item.quantity), initialValue);
     return a;
   }
@@ -108,7 +108,7 @@ export class CartComponent implements OnInit {
   //function to decrease the quantity of items in the cart
   decrease(item: Cart) {
     if (item.quantity <= 1) {
-      this.delete(item)
+      this.delete(item);
       this.showRemove();
       setTimeout(() => { this.router.navigate(['/cart']); }, 1000);
     }

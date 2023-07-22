@@ -1,6 +1,4 @@
 import { Pipe, PipeTransform } from '@angular/core';
-import { filter } from 'rxjs';
-import { Task } from 'src/models/products';
 
 @Pipe({
   name: 'filter'

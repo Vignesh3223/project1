@@ -138,7 +138,7 @@ export class ViewtaskComponent implements OnInit {
           () => console.log(deleteWork.id));
         setTimeout(() => { this.ngOnInit(); }, 1000);
         this.deleteMessage();
-        console.log('in delete')
+        console.log('in delete');
       }
     })
   }
@@ -156,8 +156,8 @@ export class ViewtaskComponent implements OnInit {
 
   //Function to update task
   savechanges() {
-    console.log(this.taskForm.value)
-    this.taskForm.value.status = ''
+    console.log(this.taskForm.value);
+    this.taskForm.value.status = '';
     const workurl = this.taskService.taskurl + '/' + this.updateId;
     this.http.put<Task[]>(workurl, this.taskForm.value).subscribe(
       () => {

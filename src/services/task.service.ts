@@ -25,7 +25,7 @@ export class TaskService {
 
   //function to update task items
   updateTask(assignment: Task) {
-    let updateurl = this.taskurl + '/' + assignment.id
+    let updateurl = this.taskurl + '/' + assignment.id;
     this.http.put<Task[]>(updateurl, assignment).subscribe(() => {
     })
   }

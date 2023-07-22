@@ -110,7 +110,7 @@ export class LoginComponent implements OnInit {
           this.showUserError();
           this.userService.validateAuth(false);
         }
-      })
+      });
     }
   }
 }

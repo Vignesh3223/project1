@@ -127,7 +127,7 @@ export class SignupComponent implements OnInit {
           console.log(res);
           this.showSuccess();
           this.SignUpForm.reset();
-          setTimeout(() => { this.router.navigate(['/login']); }, 2000)
+          setTimeout(() => { this.router.navigate(['/login']); }, 2000);
         });
     }
   }

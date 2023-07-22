@@ -39,7 +39,7 @@ export class CartService {
 
   //function to update cart
   updateCart(product: Cart) {
-    let updateurl = this.carturl + '/' + product.id
+    let updateurl = this.carturl + '/' + product.id;
     this.http.put<Cart[]>(updateurl, product).subscribe(() => {
       this.showUpdate();
     })

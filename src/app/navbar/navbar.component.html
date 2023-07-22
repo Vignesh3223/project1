@@ -21,8 +21,8 @@
                             <a class="nav-link" routerLink='/products'>Products</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" routerLink='/cart' matBadge="{{cartcount}}"
-                                matBadgeColor="warn" matBadgeSize="small">Cart</a>
+                            <a class="nav-link" routerLink='/cart' matBadge="{{cartcount}}" matBadgeColor="warn"
+                                matBadgeSize="small">Cart</a>
                         </li>
                         <div *ngFor="let user of userlist">
                             <div class="d-flex" *ngIf="user.profession === 'Admin';else users">
@@ -42,6 +42,7 @@
                     </ul>
                     <!--signup & signin buttons based on authentication-->
                     <form class="d-flex">
+                        <!--user logged in-->
                         <div *ngIf="auth;else logged">
                             <p-toast position="top-center"></p-toast>
                             <span *ngFor="let user of userlist" class="inline me-3">
@@ -49,6 +50,7 @@
                             <button mat-icon mat-raised-button color="warn" (click)="logout()">
                                 Sign Out<mat-icon>logout</mat-icon></button>
                         </div>
+                        <!-- no user logged in-->
                         <ng-template #logged>
                             <button class="me-3" mat-icon mat-raised-button color="primary" routerLink='/login'>
                                 Sign In<mat-icon>login</mat-icon></button>
