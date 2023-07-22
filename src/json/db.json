@@ -77,6 +77,19 @@
       "pincode": "632075",
       "logged": false,
       "id": 6
+    },
+    {
+      "firstname": "Hari",
+      "lastname": "Haran",
+      "useremail": "hari@cgvak.com",
+      "password": "hari123",
+      "confirmpassword": "hari123",
+      "profession": "Designer",
+      "city": "Coimbatore",
+      "state": "Tamil Nadu",
+      "pincode": "641025",
+      "logged": false,
+      "id": 7
     }
   ],
   "products": [
@@ -206,7 +219,7 @@
       "title": "Party Pal 50",
       "image": "https://www.boat-lifestyle.com/cdn/shop/products/main---1_600x.png?v=1640081208",
       "price": 3999,
-      "quantity": 1
+      "quantity": 2
     },
     {
       "id": 2,
@@ -237,7 +250,7 @@
       "content": "create a registration form using Template driven forms",
       "duedate": "2023-07-25",
       "assignto": "Developer",
-      "status": "",
+      "status": "completed",
       "id": 9
     },
     {
@@ -279,6 +292,14 @@
       "assignto": "Trainee",
       "status": "",
       "id": 14
+    },
+    {
+      "topic": " Reactive Forms Module",
+      "content": "create a LOgin Form using Reactive Forms Module",
+      "duedate": "2023-07-26T18:30:00.000Z",
+      "assignto": "Developer",
+      "status": "",
+      "id": 15
     }
   ]
 }
