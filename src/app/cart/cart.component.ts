@@ -78,8 +78,10 @@ export class CartComponent implements OnInit {
     image: '',
     price: 0,
     total: 0,
-    quantity: 1
+    quantity: 1,
+    description: '',
   }
+
   cartData: any = [];
   total: number = 0;
   quantity: number = 1;

@@ -34,7 +34,8 @@ export class ProductsComponent implements OnInit {
     image: '',
     price: 0,
     total: 0,
-    quantity: 1
+    quantity: 1,
+    description: '',
   }
   quantity: number = 1;
 
@@ -46,6 +47,7 @@ export class ProductsComponent implements OnInit {
     this.carts.quantity = this.quantity;
     this.carts.price = item.price;
     this.carts.total = item.totalprice;
+    this.carts.description = item.description;
     this.cartService.addToCart(this.carts);
     this.showAddMessage();
   }

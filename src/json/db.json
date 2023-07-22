@@ -219,21 +219,16 @@
       "title": "Party Pal 50",
       "image": "https://www.boat-lifestyle.com/cdn/shop/products/main---1_600x.png?v=1640081208",
       "price": 3999,
-      "quantity": 2
+      "quantity": 1,
+      "description": "Wireless Bluetooth Speaker with 20W RMS Stereo Sound, RGB LEDs, 4.5 Hrs Playback, USB, FM, AUX, BT"
     },
     {
-      "id": 2,
-      "title": "Rockerz 185 pro",
-      "image": "https://www.boat-lifestyle.com/cdn/shop/products/01red_black-PhotoRoom.png-PhotoRoom_1280x.png?v=1681373674",
-      "price": 1199,
-      "quantity": 1
-    },
-    {
-      "id": 1,
-      "title": "Nirvanaa 1007ANC",
-      "image": "https://www.boat-lifestyle.com/cdn/shop/products/nirvana-1007-blue_600x.png?v=1613457329",
+      "id": 16,
+      "title": "Airdopes 131 Black Panther Marvel Edition",
+      "image": "https://www.boat-lifestyle.com/cdn/shop/products/bp131-main_600x.png?v=1639988297",
       "price": 1299,
-      "quantity": 1
+      "quantity": 1,
+      "description": "Wireless Earbuds with 13mm Audio Drivers, IWP Technology with Bluetooth v5.0, Type-c Charging, Upto 15H Playback"
     }
   ],
   "tasks": [

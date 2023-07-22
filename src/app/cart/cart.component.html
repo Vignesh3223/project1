@@ -23,6 +23,8 @@
                 </div>
                 <div class="col-5">
                     <h3 class="name">{{item.title}}</h3>
+                    <h5>{{item.description}}</h5>
+                    <h3 class="name">{{item.price | currency : "INR" : "symbol" : "3.0"}}</h3>
                 </div>
                 <div class="col-2 text-center d-flex">
                     <p-toast position="top-center"></p-toast>

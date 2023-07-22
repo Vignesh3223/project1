@@ -30,6 +30,7 @@ export interface Cart {
     quantity: number;
     price: number;
     total: number;
+    description: string;
 }
 
 //Task Interface
