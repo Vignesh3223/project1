@@ -227,7 +227,7 @@
     {
       "topic": "Test the usecart",
       "content": "Test the usecart functionalities and alerts",
-      "duedate": "2023-07-19",
+      "duedate": "2023-07-24",
       "assignto": "Tester",
       "status": "",
       "id": 8
@@ -235,7 +235,7 @@
     {
       "topic": "Template driven forms",
       "content": "create a registration form using Template driven forms",
-      "duedate": "2023-07-22",
+      "duedate": "2023-07-25",
       "assignto": "Developer",
       "status": "",
       "id": 9
@@ -243,7 +243,7 @@
     {
       "topic": "HTTP request and response",
       "content": "create a presentation on HTTP client request and response",
-      "duedate": "2023-07-21",
+      "duedate": "2023-07-25",
       "assignto": "Trainee",
       "status": "in progress",
       "id": 10
@@ -259,7 +259,7 @@
     {
       "topic": "Logo for clothing",
       "content": "create a logo for clothing web application",
-      "duedate": "2023-07-20",
+      "duedate": "2023-07-24",
       "assignto": "Designer",
       "status": "completed",
       "id": 12
@@ -267,7 +267,7 @@
     {
       "topic": "Home page for pizza hut",
       "content": "create  a Home page design for pizza hut application",
-      "duedate": "2023-07-21",
+      "duedate": "2023-07-24",
       "assignto": "Designer",
       "status": "",
       "id": 13
@@ -275,7 +275,7 @@
     {
       "topic": "Material UI",
       "content": "Develop a Registration Form using Material UI Form-field with validations",
-      "duedate": "2023-07-23",
+      "duedate": "2023-07-25",
       "assignto": "Trainee",
       "status": "",
       "id": 14
