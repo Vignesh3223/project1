@@ -207,6 +207,20 @@
       "image": "https://www.boat-lifestyle.com/cdn/shop/products/main---1_600x.png?v=1640081208",
       "price": 3999,
       "quantity": 1
+    },
+    {
+      "id": 2,
+      "title": "Rockerz 185 pro",
+      "image": "https://www.boat-lifestyle.com/cdn/shop/products/01red_black-PhotoRoom.png-PhotoRoom_1280x.png?v=1681373674",
+      "price": 1199,
+      "quantity": 1
+    },
+    {
+      "id": 1,
+      "title": "Nirvanaa 1007ANC",
+      "image": "https://www.boat-lifestyle.com/cdn/shop/products/nirvana-1007-blue_600x.png?v=1613457329",
+      "price": 1299,
+      "quantity": 1
     }
   ],
   "tasks": [
