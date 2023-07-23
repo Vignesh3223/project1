@@ -38,6 +38,7 @@ export interface Task {
     id: number;
     topic: string;
     content: string;
+    assigndate: Date;
     duedate: Date;
     assignto: string;
     status: string;

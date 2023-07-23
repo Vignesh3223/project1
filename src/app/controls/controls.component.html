@@ -41,11 +41,11 @@
                     <input matInput [matDatepicker]="picker" formControlName="duedate"
                         [ngClass]="{'is-invalid':duedate.errors && (duedate.touched || duedate.dirty),'is-valid':duedate.valid}" />
                     <mat-hint>MM/DD/YYYY</mat-hint>
+                    <mat-datepicker-toggle matIconSuffix [for]="picker"></mat-datepicker-toggle>
+                    <mat-datepicker #picker></mat-datepicker>
                     <mat-error *ngIf="duedate.errors?.required">Required Field</mat-error>
                     <mat-icon style="color:red" *ngIf="duedate.invalid" matTextSuffix>thumb_down</mat-icon>
                     <mat-icon style="color:green" *ngIf="duedate.valid" matTextSuffix>thumb_up</mat-icon>
-                    <mat-datepicker-toggle matIconSuffix [for]="picker"></mat-datepicker-toggle>
-                    <mat-datepicker #picker></mat-datepicker>
                 </mat-form-field>
             </div>
             <!--assign to-->

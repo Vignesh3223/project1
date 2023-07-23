@@ -25,6 +25,8 @@ export class ControlsComponent implements OnInit {
   duedate: FormControl | any;
   assignto: FormControl | any;
 
+  assigndate: Date | any;
+
   status: string | any;
 
   submitted = false;
@@ -40,7 +42,7 @@ export class ControlsComponent implements OnInit {
     this.topic = new FormControl('', [Validators.required]);
     this.content = new FormControl('', [Validators.required]);
     this.duedate = new FormControl('', [Validators.required]);
-    this.assignto = new FormControl('',[Validators.required]);
+    this.assignto = new FormControl('', [Validators.required]);
 
     this.AssignmentForm = new FormGroup({
       topic: this.topic,
@@ -69,7 +71,7 @@ export class ControlsComponent implements OnInit {
     }
     //posting the data into json if form is valid
     else {
-      const status: Task = { ...this.AssignmentForm.value, status: '' };
+      const status: Task = { ...this.AssignmentForm.value, status: '', assigndate: new Date().toLocaleDateString() };
       console.log(this.AssignmentForm);
       this.http.post<Task[]>(this.tasks, status)
         .subscribe((res) => {

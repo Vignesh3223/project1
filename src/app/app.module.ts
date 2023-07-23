@@ -56,7 +56,8 @@ import { MatNativeDateModule } from '@angular/material/core';
 import { MatDatepickerModule } from '@angular/material/datepicker';
 import { MatCardModule } from '@angular/material/card';
 import { MatSortModule } from '@angular/material/sort';
-import {MatBadgeModule} from '@angular/material/badge';
+import { MatBadgeModule } from '@angular/material/badge';
+import { MatDialogModule } from '@angular/material/dialog';
 
 @NgModule({
   declarations: [
@@ -95,7 +96,8 @@ import {MatBadgeModule} from '@angular/material/badge';
     MatNativeDateModule,
     MatCardModule,
     MatSortModule,
-    MatBadgeModule
+    MatBadgeModule,
+    MatDialogModule
   ],
   providers: [MessageService],
   bootstrap: [AppComponent]

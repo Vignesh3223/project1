@@ -103,6 +103,7 @@
                     <mat-card-content>
                         <h4 class="card-title">Title : {{ work.topic }}</h4>
                         <p class="card-text">Task : {{ work.content }}</p>
+                        <p class="card-text">Assigned date : {{ work.assigndate }}</p>
                         <p class="card-text">Due date : {{ work.duedate }}</p>
                         <!--operations of admin-->
                         <div *ngIf="user.firstname === 'Admin'">

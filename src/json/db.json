@@ -11,7 +11,7 @@
       "city": "",
       "state": "",
       "pincode": "",
-      "logged": false
+      "logged": true
     },
     {
       "firstname": "Vignesh",
@@ -233,68 +233,12 @@
   ],
   "tasks": [
     {
-      "topic": "Test the usecart",
-      "content": "Test the usecart functionalities and alerts",
-      "duedate": "2023-07-24",
+      "topic": "rfd",
+      "content": "dsfsc",
+      "duedate": "2023-07-24T18:30:00.000Z",
       "assignto": "Tester",
       "status": "",
-      "id": 8
-    },
-    {
-      "topic": "Template driven forms",
-      "content": "create a registration form using Template driven forms",
-      "duedate": "2023-07-25",
-      "assignto": "Developer",
-      "status": "completed",
-      "id": 9
-    },
-    {
-      "topic": "HTTP request and response",
-      "content": "create a presentation on HTTP client request and response",
-      "duedate": "2023-07-25",
-      "assignto": "Trainee",
-      "status": "in progress",
-      "id": 10
-    },
-    {
-      "topic": "Auth Guard",
-      "content": "Complete the Concept of Auth Guard",
-      "duedate": "2023-07-24",
-      "assignto": "Trainer",
-      "status": "",
-      "id": 11
-    },
-    {
-      "topic": "Logo for clothing",
-      "content": "create a logo for clothing web application",
-      "duedate": "2023-07-24",
-      "assignto": "Designer",
-      "status": "completed",
-      "id": 12
-    },
-    {
-      "topic": "Home page for pizza hut",
-      "content": "create  a Home page design for pizza hut application",
-      "duedate": "2023-07-24",
-      "assignto": "Designer",
-      "status": "",
-      "id": 13
-    },
-    {
-      "topic": "Material UI",
-      "content": "Develop a Registration Form using Material UI Form-field with validations",
-      "duedate": "2023-07-25",
-      "assignto": "Trainee",
-      "status": "",
-      "id": 14
-    },
-    {
-      "topic": " Reactive Forms Module",
-      "content": "create a LOgin Form using Reactive Forms Module",
-      "duedate": "2023-07-26T18:30:00.000Z",
-      "assignto": "Developer",
-      "status": "",
-      "id": 15
+      "id": 1
     }
   ]
 }
