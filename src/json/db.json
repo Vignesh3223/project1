@@ -11,7 +11,7 @@
       "city": "",
       "state": "",
       "pincode": "",
-      "logged": true
+      "logged": false
     },
     {
       "firstname": "Vignesh",
@@ -233,12 +233,24 @@
   ],
   "tasks": [
     {
-      "topic": "rfd",
-      "content": "dsfsc",
+      "topic": "test login form",
+      "content": "login form testing",
       "duedate": "2023-07-24T18:30:00.000Z",
       "assignto": "Tester",
-      "status": "",
-      "id": 1
+      "status": "completed",
+      "assigndate": "7/23/2023",
+      "id": 1,
+      "completionDate": "2023-07-23T09:03:39.395Z"
+    },
+    {
+      "topic": "template driven form",
+      "content": "create a registration form using template driven forms",
+      "duedate": "2023-07-21T18:30:00.000Z",
+      "assignto": "Developer",
+      "status": "completed",
+      "assigndate": "7/23/2023",
+      "id": 2,
+      "completionDate": "2023-07-23T09:05:13.342Z"
     }
   ]
 }

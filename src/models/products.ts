@@ -35,6 +35,7 @@ export interface Cart {
 
 //Task Interface
 export interface Task {
+    completionDate: Date;
     id: number;
     topic: string;
     content: string;

@@ -29,6 +29,7 @@ export class ViewtaskComponent implements OnInit {
   //Form fields
   topic: FormControl | any;
   content: FormControl | any;
+  assigndate: FormControl | any;
   duedate: FormControl | any;
   assignto: FormControl | any;
   status: FormControl | any;
@@ -94,6 +95,7 @@ export class ViewtaskComponent implements OnInit {
     //Form Validations
     this.topic = new FormControl('', [Validators.required]);
     this.content = new FormControl('', [Validators.required]);
+    this.assigndate = new FormControl('', [Validators.required]);
     this.duedate = new FormControl('', [Validators.required]);
     this.assignto = new FormControl('');
     this.status = new FormControl({ value: '', disabled: true });
@@ -101,6 +103,7 @@ export class ViewtaskComponent implements OnInit {
     this.taskForm = new FormGroup({
       topic: this.topic,
       content: this.content,
+      assigndate: this.assigndate,
       duedate: this.duedate,
       assignto: this.assignto,
       status: this.status,
@@ -117,6 +120,8 @@ export class ViewtaskComponent implements OnInit {
   //Function to change status as completed
   complete(work: Task) {
     work.status = 'completed';
+    work.completionDate = new Date();
+    console.log(work.completionDate);
     this.statusUpdate();
     this.taskService.updateTask(work);
     setTimeout(() => { this.router.navigate(['/viewtask']); }, 1000);
@@ -149,6 +154,7 @@ export class ViewtaskComponent implements OnInit {
     this.updateId = work.id;
     this.topic.setValue(work.topic);
     this.content.setValue(work.content);
+    this.assigndate.setValue(work.assigndate);
     this.duedate.setValue(work.duedate);
     this.assignto.setValue(work.assignto);
     this.status.setValue(work.status);
