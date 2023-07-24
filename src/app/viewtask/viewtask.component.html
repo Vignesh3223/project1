@@ -122,7 +122,8 @@
                                 </div>
                             </ng-template>
                             <ng-template #completed>
-                                <div *ngIf="work.status==='completed' && work.duedate >= work.completionDate;else delay">
+                                <div
+                                    *ngIf="work.status==='completed' && work.duedate >= work.completionDate;else delay">
                                     <h2 style="color: rgb(0, 255, 0);">Status : {{work.status}} - on time </h2>
                                 </div>
                                 <ng-template #delay>
@@ -131,7 +132,7 @@
                                 <button mat-icon mat-raised-button color="warn" (click)="deleteTask(work)">
                                     Delete<mat-icon>delete</mat-icon></button>
                             </ng-template>
-                            
+
                         </div>
                         <!--operations of user-->
                         <div *ngIf="user.firstname !== 'Admin'">
@@ -150,7 +151,13 @@
                                 </div>
                             </ng-template>
                             <ng-template #completed>
-                                <h4>Status : {{work.status}}</h4>
+                                <div
+                                    *ngIf="work.status==='completed' && work.duedate >= work.completionDate;else delay">
+                                    <h2 style="color: rgb(0, 255, 0);">Status : {{work.status}} - on time </h2>
+                                </div>
+                                <ng-template #delay>
+                                    <h2 style="color: red;">Status : {{work.status}} - delayed</h2>
+                                </ng-template>
                             </ng-template>
                         </div>
                     </mat-card-content>
